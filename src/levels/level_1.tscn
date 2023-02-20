@@ -13,6 +13,9 @@ color = Color( 0.623529, 0.305882, 0.305882, 1 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 895, 266 )
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+
 [node name="FlyingEnemy" parent="." instance=ExtResource( 2 )]
 position = Vector2( 437, 279 )
 
