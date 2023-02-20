@@ -1,7 +1,9 @@
 extends KinematicBody2D
 class_name Player
+signal player_fired_bullet(bullet, position, direction)
+onready var weapon = $weapon
 
-
+export (PackedScene) var Bullet
 const physics = preload("physics.gd")
 var physicsType = physics.Default
 var velocity = Vector2.ZERO
@@ -33,8 +35,16 @@ func get_direction() -> Vector2:
 # var a: int = 2
 # var b: String = "text"
 
-
+func _unhandled_input(event: InputEvent):
+	if event.is_action_released("shoot"):
+		shoot()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
-
+func shoot():
+	var bullet_instance = Bullet.instance()
+	bullet_instance.global_position = weapon.global_position
+	var target = get_global_mouse_position()
+	var direction_to_mouse = weapon.global_position.direction_to(target).normalized()
+	bullet_instance.set_direction(direction_to_mouse)
+	emit_signal("player_fired_bullet",bullet_instance, weapon.position, direction_to_mouse)
