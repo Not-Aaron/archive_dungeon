@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Player
 
 
 const physics = preload("physics.gd")
@@ -6,11 +7,10 @@ var physicsType = physics.Default
 var velocity = Vector2.ZERO
 
 func _physics_process(_delta: float) -> void:
-	print(physicsType.calculate_move_velocity(velocity, get_direction()))
 	velocity = move_and_slide(physicsType.calculate_move_velocity(velocity, get_direction()))
 	
 	if velocity.length() > 0:
-		velocity = velocity.normalized() * 3
+		#velocity = velocity.normalized() * 3
 		$AnimatedSprite.play()
 	else:
 		$AnimatedSprite.stop()
@@ -38,7 +38,3 @@ func get_direction() -> Vector2:
 func _ready() -> void:
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass

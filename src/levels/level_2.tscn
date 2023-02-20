@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/actors/player/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/actors/test_flying_enemy/fly_enemy.tscn" type="PackedScene" id=2]
+
+[node name="PlaceholderBackground" type="ColorRect"]
+margin_right = 1933.0
+margin_bottom = 1101.0
+color = Color( 0.486275, 0.305882, 0.623529, 1 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 895, 266 )
+
+[node name="FlyingEnemy" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1414, 294 )
