@@ -1,4 +1,13 @@
 extends KinematicBody2D
+signal hit
+signal player_fired_bullet(bullet,position,direction)
+
+export(PackedScene) var Bullet
+export var speed = 400
+
+onready var end_of_gun = $EndofGun
+
+
 
 
 const physics = preload("physics.gd")
@@ -38,7 +47,15 @@ func get_direction() -> Vector2:
 func _ready() -> void:
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
+func _unhandled_input(event: InputEvent):
+	if event.is_action_released("shoot"):
+		shoot()
+		
+func shoot():
+	print('pew')
+	#var bullet_instance = Bullet.instance()
+	#bullet_instance.global_position = end_of_gun.global_position
+	#var target = get_global_mouse_position()
+	#var direction_to_mouse = end_of_gun.global_position.direction_to(target).normalized()
+	#bullet_instance.set_direction(direction_to_mouse)
+	#emit_signal("player_fired_bullet",bullet_instance,end_of_gun.position,direction_to_mouse)

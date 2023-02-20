@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://actors/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Wall.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actors/cow/Mob.tscn" type="PackedScene" id=3]
+[ext_resource path="res://actors/bulletsystem/BulletManager.gd" type="Script" id=4]
+[ext_resource path="res://src/main.gd" type="Script" id=5]
 
-[node name="Node2D" type="Node2D"]
+[node name="Main" type="Node2D"]
+script = ExtResource( 5 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -24,11 +27,24 @@ collision_mask = 4
 current = true
 
 [node name="Wall" parent="." instance=ExtResource( 2 )]
-position = Vector2( 61, 202 )
-scale = Vector2( 2, 1 )
+position = Vector2( 122, 224 )
+scale = Vector2( 3.94716, 1.25498 )
 
 [node name="Mob" parent="." instance=ExtResource( 3 )]
-position = Vector2( 250, 180 )
+position = Vector2( 1222, 281 )
 
 [node name="Mob2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 250, 180 )
+position = Vector2( 679, 745 )
+
+[node name="BulletManager" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="Wall2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 390, 167 )
+rotation = 1.58168
+scale = Vector2( 5.29692, 1.42251 )
+
+[node name="Wall3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 249, 621 )
+rotation = -1.51021
+scale = Vector2( 1.45011, 3.48839 )

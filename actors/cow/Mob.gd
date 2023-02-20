@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var health: int = 1
+var health: int = 3
 
 func _ready():
 	$AnimatedSprite.playing = true
