@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/models/placeholder/RL Prototype Tileset 64x64.png" type="Texture" id=1]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1.53267, 188.994, 62.2686, 68.256 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 31, 33 )
+
+[node name="Wall" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+texture = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0, 2 )
+shape = SubResource( 2 )
