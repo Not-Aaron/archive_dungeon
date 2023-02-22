@@ -27,3 +27,7 @@ func _process(delta: float) -> void:
 # Damage player upon collision
 func _on_FlyingEnemy_body_entered(body: Node) -> void:
 	pass
+func handle_hit():
+	health -= 100
+	if health <= 0:
+		queue_free()
