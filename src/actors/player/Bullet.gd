@@ -19,7 +19,7 @@ func _physics_process(_delta: float):
 
 func set_direction(direction: Vector2):
 	self.direction = direction
-
+	
 
 func _on_KillTimer_timeout():
 	queue_free()

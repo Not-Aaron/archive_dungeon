@@ -1,5 +1,5 @@
 extends RigidBody2D
-
+class_name Mob
 onready var player = $"../Player"
 export var aggro_radius = 500
 export var speed = 200

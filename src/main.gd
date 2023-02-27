@@ -1,5 +1,5 @@
 extends TextureRect
-export(PackedScene) var fly_enemy
+export (PackedScene) var Mob 
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -21,7 +21,7 @@ func _ready():
 
 func _on_MobTimer_timeout():
 	
-	var mob = fly_enemy.instance()
+	var mob = Mob.instance()
 	var mob_spawn_location = get_node("MobPath/MobSpawnLocation")
 	#var mob_spawn_location = (0,0)
 	mob_spawn_location.offset = randi()

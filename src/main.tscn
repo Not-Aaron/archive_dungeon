@@ -28,6 +28,7 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_lock_": true
 }
+Mob = ExtResource( 10 )
 
 [node name="Background1280720Mk2" type="Sprite" parent="."]
 visible = false
