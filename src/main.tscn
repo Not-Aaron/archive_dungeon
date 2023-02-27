@@ -1,5 +1,4 @@
 [gd_scene load_steps=12 format=2]
-
 [ext_resource path="res://src/actors/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/portal.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/levels/level_1.tscn" type="PackedScene" id=3]
@@ -8,11 +7,13 @@
 [ext_resource path="res://src/main.gd" type="Script" id=6]
 [ext_resource path="res://src/BulletManager.gd" type="Script" id=7]
 [ext_resource path="res://assets/environments/floor_tile.png" type="Texture" id=8]
+
 [ext_resource path="res://assets/sfx and music/swanlakemodification fortot.mp3" type="AudioStream" id=9]
 [ext_resource path="res://src/actors/test_flying_enemy/fly_enemy.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 842.556, 6.19409 )
+
 
 [node name="ColorRect" type="TextureRect"]
 anchor_right = 1.0
@@ -43,6 +44,7 @@ current = true
 
 [node name="BulletManager" type="Node2D" parent="."]
 script = ExtResource( 7 )
+
 
 [node name="wall1" type="StaticBody2D" parent="."]
 
@@ -106,3 +108,4 @@ stream = ExtResource( 9 )
 
 [node name="FlyingEnemy" parent="." instance=ExtResource( 10 )]
 position = Vector2( 334, 223 )
+
