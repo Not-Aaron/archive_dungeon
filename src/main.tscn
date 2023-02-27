@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/actors/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/portal.tscn" type="PackedScene" id=2]
@@ -8,10 +8,16 @@
 [ext_resource path="res://src/main.gd" type="Script" id=6]
 [ext_resource path="res://src/BulletManager.gd" type="Script" id=7]
 [ext_resource path="res://assets/environments/floor_tile.png" type="Texture" id=8]
-[ext_resource path="res://assets/music and sfx/swanlakemodification fortot.mp3" type="AudioStream" id=9]
+[ext_resource path="res://assets/sfx and music/swanlakemodification fortot.mp3" type="AudioStream" id=9]
+[ext_resource path="res://src/actors/test_flying_enemy/fly_enemy.tscn" type="PackedScene" id=10]
 
-[sub_resource type="SegmentShape2D" id=1]
-b = Vector2( 5, 159 )
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 842.556, 6.19409 )
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1385, 451, 0, 0, 0, 0, 1340, 624 )
+}
 
 [node name="ColorRect" type="TextureRect"]
 anchor_right = 1.0
@@ -43,25 +49,79 @@ current = true
 [node name="BulletManager" type="Node2D" parent="."]
 script = ExtResource( 7 )
 
-[node name="music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 9 )
+[node name="wall1" type="StaticBody2D" parent="."]
 
-[node name="wall" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wall"]
+[node name="top2" type="CollisionShape2D" parent="wall1"]
+position = Vector2( 837.572, -1.00603 )
+scale = Vector2( 1.29063, -0.64675 )
 shape = SubResource( 1 )
 
-[node name="Path2D" type="CollisionPolygon2D" parent="wall"]
-build_mode = 1
-polygon = PoolVector2Array( 0, 1080, 1920, 1080, 1920, 0, 0, 0 )
-one_way_collision_margin = 0.0
+[node name="top" type="TextureRect" parent="wall1"]
+margin_left = -5.0
+margin_top = -5.0
+margin_right = 1925.0
+margin_bottom = 3.0
+texture = ExtResource( 5 )
+stretch_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="."]
-show_behind_parent = true
-light_mask = 0
-margin_left = -9.0
-margin_top = -8.0
-margin_right = 1987.0
+[node name="bottom2" type="CollisionShape2D" parent="wall1"]
+position = Vector2( 838, 1084 )
+scale = Vector2( 1.29063, -0.64675 )
+shape = SubResource( 1 )
+
+[node name="bottom" type="TextureRect" parent="wall1"]
+margin_left = -5.0
+margin_top = 1080.0
+margin_right = 1925.0
 margin_bottom = 1088.0
 texture = ExtResource( 5 )
 stretch_mode = 2
+
+[node name="left" type="TextureRect" parent="wall1"]
+margin_top = -5.0
+margin_right = 1096.0
+margin_bottom = 3.0
+rect_rotation = 90.0
+texture = ExtResource( 5 )
+stretch_mode = 2
+
+[node name="right" type="TextureRect" parent="wall1"]
+margin_left = 1928.0
+margin_top = -5.0
+margin_right = 3024.0
+margin_bottom = 3.0
+rect_rotation = 90.0
+texture = ExtResource( 5 )
+stretch_mode = 2
+
+[node name="right2" type="CollisionShape2D" parent="wall1"]
+position = Vector2( 1924, 383 )
+rotation = -1.5708
+scale = Vector2( 0.834715, 0.834715 )
+shape = SubResource( 1 )
+
+[node name="left2" type="CollisionShape2D" parent="wall1"]
+position = Vector2( -4, 385 )
+rotation = -1.5708
+scale = Vector2( 0.834715, 0.834715 )
+shape = SubResource( 1 )
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="FlyingEnemy" parent="." instance=ExtResource( 10 )]
+position = Vector2( 334, 223 )
+
+[node name="MobTimer" type="Timer" parent="."]
+
+[node name="MobPath" type="Path2D" parent="."]
+curve = SubResource( 2 )
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+position = Vector2( 1385, 451 )
+rotation = 1.82527
+
+[node name="StartTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
