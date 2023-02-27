@@ -109,3 +109,18 @@ stream = ExtResource( 9 )
 [node name="FlyingEnemy" parent="." instance=ExtResource( 10 )]
 position = Vector2( 334, 223 )
 
+
+[node name="MobTimer" type="Timer" parent="."]
+
+[node name="MobPath" type="Path2D" parent="."]
+curve = SubResource( 2 )
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+position = Vector2( 1385, 451 )
+rotation = 1.82527
+
+[node name="StartTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
+

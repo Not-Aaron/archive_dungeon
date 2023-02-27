@@ -51,4 +51,3 @@ frames = SubResource( 2 )
 animation = "up"
 
 [node name="weapon" type="Position2D" parent="."]
-position = Vector2( -54, -45 )
