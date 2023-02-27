@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/swanlakemodification fortot.mp3-037d241c6089452f036091e5e282204e.mp3str"
+
+[deps]
+
+source_file="res://assets/music and sfx/swanlakemodification fortot.mp3"
+dest_files=[ "res://.import/swanlakemodification fortot.mp3-037d241c6089452f036091e5e282204e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

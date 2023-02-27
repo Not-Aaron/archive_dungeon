@@ -1,5 +1,4 @@
 [gd_scene load_steps=12 format=2]
-
 [ext_resource path="res://src/actors/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/portal.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/levels/level_1.tscn" type="PackedScene" id=3]
@@ -13,6 +12,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 842.556, 6.19409 )
+
 
 [node name="ColorRect" type="TextureRect"]
 anchor_right = 1.0
@@ -43,7 +43,6 @@ current = true
 
 [node name="BulletManager" type="Node2D" parent="."]
 script = ExtResource( 7 )
-
 [node name="wall1" type="StaticBody2D" parent="."]
 
 [node name="top2" type="CollisionShape2D" parent="wall1"]
@@ -106,3 +105,4 @@ stream = ExtResource( 9 )
 
 [node name="FlyingEnemy" parent="." instance=ExtResource( 10 )]
 position = Vector2( 334, 223 )
+
