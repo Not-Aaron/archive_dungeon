@@ -1,4 +1,5 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
+
 [ext_resource path="res://src/actors/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/portal.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/levels/level_1.tscn" type="PackedScene" id=3]
@@ -13,6 +14,10 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 842.556, 6.19409 )
 
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1385, 451, 0, 0, 0, 0, 1340, 624 )
+}
 
 [node name="ColorRect" type="TextureRect"]
 anchor_right = 1.0
@@ -43,6 +48,7 @@ current = true
 
 [node name="BulletManager" type="Node2D" parent="."]
 script = ExtResource( 7 )
+
 [node name="wall1" type="StaticBody2D" parent="."]
 
 [node name="top2" type="CollisionShape2D" parent="wall1"]
@@ -106,3 +112,16 @@ stream = ExtResource( 9 )
 [node name="FlyingEnemy" parent="." instance=ExtResource( 10 )]
 position = Vector2( 334, 223 )
 
+[node name="MobTimer" type="Timer" parent="."]
+
+[node name="MobPath" type="Path2D" parent="."]
+curve = SubResource( 2 )
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+position = Vector2( 1385, 451 )
+rotation = 1.82527
+
+[node name="StartTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]

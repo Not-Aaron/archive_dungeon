@@ -3,7 +3,7 @@ extends RigidBody2D
 onready var player = $"../Player"
 export var aggro_radius = 500
 export var speed = 200
-var health = 100
+var health: int = 100
 
 
 # Declare member variables here. Examples:
@@ -26,6 +26,7 @@ func _process(delta: float) -> void:
 
 # Damage player upon collision
 func _on_FlyingEnemy_body_entered(body: Node) -> void:
+	#handle_hit()
 	pass
 func handle_hit():
 	health -= 100
