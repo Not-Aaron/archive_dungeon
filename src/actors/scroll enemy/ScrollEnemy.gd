@@ -7,6 +7,7 @@ var health = 20
 var damage = 10
 var max_health = 20
 var velocity = Vector2.ZERO
+var attack = 5
 
 
 # Declare member variables here. Examples:
@@ -27,13 +28,11 @@ func _process(delta: float) -> void:
 		return
 	velocity = speed*position.direction_to(player.position)
 	position += velocity * delta
-
+	attack()
 # Damage player upon collision
-func _on_FlyingEnemy_body_entered(body: Node) -> void:
-	if body == player:
-		if player.vulnerable:
-			player.take_damage(damage)
-	
+
+func attack(attack:float):
+	health -= attack
 func take_damage(damage: float):
 	health -= damage
 	if health <= 0:
@@ -41,3 +40,9 @@ func take_damage(damage: float):
 		
 func die():
 	queue_free()
+
+
+func _on_ScrollEnemy_body_entered(body):
+	if body == player:
+		if player.vulnerable:
+			player.take_damage(damage) # Replace with function body.
