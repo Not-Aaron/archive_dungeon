@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/actors/player/weapons/ranged.gd" type="Script" id=1]
+[ext_resource path="res://src/actors/player/weapons/bullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/actors/player/weapons/slice.tscn" type="PackedScene" id=3]
+
+[node name="Ranged" type="Position2D"]
+script = ExtResource( 1 )
+Bullet = ExtResource( 2 )
+Slice = ExtResource( 3 )

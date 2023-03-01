@@ -15,15 +15,37 @@ margin_bottom = 1101.0
 texture = ExtResource( 5 )
 stretch_mode = 1
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 895, 266 )
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-current = true
-
 [node name="FlyingEnemy" parent="." instance=ExtResource( 2 )]
-position = Vector2( 437, 279 )
+position = Vector2( 1717, 669 )
 
 [node name="Portal" parent="." instance=ExtResource( 4 )]
-position = Vector2( 261, 540 )
+position = Vector2( 102, 102 )
 target = ExtResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1823, 988 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+visible = false
+current = true
+
+[node name="FlyingEnemy2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 778, 226 )
+
+[node name="FlyingEnemy3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1380, 237 )
+
+[node name="FlyingEnemy4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1631, 283 )
+
+[node name="FlyingEnemy5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1119, 304 )
+
+[node name="FlyingEnemy6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 951, 879 )
+
+[node name="FlyingEnemy7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 843, 603 )
+
+[node name="FlyingEnemy8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 370, 765 )

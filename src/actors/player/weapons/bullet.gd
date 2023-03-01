@@ -1,6 +1,7 @@
 extends Area2D
-class_name Bullet
+#class_name Bullet
 export (int) var speed = 20
+var damage = 10
 
 var direction := Vector2.ZERO
 
@@ -24,8 +25,7 @@ func set_direction(direction: Vector2):
 func _on_KillTimer_timeout():
 	queue_free()
 
-
-func _on_Bullet_body_entered(body):
-	if body.has_method("handle_hit"):
-		body.handle_hit()
+func _on_Bullet_area_entered(area: Area2D) -> void:
+	if area.has_method("take_damage"):
+		area.take_damage(damage)
 		queue_free()

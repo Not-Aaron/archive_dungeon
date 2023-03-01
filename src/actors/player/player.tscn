@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/actors/player/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/right2.png" type="Texture" id=2]
@@ -9,7 +9,8 @@
 [ext_resource path="res://assets/player/up1.png" type="Texture" id=7]
 [ext_resource path="res://assets/player/right1.png" type="Texture" id=8]
 [ext_resource path="res://assets/player/up2.png" type="Texture" id=9]
-[ext_resource path="res://src/actors/player/Bullet.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/ui/health_bar.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/actors/player/weapons/ranged.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 24 )
@@ -19,28 +20,28 @@ animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "down",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "left",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [ ExtResource( 8 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "right",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "up",
-"speed": 5.0
+"speed": 8.0
 } ]
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 4
 script = ExtResource( 1 )
-Bullet = ExtResource( 10 )
+path_to_start = "res://src/ui/start_screen.tscn"
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -50,4 +51,15 @@ scale = Vector2( 3, 3 )
 frames = SubResource( 2 )
 animation = "up"
 
-[node name="weapon" type="Position2D" parent="."]
+[node name="IFrameTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="weapon" parent="." instance=ExtResource( 12 )]
+
+[node name="HealthBar" parent="." instance=ExtResource( 11 )]
+margin_left = -60.0
+margin_top = 33.0
+margin_right = 60.0
+margin_bottom = 47.0
+
+[connection signal="timeout" from="IFrameTimer" to="." method="_on_IFrameTimer_timeout"]

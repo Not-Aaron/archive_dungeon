@@ -16,3 +16,4 @@ func _ready() -> void:
 func _on_Teleporter_body_entered(body: Node) -> void:
 	if body is Player:
 		get_tree().change_scene_to(target)
+		

@@ -1,9 +1,11 @@
 extends KinematicBody2D
 class_name Player
-signal player_fired_bullet(bullet, position, direction)
 onready var weapon = $weapon
+var health = 100
+var max_health = 100
+var vulnerable = true
 
-export (PackedScene) var Bullet
+export(String, FILE, "*.tscn") var path_to_start
 const physics = preload("physics.gd")
 var physicsType = physics.Default
 var velocity = Vector2.ZERO
@@ -31,20 +33,33 @@ func _physics_process(_delta: float) -> void:
 func get_direction() -> Vector2:
 	return Vector2(Input.get_action_strength("move_right")-Input.get_action_strength("move_left"), Input.get_action_strength("move_down")-Input.get_action_strength("move_up"))
 
-# Declare member variables here. Examples:
-# var a: int = 2
-# var b: String = "text"
-
 func _unhandled_input(event: InputEvent):
 	if event.is_action_released("shoot"):
-		shoot()
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-func shoot():
-	var bullet_instance = Bullet.instance()
-	bullet_instance.global_position = weapon.global_position
-	var target = get_global_mouse_position()
-	var direction_to_mouse = weapon.global_position.direction_to(target).normalized()
-	bullet_instance.set_direction(direction_to_mouse)
-	emit_signal("player_fired_bullet",bullet_instance, weapon.position, direction_to_mouse)
+		weapon.shoot()
+	if event.is_action_released("switch"):
+		weapon.switch()
+	
+func take_damage(damage: float):
+	if not vulnerable:
+		return
+	health -= damage
+	if health <= 0:
+		die()
+	else:
+		vulnerable = false
+		$IFrameTimer.start()
+		
+func die():
+	#hide()
+	queue_free()
+	get_tree().change_scene(path_to_start)
+	#emit_signal("hit") #unhandled signal
+	# show game over screen
+	
+func change_parent(new_parent: Node):
+	get_parent().remove_child(self)
+	new_parent.add_child(self)
+	position = new_parent.get_node("StartPos").position
+
+func _on_IFrameTimer_timeout() -> void:
+	vulnerable = true # Replace with function body.
