@@ -37,12 +37,12 @@ func _process(delta: float) -> void:
 	velocity = speed*position.direction_to(player.position)
 	position += velocity * delta
 	#implement attack cooldown
-	attack(attackdmg)
+	#attack(attackdmg)
 	
 # Damage player upon collision
 
 func attack(attack:float):
-	weapon._ready()
+	#weapon._ready()
 	weapon.shoot(player.position)
 	
 	
@@ -54,8 +54,8 @@ func take_damage(damage: float):
 func die():
 	queue_free()
 	
-##func _on_attackcooldown_timeout():
-	#attack(attackdmg)
+func _on_attackcooldown_timeout():
+	attack(attackdmg)
 	#queue_free()
 	#pass()
 

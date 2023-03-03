@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends Area2D
 class_name Eye
 export (int) var speed = 20
 
@@ -8,6 +8,8 @@ onready var kill_timer = $KillTimer
 
 func _ready():
 	kill_timer.start()
+	$AnimatedSprite.animation = "shot"
+	$AnimatedSprite.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float):
@@ -15,8 +17,8 @@ func _physics_process(_delta: float):
 		var velocity = position.direction_to(direction) * speed
 		
 		global_position += velocity
-	spin+=1
-	self.set_rotation(spin)
+	#spin+=1
+	#self.set_rotation(spin)
 	
 	
 func set_direction(direction: Vector2):
