@@ -3,7 +3,7 @@ class_name Bullet
 export (int) var speed = 20
 
 var direction := Vector2.ZERO
-
+var spin = PI
 onready var kill_timer = $KillTimer
 
 func _ready():
@@ -15,8 +15,10 @@ func _physics_process(_delta: float):
 		var velocity = direction * speed
 		
 		global_position += velocity
-
-
+	spin+=1
+	self.set_rotation(spin)
+	
+	
 func set_direction(direction: Vector2):
 	self.direction = direction
 	
