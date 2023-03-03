@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hit.png-edb41de51ccb4edfbe4d81e22ee52fbf.stex"
+path="res://.import/scroll monster 2.png-91cc1babbfafe2231fc4fa93aa6beedf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hit.png"
-dest_files=[ "res://.import/hit.png-edb41de51ccb4edfbe4d81e22ee52fbf.stex" ]
+source_file="res://assets/enemy/scroll monster/scroll monster 2.png"
+dest_files=[ "res://.import/scroll monster 2.png-91cc1babbfafe2231fc4fa93aa6beedf.stex" ]
 
 [params]
 

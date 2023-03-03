@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ghost copy.png-d89ffdcc5f90f188e19fa465f5eb226e.stex"
+path="res://.import/ghost copy.png-2a847998430504a872a0b4818e4133aa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy/ghost copy.png"
-dest_files=[ "res://.import/ghost copy.png-d89ffdcc5f90f188e19fa465f5eb226e.stex" ]
+source_file="res://assets/enemy/ghost/ghost copy.png"
+dest_files=[ "res://.import/ghost copy.png-2a847998430504a872a0b4818e4133aa.stex" ]
 
 [params]
 

@@ -9,6 +9,8 @@ extents = Vector2( 10, 6 )
 [node name="Bullet" type="RigidBody2D"]
 collision_mask = 6
 script = ExtResource( 2 )
+aggro_radius = null
+speed = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
