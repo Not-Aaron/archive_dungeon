@@ -1,6 +1,7 @@
 extends Area2D
 
 onready var player = $"../Player"
+onready var weapon = $weapon
 export var aggro_radius = 500
 export var speed = 200
 var health = 20
@@ -28,11 +29,12 @@ func _process(delta: float) -> void:
 		return
 	velocity = speed*position.direction_to(player.position)
 	position += velocity * delta
-	attack()
+	attack(attack)
 # Damage player upon collision
 
 func attack(attack:float):
 	health -= attack
+	
 func take_damage(damage: float):
 	health -= damage
 	if health <= 0:
