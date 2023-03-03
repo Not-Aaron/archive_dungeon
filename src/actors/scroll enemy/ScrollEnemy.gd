@@ -8,7 +8,7 @@ var health = 20
 var damage = 10
 var max_health = 20
 var velocity = Vector2.ZERO
-var attack = 5
+var attackdmg = 5
 
 
 # Declare member variables here. Examples:
@@ -26,14 +26,19 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not is_instance_valid(player) or position.distance_to(player.position) > aggro_radius:
 		velocity = Vector2.ZERO
+		$AnimatedSprite.stop()
 		return
+	$AnimatedSprite.animation = "move"
+	$AnimatedSprite.play()
 	velocity = speed*position.direction_to(player.position)
 	position += velocity * delta
-	attack(attack)
+	attack(attackdmg)
 # Damage player upon collision
 
 func attack(attack:float):
-	health -= attack
+	weapon._ready()
+	weapon.shoot(player.position)
+	
 	
 func take_damage(damage: float):
 	health -= damage
@@ -47,4 +52,9 @@ func die():
 func _on_ScrollEnemy_body_entered(body):
 	if body == player:
 		if player.vulnerable:
+			$AnimatedSprite.animation = "attack"
 			player.take_damage(damage) # Replace with function body.
+
+
+func _on_ScrollEnemy_body_exited(body):
+	$AnimatedSprite.animation = "move" # Replace with function body.
