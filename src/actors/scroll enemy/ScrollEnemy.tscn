@@ -62,5 +62,8 @@ animation = "move"
 script = ExtResource( 8 )
 Eye = ExtResource( 9 )
 
+[node name="attackcooldown" type="Timer" parent="."]
+wait_time = 0.1
+
 [connection signal="body_entered" from="." to="." method="_on_ScrollEnemy_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_ScrollEnemy_body_exited"]
