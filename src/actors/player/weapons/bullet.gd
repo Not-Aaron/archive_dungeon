@@ -1,6 +1,7 @@
-extends RigidBody2D
+extends Area2D
 class_name Bullet
 export (int) var speed = 20
+var damage = 5
 
 var direction := Vector2.ZERO
 var spin = PI
@@ -27,7 +28,11 @@ func _on_KillTimer_timeout():
 	queue_free()
 
 
-func _on_Bullet_body_entered(body):
-	if body.has_method("handle_hit"):
-		body.handle_hit()
+func _on_Bullet_area_entered(area):
+	if area.has_method("take_damage"):
+		area.take_damage(damage)
 		queue_free()
+
+
+func _on_Bullet_body_entered(body):
+	pass # Replace with function body.

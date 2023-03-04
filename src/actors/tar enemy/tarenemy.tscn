@@ -1,0 +1,78 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://assets/enemy/scroll monster/scroll monster melee.png" type="Texture" id=1]
+[ext_resource path="res://assets/enemy/tar monster/tarmonster.png" type="Texture" id=2]
+[ext_resource path="res://assets/enemy/ghost copy.png" type="Texture" id=3]
+[ext_resource path="res://assets/enemy/tar monster/tarmonsterhit.png" type="Texture" id=4]
+[ext_resource path="res://assets/enemy/tar monster/tarmonsterdie2.png" type="Texture" id=5]
+[ext_resource path="res://assets/enemy/tar monster/tarmonster2.png" type="Texture" id=6]
+[ext_resource path="res://assets/enemy/tar monster/tarmonsterdie1.png" type="Texture" id=7]
+[ext_resource path="res://assets/enemy/tar monster/tarmonsterdie3.png" type="Texture" id=8]
+[ext_resource path="res://assets/enemy/tar monster/tarmonsterdie5.png" type="Texture" id=9]
+[ext_resource path="res://assets/enemy/tar monster/tarmonsterdie4.png" type="Texture" id=10]
+[ext_resource path="res://src/actors/scroll enemy/Eye.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/ui/health_bar.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/actors/scroll enemy/scrollweapon.gd" type="Script" id=13]
+[ext_resource path="res://src/actors/tar enemy/tarenemy.gd" type="Script" id=14]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 50, 41 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 9 ) ],
+"loop": false,
+"name": "die",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "hit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "move",
+"speed": 5.0
+} ]
+
+[node name="Tarenemy" type="Area2D"]
+script = ExtResource( 14 )
+
+[node name="ColorRect" type="TextureRect" parent="."]
+visible = false
+margin_left = -50.0
+margin_top = -31.0
+margin_right = 50.0
+margin_bottom = 31.0
+texture = ExtResource( 3 )
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="HealthBar" parent="." instance=ExtResource( 12 )]
+margin_left = -50.0
+margin_top = 49.0
+margin_right = 50.0
+margin_bottom = 63.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -2 )
+scale = Vector2( 3.10938, 3.10938 )
+frames = SubResource( 2 )
+animation = "die"
+
+[node name="weapon" type="Position2D" parent="."]
+script = ExtResource( 13 )
+Eye = ExtResource( 11 )
+
+[node name="attackcooldown" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="deathtimer" type="Timer" parent="."]
