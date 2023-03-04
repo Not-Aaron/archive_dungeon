@@ -19,17 +19,27 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/actors/scroll enemy/Eye.gd"
 }, {
-
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://src/actors/player/player.gd"
+}, {
+"base": "Area2D",
+"class": "Tar",
+"language": "GDScript",
+"path": "res://src/actors/tar enemy/tar.gd"
+}, {
+"base": "Area2D",
+"class": "Tarshot",
+"language": "GDScript",
+"path": "res://tar.gd"
 } ]
 _global_script_class_icons={
 "Bullet": "",
 "Eye": "",
-
-"Player": ""
+"Player": "",
+"Tar": "",
+"Tarshot": ""
 }
 
 [application]

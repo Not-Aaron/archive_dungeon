@@ -1,16 +1,82 @@
 extends Area2D
 
-
+onready var player = $"../Player"
+onready var weapon = $tarweapon
+export var aggro_radius = 800
+export var speed = 400
+var health = 30
+var damage = 5
+var max_health = 20
+var velocity = Vector2.ZERO
+var attackdmg = 3
+onready var cooldowntimer = $attackcooldown
+onready var deathtimer = $deathtimer
 # Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+# var a: int = 2
+# var b: String = "text"
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _ready() -> void:
+	cooldowntimer.start()
+	#pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+# warning-ignore:unused_argument
+func _process(delta: float) -> void:
+	
+	if not is_instance_valid(player) or position.distance_to(player.position) > aggro_radius or health <= 0:
+		cooldowntimer.stop()
+		velocity = Vector2.ZERO
+		if health <= 0:
+			return
+		$AnimatedSprite.stop()
+		#cooldowntimer.stop()
+		return
+	#cooldowntimer.start()
+	$AnimatedSprite.animation = "move"
+	$AnimatedSprite.play()
+	velocity = speed*position.direction_to(player.position)
+	position += velocity * delta
+	#implement attack cooldown
+	#attack(attackdmg)
+	
+# Damage player upon collision
+
+func attack(attack:float):
+	#weapon._ready()
+	weapon.shoot(player.position)
+	
+	
+func take_damage(damage: float):
+	health -= damage
+	if health <= 0:
+		die()
+		
+func die():
+	deathtimer.start()
+	$AnimatedSprite.animation = "die"
+	$AnimatedSprite.play()
+	
+	#queue_free()
+	
+func _on_attackcooldown_timeout():
+	attack(attackdmg)
+	#queue_free()
+	#pass()
+
+
+func _on_Tarenemy_body_entered(body):
+	if body == player:
+		if player.vulnerable:
+			$AnimatedSprite.animation = "attack"
+			player.take_damage(damage) # Replace with function body.
+
+
+func _on_Tarenemy_body_exited(body):
+	$AnimatedSprite.animation = "move" # Replace with function body.
+
+
+func _on_deathtimer_timeout():
+	queue_free() # Replace with function body. # Replace with function body.

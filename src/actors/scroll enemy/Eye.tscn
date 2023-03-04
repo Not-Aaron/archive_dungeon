@@ -17,10 +17,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CanvasItemMaterial" id=3]
+[sub_resource type="CanvasItemMaterial" id=5]
 
 [sub_resource type="ParticlesMaterial" id=4]
-next_pass = SubResource( 3 )
+next_pass = SubResource( 5 )
 flag_disable_z = true
 gravity = Vector3( 0, 98, 0 )
 orbit_velocity = 0.0
