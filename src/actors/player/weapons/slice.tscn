@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/actors/player/weapons/slice.gd" type="Script" id=1]
+[ext_resource path="res://assets/bullet/sword.png" type="Texture" id=2]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 45.5, 13 )
@@ -12,11 +14,13 @@ script = ExtResource( 1 )
 position = Vector2( 45.5, 0 )
 shape = SubResource( 1 )
 
-[node name="PlaceholderSprite" type="ColorRect" parent="."]
+[node name="PlaceholderSprite" type="TextureRect" parent="."]
 margin_top = -13.0
 margin_right = 91.0
 margin_bottom = 13.0
-color = Color( 1, 0.00392157, 0.00392157, 1 )
+texture = ExtResource( 2 )
+expand = true
+
 
 [node name="KillTimer" type="Timer" parent="."]
 wait_time = 0.1
