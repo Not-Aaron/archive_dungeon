@@ -62,4 +62,7 @@ margin_top = 33.0
 margin_right = 60.0
 margin_bottom = 47.0
 
+[node name="slowtimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="IFrameTimer" to="." method="_on_IFrameTimer_timeout"]
+[connection signal="timeout" from="slowtimer" to="." method="_on_slowtimer_timeout"]

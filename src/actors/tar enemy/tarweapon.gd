@@ -28,8 +28,12 @@ func shoot(target:Vector2):
 	#var target = player.position
 	#var direction_to_mouse = global_position.direction_to(target).normalized()
 	#bullet_instance.set_direction(direction_to_mouse)
-	var my_random_number = rng.randf_range(.5, 1.5)
+	#var my_random_number = rng.randf_range(.5, 1.5)
 #	var spray = target * my_random_number
-	bullet_instance.set_direction(target)
+	var rng1 = rng.randf_range(.9,1.1)
+	var rng2 = rng.randf_range(.9,1.1)
+	var randomvector = Vector2(rng1,rng2)
+	var newtarget = target * randomvector
+	bullet_instance.set_direction(newtarget)
 	get_parent().get_parent().add_child(bullet_instance)
 	bullet_instance.global_position = global_position

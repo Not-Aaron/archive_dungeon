@@ -11,6 +11,7 @@ var velocity = Vector2.ZERO
 var attackdmg = 3
 onready var cooldowntimer = $attackcooldown
 onready var deathtimer = $deathtimer
+var slow = Vector2(.9,.9)
 # Declare member variables here. Examples:
 # var a: int = 2
 # var b: String = "text"
@@ -72,6 +73,7 @@ func _on_Tarenemy_body_entered(body):
 		if player.vulnerable:
 			$AnimatedSprite.animation = "attack"
 			player.take_damage(damage) # Replace with function body.
+			player.take_slow()
 
 
 func _on_Tarenemy_body_exited(body):
