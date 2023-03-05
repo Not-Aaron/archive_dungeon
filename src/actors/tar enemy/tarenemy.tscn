@@ -10,9 +10,9 @@
 [ext_resource path="res://assets/enemy/tar monster/tarmonsterdie3.png" type="Texture" id=8]
 [ext_resource path="res://assets/enemy/tar monster/tarmonsterdie5.png" type="Texture" id=9]
 [ext_resource path="res://assets/enemy/tar monster/tarmonsterdie4.png" type="Texture" id=10]
-[ext_resource path="res://src/actors/scroll enemy/Eye.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/actors/tar enemy/tarweapon.gd" type="Script" id=11]
 [ext_resource path="res://src/ui/health_bar.tscn" type="PackedScene" id=12]
-[ext_resource path="res://src/actors/scroll enemy/scrollweapon.gd" type="Script" id=13]
+[ext_resource path="res://src/actors/tar enemy/tar.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/actors/tar enemy/tarenemy.gd" type="Script" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -26,7 +26,7 @@ animations = [ {
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 9 ) ],
-"loop": false,
+"loop": true,
 "name": "die",
 "speed": 5.0
 }, {
@@ -68,11 +68,16 @@ scale = Vector2( 3.10938, 3.10938 )
 frames = SubResource( 2 )
 animation = "die"
 
-[node name="weapon" type="Position2D" parent="."]
-script = ExtResource( 13 )
-Eye = ExtResource( 11 )
+[node name="tarweapon" type="Position2D" parent="."]
+script = ExtResource( 11 )
+Tar = ExtResource( 13 )
 
 [node name="attackcooldown" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.01
 
 [node name="deathtimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_Tarenemy_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Tarenemy_body_exited"]
+[connection signal="timeout" from="attackcooldown" to="." method="_on_attackcooldown_timeout"]
+[connection signal="timeout" from="deathtimer" to="." method="_on_deathtimer_timeout"]
