@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hit.png-d86bab4a599fcc4e7a81bdd569bab8dd.stex"
+path="res://.import/orange box.png-3390c32d38344fef299c08345e822639.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy/ghost/hit.png"
-dest_files=[ "res://.import/hit.png-d86bab4a599fcc4e7a81bdd569bab8dd.stex" ]
+source_file="res://assets/environments/orange box.png"
+dest_files=[ "res://.import/orange box.png-3390c32d38344fef299c08345e822639.stex" ]
 
 [params]
 

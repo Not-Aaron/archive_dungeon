@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hit.png-d86bab4a599fcc4e7a81bdd569bab8dd.stex"
+path="res://.import/door.png-cfb62f7dc2b211e65c1afe272370d8b7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy/ghost/hit.png"
-dest_files=[ "res://.import/hit.png-d86bab4a599fcc4e7a81bdd569bab8dd.stex" ]
+source_file="res://assets/environments/door.png"
+dest_files=[ "res://.import/door.png-cfb62f7dc2b211e65c1afe272370d8b7.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
