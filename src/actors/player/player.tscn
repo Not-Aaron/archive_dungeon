@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/actors/player/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/right2.png" type="Texture" id=2]
@@ -9,25 +9,14 @@
 [ext_resource path="res://assets/player/up1.png" type="Texture" id=7]
 [ext_resource path="res://assets/player/right1.png" type="Texture" id=8]
 [ext_resource path="res://assets/player/up2.png" type="Texture" id=9]
-[ext_resource path="res://assets/player/die2.png" type="Texture" id=10]
 [ext_resource path="res://src/ui/health_bar.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/actors/player/weapons/ranged.tscn" type="PackedScene" id=12]
-[ext_resource path="res://assets/player/die1.png" type="Texture" id=13]
-[ext_resource path="res://assets/player/die4.png" type="Texture" id=14]
-[ext_resource path="res://assets/player/die6.png" type="Texture" id=15]
-[ext_resource path="res://assets/player/die3.png" type="Texture" id=16]
-[ext_resource path="res://assets/player/die5.png" type="Texture" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 24 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 13 ), ExtResource( 10 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 17 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "die",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 6 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "down",
@@ -60,10 +49,9 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 3, 3 )
 frames = SubResource( 2 )
-animation = "die"
+animation = "up"
 
 [node name="IFrameTimer" type="Timer" parent="."]
-wait_time = 0.5
 one_shot = true
 
 [node name="weapon" parent="." instance=ExtResource( 12 )]
@@ -76,8 +64,5 @@ margin_bottom = 47.0
 
 [node name="slowtimer" type="Timer" parent="."]
 
-[node name="deathtimer" type="Timer" parent="."]
-
 [connection signal="timeout" from="IFrameTimer" to="." method="_on_IFrameTimer_timeout"]
 [connection signal="timeout" from="slowtimer" to="." method="_on_slowtimer_timeout"]
-[connection signal="timeout" from="deathtimer" to="." method="_on_deathtimer_timeout"]

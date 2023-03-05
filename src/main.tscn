@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/actors/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/portal.tscn" type="PackedScene" id=2]
@@ -6,14 +6,12 @@
 [ext_resource path="res://assets/environments/background1280_720mk2.png" type="Texture" id=4]
 [ext_resource path="res://assets/environments/wall2 copy.png" type="Texture" id=5]
 [ext_resource path="res://src/main.gd" type="Script" id=6]
-[ext_resource path="res://assets/fonts/VeniceClassic.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/Xolonium-Regular.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://assets/environments/floor_tile.png" type="Texture" id=8]
 [ext_resource path="res://assets/sfx and music/swanlakemodification fortot.mp3" type="AudioStream" id=9]
 [ext_resource path="res://src/actors/test_flying_enemy/fly_enemy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/actors/scroll enemy/ScrollEnemy.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/actors/tar enemy/tarenemy.tscn" type="PackedScene" id=12]
-[ext_resource path="res://assets/environments/supports.png" type="Texture" id=13]
-[ext_resource path="res://assets/player/fov2.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 842.556, 6.19409 )
@@ -50,9 +48,6 @@ position = Vector2( 200, 305 )
 [node name="Camera2D" type="Camera2D" parent="Player"]
 visible = false
 current = true
-
-[node name="fov" type="Sprite" parent="Player"]
-texture = ExtResource( 14 )
 
 [node name="wall1" type="StaticBody2D" parent="."]
 
@@ -131,7 +126,7 @@ margin_top = 128.0
 margin_right = 874.0
 margin_bottom = 205.0
 custom_fonts/font = SubResource( 2 )
-text = "Use Mouse 0 to attack"
+text = "Use Space to attack"
 
 [node name="WeaponText" type="Label" parent="."]
 margin_left = 1087.0
@@ -151,18 +146,6 @@ text = "Use portals to progress to the next level"
 autowrap = true
 
 [node name="ScrollEnemy" parent="." instance=ExtResource( 11 )]
-position = Vector2( 1310, 530 )
 
 [node name="Tarenemy" parent="." instance=ExtResource( 12 )]
-position = Vector2( 1754, 460 )
-
-[node name="Supports" type="Area2D" parent="."]
-position = Vector2( 284, 754 )
-
-[node name="CollisionShape2D" type="StaticBody2D" parent="Supports"]
-position = Vector2( 23.5, -28.5 )
-
-[node name="Sprite" type="Sprite" parent="Supports"]
-position = Vector2( 24.25, -28.6591 )
-scale = Vector2( 2.4697, 2.4697 )
-texture = ExtResource( 13 )
+position = Vector2( 643, 403 )
