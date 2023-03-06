@@ -1,5 +1,5 @@
 extends Position2D
-export (PackedScene) var Bullet
+export (PackedScene) var Bullet	
 export (PackedScene) var Slice
 onready var attack = Slice
 	

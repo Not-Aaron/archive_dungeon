@@ -35,6 +35,7 @@ func _physics_process(_delta: float) -> void:
 			$AnimatedSprite.animation = "up"
 		else:
 			$AnimatedSprite.animation = "down"
+	
 		#$AnimatedSprite.flip_v = velocity.y > 0
 
 func get_direction() -> Vector2:
@@ -56,6 +57,10 @@ func take_damage(damage: float):
 	if not vulnerable:
 		return
 	health -= damage
+	$hittimer.start()
+	
+	$hit.play()
+	
 	if health <= 0:
 		die()
 	else:
@@ -91,3 +96,7 @@ func _on_IFrameTimer_timeout() -> void:
 
 func _on_slowtimer_timeout():
 	var isslowed=false # Replace with function body.
+
+
+func _on_hittimer_timeout():
+	$hit.stop()# Replace with function body.

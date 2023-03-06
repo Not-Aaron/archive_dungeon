@@ -12,6 +12,7 @@ var attackdmg = 3
 onready var cooldowntimer = $attackcooldown
 onready var deathtimer = $deathtimer
 var slow = Vector2(.9,.9)
+onready var dead = false
 # Declare member variables here. Examples:
 # var a: int = 2
 # var b: String = "text"
@@ -32,10 +33,12 @@ func _process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		if health <= 0:
 			return
-		$AnimatedSprite.stop()
+		if dead == false:
+			$AnimatedSprite.stop()
 		#cooldowntimer.stop()
 		return
 	#cooldowntimer.start()
+	$sound.play()
 	$AnimatedSprite.animation = "move"
 	$AnimatedSprite.play()
 	velocity = speed*position.direction_to(player.position)
@@ -52,14 +55,19 @@ func attack(attack:float):
 	
 func take_damage(damage: float):
 	health -= damage
-	if health <= 0:
+	if health <= 0 and dead == false:
 		die()
 		
+	if health >= 0 and dead==false:
+		$AnimatedSprite.animation = "hit"
+		$AnimatedSprite.play()
+		
 func die():
+	
 	deathtimer.start()
 	$AnimatedSprite.animation = "die"
 	$AnimatedSprite.play()
-	
+	dead = true
 	#queue_free()
 	
 func _on_attackcooldown_timeout():
@@ -70,14 +78,15 @@ func _on_attackcooldown_timeout():
 
 func _on_Tarenemy_body_entered(body):
 	if body == player:
-		if player.vulnerable:
+		if player.vulnerable and dead == false:
 			$AnimatedSprite.animation = "attack"
 			player.take_damage(damage) # Replace with function body.
 			player.take_slow()
 
 
 func _on_Tarenemy_body_exited(body):
-	$AnimatedSprite.animation = "move" # Replace with function body.
+	if dead == false:
+		$AnimatedSprite.animation = "move" # Replace with function body.
 
 
 func _on_deathtimer_timeout():

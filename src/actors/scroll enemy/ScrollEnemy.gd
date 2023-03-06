@@ -11,6 +11,7 @@ var velocity = Vector2.ZERO
 var attackdmg = 5
 onready var cooldowntimer = $attackcooldown
 onready var deathtimer = $deathtimer
+onready var dead = false
 # Declare member variables here. Examples:
 # var a: int = 2
 # var b: String = "text"
@@ -27,6 +28,9 @@ func _ready() -> void:
 # warning-ignore:unused_argument
 func _process(delta: float) -> void:
 	#cooldowntimer.start()
+	if dead == true:
+		$AnimatedSprite.animation = "die"
+		return
 	if (cooldowntimer.time_left <= 0):
 		cooldowntimer.start()
 	if not is_instance_valid(player) or position.distance_to(player.position) > aggro_radius or health <= 0:
@@ -34,7 +38,8 @@ func _process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		if health <= 0:
 			return
-		$AnimatedSprite.stop()
+		if dead==false:
+			$AnimatedSprite.stop()
 		#cooldowntimer.stop()
 		return
 	#cooldowntimer.start()
@@ -54,14 +59,18 @@ func attack(attack:float):
 	
 func take_damage(damage: float):
 	health -= damage
-	if health <= 0:
+	if health <= 0 and dead == false:
 		die()
+		
+	if health >= 0:
+		$AnimatedSprite.animation = "hit"
+		$AnimatedSprite.play()
 		
 func die():
 	deathtimer.start()
 	$AnimatedSprite.animation = "die"
 	$AnimatedSprite.play()
-	
+	dead = true
 	#queue_free()
 	
 func _on_attackcooldown_timeout():
@@ -72,13 +81,14 @@ func _on_attackcooldown_timeout():
 
 func _on_ScrollEnemy_body_entered(body):
 	if body == player:
-		if player.vulnerable:
+		if player.vulnerable and dead==false:
 			$AnimatedSprite.animation = "attack"
 			player.take_damage(damage) # Replace with function body.
 
 
 func _on_ScrollEnemy_body_exited(body):
-	$AnimatedSprite.animation = "move" # Replace with function body.
+	if dead == false:
+		$AnimatedSprite.animation = "move" # Replace with function body.
 
 
 func _on_deathtimer_timeout():

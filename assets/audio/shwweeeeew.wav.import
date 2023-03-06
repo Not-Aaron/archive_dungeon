@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/shwweeeeew.wav-5996b9fb2ff006549f41cf55df75d91f.sample"
+
+[deps]
+
+source_file="res://assets/audio/shwweeeeew.wav"
+dest_files=[ "res://.import/shwweeeeew.wav-5996b9fb2ff006549f41cf55df75d91f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/actors/test_flying_enemy/fly_enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/enemy/ghost/move1.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/enemy/ghost/die4.png" type="Texture" id=9]
 [ext_resource path="res://assets/enemy/ghost/ghost attack.png" type="Texture" id=10]
 [ext_resource path="res://assets/enemy/ghost/hit.png" type="Texture" id=11]
+[ext_resource path="res://assets/audio/taste.wav" type="AudioStream" id=12]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -60,8 +61,14 @@ margin_right = 50.0
 margin_bottom = 63.0
 
 [node name="weapon" parent="." instance=ExtResource( 4 )]
+Bullet = null
+Slice = null
 
 [node name="deathtimer" type="Timer" parent="."]
+
+[node name="sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
+volume_db = 6.0
 
 [connection signal="body_entered" from="." to="." method="_on_FlyingEnemy_body_entered"]
 [connection signal="timeout" from="deathtimer" to="." method="_on_deathtimer_timeout"]

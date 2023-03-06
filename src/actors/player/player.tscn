@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/actors/player/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/right2.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://src/ui/HUD.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/ui/health_bar.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/actors/player/weapons/ranged.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/audio/ow.mp3" type="AudioStream" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 24 )
@@ -67,5 +68,13 @@ margin_bottom = 47.0
 
 [node name="HUD" parent="." instance=ExtResource( 10 )]
 
+[node name="hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 13 )
+volume_db = -5.0
+
+[node name="hittimer" type="Timer" parent="."]
+wait_time = 0.3
+
 [connection signal="timeout" from="IFrameTimer" to="." method="_on_IFrameTimer_timeout"]
 [connection signal="timeout" from="slowtimer" to="." method="_on_slowtimer_timeout"]
+[connection signal="timeout" from="hittimer" to="." method="_on_hittimer_timeout"]
