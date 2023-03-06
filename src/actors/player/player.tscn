@@ -44,6 +44,8 @@ collision_mask = 4
 script = ExtResource( 1 )
 path_to_start = "res://src/ui/start_screen.tscn"
 
+[node name="HUD" parent="." instance=ExtResource( 10 )]
+
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
@@ -64,8 +66,6 @@ margin_right = 60.0
 margin_bottom = 47.0
 
 [node name="slowtimer" type="Timer" parent="."]
-
-[node name="HUD" parent="." instance=ExtResource( 10 )]
 
 [connection signal="timeout" from="IFrameTimer" to="." method="_on_IFrameTimer_timeout"]
 [connection signal="timeout" from="slowtimer" to="." method="_on_slowtimer_timeout"]
