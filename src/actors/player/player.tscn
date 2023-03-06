@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/actors/player/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/right2.png" type="Texture" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://assets/player/up1.png" type="Texture" id=7]
 [ext_resource path="res://assets/player/right1.png" type="Texture" id=8]
 [ext_resource path="res://assets/player/up2.png" type="Texture" id=9]
-[ext_resource path="res://src/ui/HUD.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/ui/health_bar.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/actors/player/weapons/ranged.tscn" type="PackedScene" id=12]
 
@@ -43,8 +42,6 @@ animations = [ {
 collision_mask = 4
 script = ExtResource( 1 )
 path_to_start = "res://src/ui/start_screen.tscn"
-
-[node name="HUD" parent="." instance=ExtResource( 10 )]
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

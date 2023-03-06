@@ -10,11 +10,8 @@ export(String, FILE, "*.tscn") var path_to_start
 const physics = preload("physics.gd")
 var physicsType = physics.Default
 var velocity = Vector2.ZERO
-onready var deathtimer = $deathtimer
 
 func _physics_process(_delta: float) -> void:
-	if health <= 0:
-		return
 	if isslowed == true:
 		
 		var newvelocity = velocity #* slow
@@ -43,24 +40,16 @@ func _physics_process(_delta: float) -> void:
 func get_direction() -> Vector2:
 	if isslowed == true:
 		var input=Vector2(Input.get_action_strength("move_right")-Input.get_action_strength("move_left"), Input.get_action_strength("move_down")-Input.get_action_strength("move_up"))
-		#var slow = Vector2(0.5,0.5)
-		var slow = 0.5
+		var slow = Vector2(0.5,0.5)
 		return input*slow
 	return Vector2(Input.get_action_strength("move_right")-Input.get_action_strength("move_left"), Input.get_action_strength("move_down")-Input.get_action_strength("move_up"))
 
-func _input(event):
-	if event is InputEventMouseButton:
-		weapon.shoot()
 func _unhandled_input(event: InputEvent):
-	#if event.is_action_released("shoot"):
-	#	weapon.shoot()
+	if event.is_action_released("shoot"):
+		weapon.shoot()
 	if event.is_action_released("switch"):
 		weapon.switch()
-		
-	if event.is_action_pressed("shoot"):
-		weapon.shoot()
-	#if event is InputEventMouseButton:
-		#weapon.shoot()
+	
 func take_damage(damage: float):
 	if not vulnerable:
 		return
@@ -83,13 +72,9 @@ func take_slow():
 	#	$IFrameTimer.start()
 		
 func die():
-	deathtimer.start()
 	#hide()
-	#queue_free()
-	$AnimatedSprite.animation = "die"
-	$AnimatedSprite.play()
-	
-	
+	queue_free()
+	get_tree().change_scene(path_to_start)
 	#emit_signal("hit") #unhandled signal
 	# show game over screen
 	
@@ -104,8 +89,3 @@ func _on_IFrameTimer_timeout() -> void:
 
 func _on_slowtimer_timeout():
 	var isslowed=false # Replace with function body.
-
-
-func _on_deathtimer_timeout():
-	queue_free() # Replace with function body.
-	get_tree().change_scene(path_to_start)
