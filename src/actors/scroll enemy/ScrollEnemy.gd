@@ -19,13 +19,16 @@ onready var deathtimer = $deathtimer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	cooldowntimer.start()
+	#pass
 	#pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # warning-ignore:unused_argument
 func _process(delta: float) -> void:
-	
+	#cooldowntimer.start()
+	if (cooldowntimer.time_left <= 0):
+		cooldowntimer.start()
 	if not is_instance_valid(player) or position.distance_to(player.position) > aggro_radius or health <= 0:
 		cooldowntimer.stop()
 		velocity = Vector2.ZERO

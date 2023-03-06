@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/actors/player/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/right2.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/player/up1.png" type="Texture" id=7]
 [ext_resource path="res://assets/player/right1.png" type="Texture" id=8]
 [ext_resource path="res://assets/player/up2.png" type="Texture" id=9]
+[ext_resource path="res://src/ui/HUD.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/ui/health_bar.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/actors/player/weapons/ranged.tscn" type="PackedScene" id=12]
 
@@ -63,6 +64,8 @@ margin_right = 60.0
 margin_bottom = 47.0
 
 [node name="slowtimer" type="Timer" parent="."]
+
+[node name="HUD" parent="." instance=ExtResource( 10 )]
 
 [connection signal="timeout" from="IFrameTimer" to="." method="_on_IFrameTimer_timeout"]
 [connection signal="timeout" from="slowtimer" to="." method="_on_slowtimer_timeout"]
