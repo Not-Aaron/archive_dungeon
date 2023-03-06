@@ -43,7 +43,9 @@ func get_direction() -> Vector2:
 		var slow = Vector2(0.5,0.5)
 		return input*slow
 	return Vector2(Input.get_action_strength("move_right")-Input.get_action_strength("move_left"), Input.get_action_strength("move_down")-Input.get_action_strength("move_up"))
-
+func _input(event):
+	if event is InputEventMouseButton:
+		weapon.shoot()
 func _unhandled_input(event: InputEvent):
 	if event.is_action_released("shoot"):
 		weapon.shoot()
