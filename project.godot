@@ -214,7 +214,7 @@ window/size/height=1080
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/rmsmartshape/plugin.cfg" )
+enabled=PoolStringArray(  )
 
 [global]
 
