@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://assets/fonts/Orwell.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/VeniceClassic.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/ui/start_screen.gd" type="Script" id=2]
 [ext_resource path="res://src/main.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/environments/orange box.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
 font_data = ExtResource( 1 )
+
+[sub_resource type="CanvasItemMaterial" id=3]
 
 [sub_resource type="DynamicFont" id=2]
 size = 60
@@ -31,11 +34,18 @@ text = "Archive Dungeon"
 align = 1
 
 [node name="StartButton" type="Button" parent="."]
-margin_left = 677.0
-margin_top = 654.0
-margin_right = 1315.0
-margin_bottom = 838.0
+material = SubResource( 3 )
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 807.0
+margin_top = 617.0
+margin_right = 1077.0
+margin_bottom = 684.0
 custom_fonts/font = SubResource( 2 )
 text = "Start Game"
+icon = ExtResource( 4 )
+icon_align = 1
+expand_icon = true
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
