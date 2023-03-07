@@ -1,144 +1,141 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/actors/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/portal.tscn" type="PackedScene" id=2]
 [ext_resource path="res://levels/dungeon/level_1.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/environments/background1280_720mk2.png" type="Texture" id=4]
-[ext_resource path="res://assets/environments/wall2 copy.png" type="Texture" id=5]
-[ext_resource path="res://levels/overworld/main.gd" type="Script" id=6]
+[ext_resource path="res://assets/sfx and music/JDSherbert - Ambiences Music Pack - The Blackpenny Pub.mp3" type="AudioStream" id=4]
+[ext_resource path="res://assets/third_party_assets/RoomBase/Room_Builder_48x48.png" type="Texture" id=5]
 [ext_resource path="res://assets/fonts/VeniceClassic.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://assets/environments/floor_tile.png" type="Texture" id=8]
-[ext_resource path="res://assets/sfx and music/swanlakemodification fortot.mp3" type="AudioStream" id=9]
-[ext_resource path="res://src/actors/test_flying_enemy/fly_enemy.tscn" type="PackedScene" id=10]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 842.556, 6.19409 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 30
 font_data = ExtResource( 7 )
 
-[node name="ColorRect" type="TextureRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -517.0
-margin_top = -49.0
-margin_right = -517.0
-margin_bottom = -49.0
-texture = ExtResource( 8 )
-stretch_mode = 2
-script = ExtResource( 6 )
+[sub_resource type="TileSet" id=3]
+0/name = "white_wall"
+0/texture = ExtResource( 5 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 2496, 2592, 384, 288 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 1
+0/autotile/bitmask_flags = [ Vector2( 4, 12 ), 403, Vector2( 4, 13 ), 36, Vector2( 5, 13 ), 72, Vector2( 5, 14 ), 403, Vector2( 5, 15 ), 292, Vector2( 5, 16 ), 292, Vector2( 5, 17 ), 292, Vector2( 6, 10 ), 73, Vector2( 6, 11 ), 73, Vector2( 6, 12 ), 73, Vector2( 6, 13 ), 73, Vector2( 6, 14 ), 457, Vector2( 6, 15 ), 7, Vector2( 7, 14 ), 448, Vector2( 7, 15 ), 7, Vector2( 8, 5 ), 256, Vector2( 8, 6 ), 292, Vector2( 8, 7 ), 292, Vector2( 8, 8 ), 292, Vector2( 8, 9 ), 292, Vector2( 8, 10 ), 292, Vector2( 8, 11 ), 292, Vector2( 8, 12 ), 292, Vector2( 8, 13 ), 292, Vector2( 8, 14 ), 484, Vector2( 8, 15 ), 7, Vector2( 9, 11 ), 448, Vector2( 9, 15 ), 7, Vector2( 10, 11 ), 448, Vector2( 10, 15 ), 7, Vector2( 11, 11 ), 448, Vector2( 11, 15 ), 7, Vector2( 12, 11 ), 448, Vector2( 12, 15 ), 7, Vector2( 13, 11 ), 448, Vector2( 13, 15 ), 7, Vector2( 14, 11 ), 448, Vector2( 14, 15 ), 7, Vector2( 15, 5 ), 64, Vector2( 15, 6 ), 73, Vector2( 15, 7 ), 73, Vector2( 15, 8 ), 73, Vector2( 15, 9 ), 73, Vector2( 15, 10 ), 73, Vector2( 15, 11 ), 73, Vector2( 15, 12 ), 73, Vector2( 15, 13 ), 73, Vector2( 15, 14 ), 457, Vector2( 15, 15 ), 7, Vector2( 16, 14 ), 448, Vector2( 16, 15 ), 7, Vector2( 17, 14 ), 448, Vector2( 17, 15 ), 7, Vector2( 18, 13 ), 288, Vector2( 18, 14 ), 214, Vector2( 18, 15 ), 73, Vector2( 18, 16 ), 73, Vector2( 18, 17 ), 73, Vector2( 19, 12 ), 214, Vector2( 19, 13 ), 9 ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 16, 16 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "marble_tile_1"
+1/texture = ExtResource( 5 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 2016, 2160, 144, 96 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "patterned_tile_1"
+2/texture = ExtResource( 5 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 2208, 2160, 144, 96 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+3/name = "blue_tile_1"
+3/texture = ExtResource( 5 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 2016, 1872, 144, 96 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
+3/shapes = [  ]
+3/z_index = 0
 
-[node name="Background1280720Mk2" type="Sprite" parent="."]
-visible = false
-light_mask = 0
-position = Vector2( 448.333, 294 )
-scale = Vector2( 3.05833, 3.05833 )
-texture = ExtResource( 4 )
+[node name="overworld" type="Node"]
 
 [node name="Portal" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1767, 845 )
+position = Vector2( 2672, 1177 )
 target = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 200, 305 )
+position = Vector2( -484, 475 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-visible = false
 current = true
 
-[node name="wall1" type="StaticBody2D" parent="."]
-
-[node name="top2" type="CollisionShape2D" parent="wall1"]
-position = Vector2( 837.572, -1.00603 )
-scale = Vector2( 1.29063, -0.64675 )
-shape = SubResource( 1 )
-
-[node name="top" type="TextureRect" parent="wall1"]
-margin_left = -5.0
-margin_top = -5.0
-margin_right = 1925.0
-margin_bottom = 3.0
-texture = ExtResource( 5 )
-stretch_mode = 2
-
-[node name="bottom2" type="CollisionShape2D" parent="wall1"]
-position = Vector2( 838, 1084 )
-scale = Vector2( 1.29063, -0.64675 )
-shape = SubResource( 1 )
-
-[node name="bottom" type="TextureRect" parent="wall1"]
-margin_left = -5.0
-margin_top = 1080.0
-margin_right = 1925.0
-margin_bottom = 1088.0
-texture = ExtResource( 5 )
-stretch_mode = 2
-
-[node name="left" type="TextureRect" parent="wall1"]
-margin_top = -5.0
-margin_right = 1096.0
-margin_bottom = 3.0
-rect_rotation = 90.0
-texture = ExtResource( 5 )
-stretch_mode = 2
-
-[node name="right" type="TextureRect" parent="wall1"]
-margin_left = 1928.0
-margin_top = -5.0
-margin_right = 3024.0
-margin_bottom = 3.0
-rect_rotation = 90.0
-texture = ExtResource( 5 )
-stretch_mode = 2
-
-[node name="right2" type="CollisionShape2D" parent="wall1"]
-position = Vector2( 1924, 383 )
-rotation = -1.5708
-scale = Vector2( 0.834715, 0.834715 )
-shape = SubResource( 1 )
-
-[node name="left2" type="CollisionShape2D" parent="wall1"]
-position = Vector2( -4, 385 )
-rotation = -1.5708
-scale = Vector2( 0.834715, 0.834715 )
-shape = SubResource( 1 )
-
 [node name="music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
-
-[node name="FlyingEnemy" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1310, 821 )
+stream = ExtResource( 4 )
+volume_db = -0.408
+autoplay = true
 
 [node name="WASDtext" type="Label" parent="."]
-margin_left = 57.0
-margin_top = 128.0
-margin_right = 369.0
-margin_bottom = 205.0
+visible = false
+margin_left = -460.0
+margin_top = 79.0
+margin_right = -148.0
+margin_bottom = 156.0
 custom_fonts/font = SubResource( 2 )
 text = "Use WASD to move"
 
 [node name="ShootText" type="Label" parent="."]
-margin_left = 562.0
-margin_top = 128.0
-margin_right = 874.0
-margin_bottom = 205.0
+visible = false
+margin_left = 45.0
+margin_top = 79.0
+margin_right = 357.0
+margin_bottom = 156.0
 custom_fonts/font = SubResource( 2 )
 text = "Use Space to attack"
 
 [node name="WeaponText" type="Label" parent="."]
-margin_left = 1087.0
-margin_top = 125.0
-margin_right = 1405.0
-margin_bottom = 202.0
+visible = false
+margin_left = 570.0
+margin_top = 76.0
+margin_right = 888.0
+margin_bottom = 153.0
 custom_fonts/font = SubResource( 2 )
 text = "Use Shift to switch weapon"
 
-[node name="Portal Text" type="Label" parent="."]
-margin_left = 1503.0
-margin_top = 643.0
-margin_right = 1908.0
-margin_bottom = 720.0
+[node name="PortalText" type="Label" parent="."]
+visible = false
+margin_left = 2472.0
+margin_top = 1025.0
+margin_right = 2877.0
+margin_bottom = 1102.0
 custom_fonts/font = SubResource( 2 )
 text = "Use portals to progress to the next level"
 autowrap = true
+
+[node name="FrontLobby" type="Node" parent="."]
+
+[node name="TileMap" type="TileMap" parent="FrontLobby"]
+tile_set = SubResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 393224, 3, 0, 458760, 3, 0, 524296, 3, 0, 589832, 3, 0, 655368, 3, 0, 1048584, 1, 0, 1441800, 2, 0 )
