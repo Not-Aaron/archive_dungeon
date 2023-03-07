@@ -4,6 +4,7 @@ var damage = 10
 onready var kill_timer = $KillTimer
 
 func _ready():
+	$sound.play()
 	kill_timer.start()
 
 func set_direction(direction: Vector2):
@@ -17,3 +18,4 @@ func _on_Slice_area_entered(area: Area2D) -> void:
 
 func _on_KillTimer_timeout() -> void:
 	queue_free()
+	

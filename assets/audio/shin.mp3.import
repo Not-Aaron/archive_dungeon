@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/shin.mp3-c519b30961e60beda0918b3df8a921dc.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/shin.mp3"
+dest_files=[ "res://.import/shin.mp3-c519b30961e60beda0918b3df8a921dc.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
