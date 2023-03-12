@@ -4,9 +4,15 @@ export (PackedScene) var presidentattack
 onready var player = $"../Player"
 onready var attack = presidentattack
 
+func attack(target:Vector2):
+	if attack==TarEnemy:
+		attack2()
+	if attack==presidentattack:
+		attack1(target)
+		
 # Called when the node enters the scene tree for the first time.
 func attack2():
-	attack=TarEnemy
+	#attack=TarEnemy
 	var bullet_instance = attack.instance()
 	var target = get_global_mouse_position()
 	#var direction_to_mouse = global_position.direction_to(target).normalized()
@@ -14,10 +20,10 @@ func attack2():
 	get_parent().get_parent().add_child(bullet_instance)
 	bullet_instance.global_position = global_position
 func attack1(target:Vector2):
-	attack=presidentattack
+	#attack=presidentattack
 	var bullet_instance = attack.instance()
 	#target player!
-	#var target = player.position
+	#var target = position.distance_to(player.position).normalized
 	#var direction_to_mouse = global_position.direction_to(target).normalized()
 	#bullet_instance.set_direction(direction_to_mouse)
 	bullet_instance.set_direction(target)
@@ -29,3 +35,14 @@ func attack1(target:Vector2):
 		#	attack = Slice
 		#Slice:
 		#	attack = Bullet
+
+
+func switch():
+	match(attack):
+		TarEnemy:
+			attack = presidentattack
+		presidentattack:
+			attack = TarEnemy # Replace with function body.
+			
+func getphase():
+	return attack

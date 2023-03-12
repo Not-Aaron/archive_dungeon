@@ -8,10 +8,14 @@ var damage = 10
 var max_health = 200
 var velocity = Vector2.ZERO
 onready var attack = $attack1
+#onready var attack = Beam
 onready var deathtimer = $deathtimer
 onready var cooldowntimer = $cooldowntimer
 onready var weapon = $weapon
 onready var dead = false
+
+export (PackedScene) var TarEnemy
+export (PackedScene) var presidentattack
 # Declare member variables here. Examples:
 # var a: int = 2
 # var b: String = "text"
@@ -19,8 +23,9 @@ onready var dead = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	attack.start() # Replace with function body.
-
+	pass
+	#attack.start() # Replace with function body.
+	#$phase.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # warning-ignore:unused_argument
@@ -29,9 +34,15 @@ func _process(delta: float) -> void:
 		$AnimatedSprite.animation = "die"
 		return
 	
-		
+	if ($phase.time_left <=0):
+			$phase.start()
 	if (cooldowntimer.time_left <= 0):
-			cooldowntimer.start()
+			if (weapon.getphase()==TarEnemy):
+				 cooldowntimer.set_wait_time(1)
+				 cooldowntimer.start()
+			if (weapon.getphase()==presidentattack):
+				 cooldowntimer.set_wait_time(0.05)
+				 cooldowntimer.start()
 	if not is_instance_valid(player) or position.distance_to(player.position) > aggro_radius or health <= 0:
 		velocity = Vector2.ZERO
 		$sound.stop()
@@ -71,13 +82,16 @@ func die():
 	$AnimatedSprite.play()
 	dead = true
 func attack():
-	if attack == $attack1:
+	#if attack == $attack1:
 		
-		weapon.attack1(player.position)
+	#	weapon.attack1(player.position)
 	
-	if attack == $attack2:
+	#if attack == $attack2:
 		
-		weapon.attack2()
+		#weapon.attack2()
+		#var target = position.distance_to(player.position)
+		var target = player.position
+		weapon.attack(target)
 	
 func _on_deathtimer_timeout():
 	queue_free() # Replace with function body.
@@ -93,6 +107,7 @@ func _on_attack2_timeout():
 
 
 func _on_attack1_timeout():
+	
 	if attack == $attack1:
 		attack = $attack2
 		attack.start()
@@ -106,3 +121,10 @@ func _on_cooldowntimer_timeout():
 		#attack.start()
 	attack()
 	# Replace with function body.
+
+
+
+
+func _on_phase_timeout():
+	weapon.switch() # Replace with function body.
+	$phase.start()

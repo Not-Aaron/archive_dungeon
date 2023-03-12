@@ -54,6 +54,8 @@ margin_top = 164.0
 margin_right = 52.0
 margin_bottom = 185.0
 
+[node name="phase" type="Timer" parent="."]
+
 [node name="weapon" parent="." instance=ExtResource( 5 )]
 script = ExtResource( 6 )
 TarEnemy = ExtResource( 7 )
@@ -72,7 +74,9 @@ wait_time = 3.0
 wait_time = 3.0
 
 [node name="cooldowntimer" type="Timer" parent="."]
+wait_time = 0.25
 
+[connection signal="timeout" from="phase" to="." method="_on_phase_timeout"]
 [connection signal="timeout" from="attack1" to="." method="_on_attack1_timeout"]
 [connection signal="timeout" from="attack2" to="." method="_on_attack2_timeout"]
 [connection signal="timeout" from="cooldowntimer" to="." method="_on_cooldowntimer_timeout"]
