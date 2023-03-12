@@ -1,0 +1,62 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/enemy/frozen head boss/star.png" type="Texture" id=1]
+[ext_resource path="res://assets/enemy/frozen head boss/starparticles.png" type="Texture" id=2]
+[ext_resource path="res://src/actors/mr president fight/tricklestar.gd" type="Script" id=3]
+[ext_resource path="res://src/actors/player/weapons/ranged.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/actors/player/weapons/tricklestarburst.gd" type="Script" id=5]
+[ext_resource path="res://src/actors/mr president fight/tricklestarburst.tscn" type="PackedScene" id=6]
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 12.0
+height = 0.0
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "shot",
+"speed": 5.0
+} ]
+
+[sub_resource type="CanvasItemMaterial" id=7]
+
+[sub_resource type="ParticlesMaterial" id=6]
+next_pass = SubResource( 7 )
+flag_disable_z = true
+gravity = Vector3( 0, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+
+[node name="tricklestar" type="Area2D"]
+script = ExtResource( 3 )
+Burst = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 1, 0 )
+frames = SubResource( 5 )
+animation = "shot"
+
+[node name="KillTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="Particles2D" type="Particles2D" parent="."]
+scale = Vector2( 2, 2 )
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource( 6 )
+texture = ExtResource( 2 )
+
+[node name="cooldown" type="Timer" parent="."]
+
+[node name="weapon" parent="." instance=ExtResource( 4 )]
+script = ExtResource( 5 )
+TarEnemy = null
+presidentattack = ExtResource( 6 )
+
+[connection signal="body_entered" from="." to="." method="_on_Tar_body_entered"]
+[connection signal="timeout" from="KillTimer" to="." method="_on_KillTimer_timeout"]
+[connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://src/actors/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/mrpresident.tscn" type="PackedScene" id=2]
@@ -10,8 +10,7 @@
 [ext_resource path="res://assets/environments/floor tile 3.png" type="Texture" id=8]
 [ext_resource path="res://src/environment/bossroom.gd" type="Script" id=9]
 [ext_resource path="res://assets/sfx and music/new folder new suit_113.mp3" type="AudioStream" id=10]
-[ext_resource path="res://src/actors/tar enemy/tarenemy.tscn" type="PackedScene" id=11]
-[ext_resource path="res://src/actors/tar enemy/tar.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/actors/mr president fight/tricklestar.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Resource" id=13]
 script = ExtResource( 7 )
@@ -114,8 +113,7 @@ current = true
 
 [node name="mrpresident" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1215, 769 )
-TarEnemy = ExtResource( 11 )
-presidentattack = ExtResource( 12 )
+presidentattack = ExtResource( 11 )
 
 [node name="SS2D_Shape_Closed" type="Node2D" parent="."]
 script = ExtResource( 5 )

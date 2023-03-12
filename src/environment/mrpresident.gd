@@ -34,8 +34,7 @@ func _process(delta: float) -> void:
 		$AnimatedSprite.animation = "die"
 		return
 	
-	if ($phase.time_left <=0):
-			$phase.start()
+	
 	if (cooldowntimer.time_left <= 0):
 			if (weapon.getphase()==TarEnemy):
 				 cooldowntimer.set_wait_time(1)
@@ -43,6 +42,8 @@ func _process(delta: float) -> void:
 			if (weapon.getphase()==presidentattack):
 				 cooldowntimer.set_wait_time(0.05)
 				 cooldowntimer.start()
+	if ($phase.time_left <=0):
+			$phase.start()
 	if not is_instance_valid(player) or position.distance_to(player.position) > aggro_radius or health <= 0:
 		velocity = Vector2.ZERO
 		$sound.stop()
