@@ -40,7 +40,7 @@ func _process(delta: float) -> void:
 				 cooldowntimer.set_wait_time(1)
 				 cooldowntimer.start()
 			if (weapon.getphase()==presidentattack):
-				 cooldowntimer.set_wait_time(0.05)
+				 cooldowntimer.set_wait_time(3)
 				 cooldowntimer.start()
 	if ($phase.time_left <=0):
 			$phase.start()

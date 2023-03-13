@@ -1,15 +1,16 @@
 extends Area2D
 class_name tricklestardust
-export (int) var speed = 3
+export (int) var speed = 2
 onready var player = $"../Player"
 export (PackedScene) var Burst
 var direction := Vector2.ZERO
 var spin = PI
 var damage = 1
 onready var kill_timer = $KillTimer
-#var rng = RandomNumberGenerator.new()
+var rng = RandomNumberGenerator.new()
 
 func _ready():
+	speed = rng.randf_range(1.5,2.5)
 	kill_timer.start()
 	$AnimatedSprite.animation = "shot"
 	$AnimatedSprite.play()

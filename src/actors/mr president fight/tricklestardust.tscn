@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/actors/player/weapons/ranged.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/actors/player/weapons/tricklestarburst.gd" type="Script" id=2]
 [ext_resource path="res://tricklestardust.gd" type="Script" id=3]
 [ext_resource path="res://assets/enemy/frozen head boss/starparticles.png" type="Texture" id=4]
 [ext_resource path="res://assets/enemy/frozen head boss/stardust.png" type="Texture" id=5]
+[ext_resource path="res://assets/enemy/frozen head boss/star.png" type="Texture" id=6]
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 12.0
@@ -55,3 +56,8 @@ texture = ExtResource( 4 )
 [node name="cooldown" type="Timer" parent="."]
 
 [node name="Node2D" type="Node2D" parent="."]
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 6 )
+texture_scale = 2.04
+color = Color( 0.176471, 0.552941, 0.517647, 1 )
