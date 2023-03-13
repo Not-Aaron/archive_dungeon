@@ -163,6 +163,21 @@ _global_script_classes=[ {
 "class": "Tarshot",
 "language": "GDScript",
 "path": "res://tar.gd"
+}, {
+"base": "Area2D",
+"class": "tricklestar",
+"language": "GDScript",
+"path": "res://src/actors/mr president fight/tricklestar.gd"
+}, {
+"base": "Area2D",
+"class": "tricklestarb",
+"language": "GDScript",
+"path": "res://src/actors/mr president fight/tricklestarbursts.gd"
+}, {
+"base": "Area2D",
+"class": "tricklestardust",
+"language": "GDScript",
+"path": "res://tricklestardust.gd"
 } ]
 _global_script_class_icons={
 "Bullet": "",
@@ -195,7 +210,10 @@ _global_script_class_icons={
 "SS2D_Strings": "",
 "SS2D_VertexProperties": "",
 "Tar": "",
-"Tarshot": ""
+"Tarshot": "",
+"tricklestar": "",
+"tricklestarb": "",
+"tricklestardust": ""
 }
 
 [application]

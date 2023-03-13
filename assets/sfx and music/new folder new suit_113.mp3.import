@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/new folder new suit_113.mp3-562ae34a4000603bb5557c5071046bcc.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx and music/new folder new suit_113.mp3"
+dest_files=[ "res://.import/new folder new suit_113.mp3-562ae34a4000603bb5557c5071046bcc.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
