@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/JDSherbert - Ambiences Music Pack - The Blackpenny Pub.mp3-015f7a22c49ba7f0bead2462875447bb.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx and music/JDSherbert - Ambiences Music Pack - The Blackpenny Pub.mp3"
+dest_files=[ "res://.import/JDSherbert - Ambiences Music Pack - The Blackpenny Pub.mp3-015f7a22c49ba7f0bead2462875447bb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
