@@ -110,3 +110,4 @@ func _on_slowtimer_timeout():
 
 func _on_hittimer_timeout():
 	$hit.stop()# Replace with function body.
+	
