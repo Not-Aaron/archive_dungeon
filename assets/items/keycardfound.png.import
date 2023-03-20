@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tiles.png-23a07bfc8014837e8d5ac127d2260bf8.stex"
+path="res://.import/keycardfound.png-f210d47df52cdf5a3a60be752f741fb2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environments/tiles.png"
-dest_files=[ "res://.import/tiles.png-23a07bfc8014837e8d5ac127d2260bf8.stex" ]
+source_file="res://assets/items/keycardfound.png"
+dest_files=[ "res://.import/keycardfound.png-f210d47df52cdf5a3a60be752f741fb2.stex" ]
 
 [params]
 
