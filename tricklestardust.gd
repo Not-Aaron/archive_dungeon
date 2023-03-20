@@ -5,7 +5,7 @@ onready var player = $"../Player"
 export (PackedScene) var Burst
 var direction := Vector2.ZERO
 var spin = PI
-var damage = 1
+var damage = 4
 onready var kill_timer = $KillTimer
 var rng = RandomNumberGenerator.new()
 
@@ -40,7 +40,7 @@ func _on_KillTimer_timeout():
 
 
 
-func _on_Tar_body_entered(body):
+func _on_tricklestardust_body_entered(body):
 	if body.has_method("take_damage"):
 		body.take_damage(damage)
 		if body.has_method("take_slow"):

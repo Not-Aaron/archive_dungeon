@@ -90,6 +90,10 @@ volume_db = -5.0
 [node name="hittimer" type="Timer" parent="."]
 wait_time = 0.3
 
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+current = true
+
 [connection signal="timeout" from="IFrameTimer" to="." method="_on_IFrameTimer_timeout"]
 [connection signal="timeout" from="slowtimer" to="." method="_on_slowtimer_timeout"]
 [connection signal="timeout" from="hittimer" to="." method="_on_hittimer_timeout"]

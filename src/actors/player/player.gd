@@ -10,8 +10,11 @@ export(String, FILE, "*.tscn") var path_to_start
 const physics = preload("physics.gd")
 var physicsType = physics.Default
 var velocity = Vector2.ZERO
+#onready var haskey=false
 onready var haskey=false
-
+func _ready():
+	pass
+	
 func _physics_process(_delta: float) -> void:
 	if isslowed == true:
 		
@@ -81,12 +84,19 @@ func take_slow():
 		
 
 func take_key():
-	var haskey = true
+	haskey = true
 	$AnimatedSprite.animation = "retrieve"
 
 func use_key():
-	var haskey = false	
+	haskey = false	
 	$AnimatedSprite.animation = "useitem"	
+	
+func check_key():
+	if haskey==true:
+		return true
+	if haskey==false:
+		return false
+	#return haskey
 		
 func die():
 	#hide()
@@ -110,3 +120,4 @@ func _on_slowtimer_timeout():
 
 func _on_hittimer_timeout():
 	$hit.stop()# Replace with function body.
+	

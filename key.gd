@@ -18,11 +18,14 @@ func _ready():
 
 
 func _on_key_body_entered(body):
-	if body == 'player':
+	if body == player:
 		$animation.start()
 		$AnimatedSprite.animation = "retrieved"
 		player.take_key() # Replace with function body.
 
 
 func _on_animation_timeout():
+	#player.take_key() 
 	queue_free() # Replace with function body.
+
+

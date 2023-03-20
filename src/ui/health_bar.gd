@@ -16,3 +16,4 @@ func _process(delta: float) -> void:
 	var parent = get_parent()
 	if parent:
 		value = parent.health*100/parent.max_health
+		

@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/environments/door.png" type="Texture" id=1]
+[ext_resource path="res://assets/audio/door.mp3" type="AudioStream" id=2]
+[ext_resource path="res://src/environment/lockeddoor.gd" type="Script" id=3]
+[ext_resource path="res://assets/environments/opendoor.png" type="Texture" id=4]
+[ext_resource path="res://assets/environments/semiopen.png" type="Texture" id=5]
+[ext_resource path="res://assets/environments/entrydenied.png" type="Texture" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 12, 13 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "denied",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "locked",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "open",
+"speed": 5.0
+} ]
+
+[node name="lockeddoor" type="Area2D"]
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 2, 3 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+animation = "denied"
+
+[node name="enter" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+
+[node name="dooranimation" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_lockeddoor_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_lockeddoor_body_exited"]
+[connection signal="timeout" from="dooranimation" to="." method="_on_dooranimation_timeout"]
