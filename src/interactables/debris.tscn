@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/interactables/debris.gd" type="Script" id=1]
+[ext_resource path="res://src/ui/health_bar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/environments/debrisbroken.png" type="Texture" id=3]
+[ext_resource path="res://assets/environments/debrisidle.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 29, 25.5 )
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "die",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "idle1",
+"speed": 5.0
+} ]
+
+[node name="debris" type="Area2D"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -2.5 )
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "idle1"
+
+[node name="HealthBar" parent="." instance=ExtResource( 2 )]
+margin_left = -23.0
+margin_top = 16.0
+margin_right = 17.0
+margin_bottom = 37.0
+
+[node name="deathtimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="deathtimer" to="." method="_on_deathtimer_timeout"]

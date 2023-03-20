@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hazard thing.png-6f1176c7347704f8c4dba5025d0cc9ee.stex"
+path="res://.import/debrisbroken.png-5ea93cdbcf16008694aa0b8c73424829.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environments/hazard thing.png"
-dest_files=[ "res://.import/hazard thing.png-6f1176c7347704f8c4dba5025d0cc9ee.stex" ]
+source_file="res://assets/environments/debrisbroken.png"
+dest_files=[ "res://.import/debrisbroken.png-5ea93cdbcf16008694aa0b8c73424829.stex" ]
 
 [params]
 

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/track6_(testbeat3651(testbeat3628_58_extended)_63)_42.mp3-453531e9019383c5549546daca1f33a2.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx and music/the circadian rhythm by ethan ransberger/track6_(testbeat3651(testbeat3628_58_extended)_63)_42.mp3"
+dest_files=[ "res://.import/track6_(testbeat3651(testbeat3628_58_extended)_63)_42.mp3-453531e9019383c5549546daca1f33a2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/newnewnewintroforold_175.mp3-e2a6aa339426d4d75e5b94ee4ba87c1d.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx and music/the circadian rhythm by ethan ransberger/newnewnewintroforold_175.mp3"
+dest_files=[ "res://.import/newnewnewintroforold_175.mp3-e2a6aa339426d4d75e5b94ee4ba87c1d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

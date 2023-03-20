@@ -1,20 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/ui/health_bar.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Orwell.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://assets/palette.bmp" type="Texture" id=3]
-
-[sub_resource type="DynamicFont" id=2]
-font_data = ExtResource( 2 )
-
-[sub_resource type="Theme" id=3]
-default_font = SubResource( 2 )
-ColorPicker/icons/add_preset = null
-ColorPicker/icons/color_hue = null
-ColorPicker/icons/color_sample = ExtResource( 3 )
-ColorPicker/icons/overbright_indicator = null
-Fonts/fonts/large = SubResource( 2 )
-Fonts/fonts/normal = SubResource( 2 )
+[ext_resource path="res://src/widgettheme1.tres" type="Theme" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 2 )
@@ -24,6 +12,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -1786.0
 margin_bottom = -1056.0
-theme = SubResource( 3 )
+theme = ExtResource( 3 )
 custom_fonts/font = SubResource( 1 )
 script = ExtResource( 1 )
