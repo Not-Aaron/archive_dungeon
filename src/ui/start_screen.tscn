@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/fonts/VeniceClassic.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/ui/start_screen.gd" type="Script" id=2]
@@ -8,19 +8,30 @@
 [ext_resource path="res://src/widgettheme1.tres" type="Theme" id=6]
 [ext_resource path="res://assets/particles/stardust2.png" type="Texture" id=7]
 [ext_resource path="res://assets/particles/stardust3.png" type="Texture" id=8]
+[ext_resource path="res://assets/environments/background1280_720mk2.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
 font_data = ExtResource( 1 )
 
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.977528, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
 [sub_resource type="ParticlesMaterial" id=6]
+lifetime_randomness = 0.63
+emission_shape = 1
+emission_sphere_radius = 200.0
 flag_disable_z = true
-direction = Vector3( 20, 0, 0 )
+direction = Vector3( 20, 204, 20 )
 spread = 180.0
-gravity = Vector3( 30, 98, 0 )
-initial_velocity = 1.0
-orbit_velocity = 0.0
+gravity = Vector3( 1, 1, 0 )
+initial_velocity_random = 1.0
+orbit_velocity = 1.0
 orbit_velocity_random = 0.0
+orbit_velocity_curve = SubResource( 8 )
 
 [sub_resource type="AnimatedTexture" id=5]
 frames = 3
@@ -40,12 +51,22 @@ font_data = ExtResource( 1 )
 script = ExtResource( 2 )
 start_level = ExtResource( 3 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
+[node name="ColorRect" type="TextureRect" parent="."]
 margin_right = 1917.0
 margin_bottom = 1082.0
 theme = ExtResource( 5 )
-color = Color( 0, 0, 0, 1 )
+texture = ExtResource( 9 )
+stretch_mode = 2
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 992.5, 419.25 )
+scale = Vector2( 6.02054, 2.12162 )
+texture = ExtResource( 9 )
+color = Color( 0.619608, 0.878431, 0.854902, 1 )
+energy = 1.64
+shadow_enabled = true
+shadow_color = Color( 0.619608, 0.878431, 0.854902, 1 )
+shadow_gradient_length = 3.2
 
 [node name="Title" type="Label" parent="."]
 margin_left = 579.0
@@ -58,12 +79,10 @@ align = 1
 
 [node name="stardust" type="Particles2D" parent="Title"]
 position = Vector2( 387, 50 )
-amount = 10
+amount = 40
 preprocess = 2.75
-speed_scale = 20.0
 explosiveness = 1.0
-randomness = 0.4
-fixed_fps = 1
+fixed_fps = 60
 fract_delta = false
 process_material = SubResource( 6 )
 texture = SubResource( 5 )
