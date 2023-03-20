@@ -454,7 +454,6 @@ target = ExtResource( 3 )
 position = Vector2( 1823, 988 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-visible = false
 current = true
 
 [node name="FlyingEnemy2" parent="." instance=ExtResource( 2 )]

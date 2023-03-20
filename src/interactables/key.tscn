@@ -28,6 +28,7 @@ frames = SubResource( 1 )
 animation = "idle"
 
 [node name="Particles2D" type="Particles2D" parent="."]
+visible = false
 
 [node name="animation" type="Timer" parent="."]
 

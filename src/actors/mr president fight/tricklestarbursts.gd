@@ -47,7 +47,7 @@ func _on_KillTimer_timeout():
 
 
 
-func _on_Tar_body_entered(body):
+func _on_tricklestarbursts_body_entered(body):
 	if body.has_method("take_damage"):
 		body.take_damage(damage)
 		if body.has_method("take_slow"):
