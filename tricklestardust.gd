@@ -5,7 +5,7 @@ onready var player = $"../Player"
 export (PackedScene) var Burst
 var direction := Vector2.ZERO
 var spin = PI
-var damage = 1
+var damage = 4
 onready var kill_timer = $KillTimer
 var rng = RandomNumberGenerator.new()
 

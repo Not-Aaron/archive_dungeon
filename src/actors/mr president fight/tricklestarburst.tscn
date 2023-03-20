@@ -55,7 +55,6 @@ explosiveness = 1.0
 randomness = 1.0
 process_material = SubResource( 6 )
 texture = ExtResource( 4 )
-normal_map = ExtResource( 7 )
 
 [node name="cooldown" type="Timer" parent="."]
 
