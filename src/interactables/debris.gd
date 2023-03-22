@@ -13,7 +13,19 @@ onready var dead = false
 ## Add something that randomly selects which sprite it will be for randomizations
 export (PackedScene) var TarEnemy
 export (PackedScene) var presidentattack
+#onready var die  = "t"
+#onready var idle = "z"
+var rng = RandomNumberGenerator.new()
+var x = rng.randi_range(0, 1)
+onready var die = "die" + String(x)
+onready var idle = "idle" + String(x)
 
+#if (x>=0.51):
+#	var idle = "idle1"
+#	var die = "die1"
+#if (x<=0.5):
+#	var idle = "idle2"
+#	var die = "die2"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,10 +35,10 @@ func _ready() -> void:
 # warning-ignore:unused_argument
 func _process(delta: float) -> void:
 	if dead == true:
-		$AnimatedSprite.animation = "die"
+		$AnimatedSprite.animation = die
 		return
 	else:
-		$AnimatedSprite.animation = "idle1"
+		$AnimatedSprite.animation = idle
 	
 
 # Damage player upon collision
@@ -39,7 +51,7 @@ func take_damage(damage: float):
 
 func die():	
 	deathtimer.start()
-	$AnimatedSprite.animation = "die"
+	$AnimatedSprite.animation = die
 	$AnimatedSprite.play()
 	dead = true
 	

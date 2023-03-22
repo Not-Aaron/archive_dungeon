@@ -13,7 +13,7 @@ var velocity = Vector2.ZERO
 #onready var haskey=false
 onready var haskey=false
 func _ready():
-	pass
+	$AnimatedSprite.animation = "idle"
 	
 func _physics_process(_delta: float) -> void:
 	if isslowed == true:
