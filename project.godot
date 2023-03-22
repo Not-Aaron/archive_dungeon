@@ -257,7 +257,7 @@ window/size/height=1080
 
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "res://addons/color-palette/plugin.cfg" )
 
 [global]
 
