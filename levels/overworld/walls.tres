@@ -217,6 +217,7 @@ points = PoolVector2Array( 64, 120, 64, 168, 16, 168, 16, 120 )
 [sub_resource type="GDScript" id=53]
 
 [resource]
+resource_local_to_scene = true
 0/name = "tiles.png 0"
 0/texture = ExtResource( 2 )
 0/tex_offset = Vector2( 0, -120 )
