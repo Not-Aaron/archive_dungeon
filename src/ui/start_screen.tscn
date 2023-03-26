@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/fonts/VeniceClassic.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/ui/start_screen.gd" type="Script" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://assets/particles/stardust2.png" type="Texture" id=7]
 [ext_resource path="res://assets/particles/stardust3.png" type="Texture" id=8]
 [ext_resource path="res://assets/environments/background1280_720mk2.png" type="Texture" id=9]
-[ext_resource path="res://assets/themes/themes.tres" type="Theme" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
@@ -79,7 +78,6 @@ margin_left = 579.0
 margin_top = 143.0
 margin_right = 1398.0
 margin_bottom = 305.0
-theme = ExtResource( 10 )
 custom_fonts/font = SubResource( 1 )
 text = "Archive Dungeon"
 align = 1

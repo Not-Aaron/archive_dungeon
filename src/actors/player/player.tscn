@@ -101,6 +101,8 @@ one_shot = true
 
 [node name="weapon" parent="." instance=ExtResource( 12 )]
 
+[node name="atkcd" type="Timer" parent="weapon"]
+
 [node name="HealthBar" parent="." instance=ExtResource( 11 )]
 margin_left = -60.0
 margin_top = 33.0
@@ -123,5 +125,6 @@ visible = false
 current = true
 
 [connection signal="timeout" from="IFrameTimer" to="." method="_on_IFrameTimer_timeout"]
+[connection signal="timeout" from="weapon/atkcd" to="weapon" method="_on_Timer_timeout"]
 [connection signal="timeout" from="slowtimer" to="." method="_on_slowtimer_timeout"]
 [connection signal="timeout" from="hittimer" to="." method="_on_hittimer_timeout"]

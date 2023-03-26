@@ -27,7 +27,9 @@ func set_direction(direction: Vector2):
 func _on_KillTimer_timeout():
 	queue_free()
 
-
+func gettime() -> float:
+	return kill_timer.get_time_left()
+	
 func _on_Bullet_area_entered(area: Area2D) -> void:
 	if area.has_method("take_damage"):
 		area.take_damage(damage)
