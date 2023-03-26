@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://src/actors/player/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/right2.png" type="Texture" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://assets/player/itemfound2.png" type="Texture" id=14]
 [ext_resource path="res://assets/player/itemfound1.png" type="Texture" id=15]
 [ext_resource path="res://assets/player/useitem.png" type="Texture" id=16]
+[ext_resource path="res://assets/particles/whitelight.png" type="Texture" id=17]
+[ext_resource path="res://assets/environments/dimlight.png" type="Texture" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 24 )
@@ -123,6 +125,26 @@ wait_time = 0.3
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false
 current = true
+
+[node name="Light2D" type="Light2D" parent="."]
+z_index = 12
+z_as_relative = false
+texture = ExtResource( 17 )
+texture_scale = 5.0
+color = Color( 0.933333, 0.913725, 0.890196, 1 )
+energy = 0.3
+shadow_enabled = true
+shadow_color = Color( 0.933333, 0.901961, 0.788235, 1 )
+shadow_gradient_length = 258.6
+shadow_filter = 5
+shadow_filter_smooth = 64.0
+
+[node name="Light2D2" type="Light2D" parent="."]
+z_index = 13
+z_as_relative = false
+texture = ExtResource( 18 )
+color = Color( 0.0823529, 0.0392157, 0.0392157, 1 )
+energy = 0.5
 
 [connection signal="timeout" from="IFrameTimer" to="." method="_on_IFrameTimer_timeout"]
 [connection signal="timeout" from="weapon/atkcd" to="weapon" method="_on_Timer_timeout"]
