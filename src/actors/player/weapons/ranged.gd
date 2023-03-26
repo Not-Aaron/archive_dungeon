@@ -5,6 +5,9 @@ onready var attack = Slice
 	
 # Called when the node enters the scene tree for the first time.
 func shoot():
+	if $atkcd.time_left() !=0 and $atkcd.timeleft() :
+		$atkcd.start()
+
 	var bullet_instance = attack.instance()
 	var target = get_global_mouse_position()
 	var direction_to_mouse = global_position.direction_to(target).normalized()
@@ -18,3 +21,7 @@ func switch():
 			attack = Slice
 		Slice:
 			attack = Bullet
+
+
+func _on_atkcd_timeout():
+	pass # Replace with function body.

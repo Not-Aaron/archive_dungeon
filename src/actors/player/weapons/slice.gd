@@ -19,3 +19,6 @@ func _on_Slice_area_entered(area: Area2D) -> void:
 func _on_KillTimer_timeout() -> void:
 	queue_free()
 	
+func gettime() -> float:
+	return kill_timer.timeleft()
+	
