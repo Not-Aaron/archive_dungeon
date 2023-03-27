@@ -103,4 +103,22 @@ position = Vector2( 34, 24 )
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 9 )
 
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = 896.0
+margin_top = 544.0
+margin_right = 1088.0
+margin_bottom = 672.0
+theme = ExtResource( 6 )
+text = "WASD to Move
+Click to Shoot
+Shift to Switch Weapon
+"
+context_menu_enabled = false
+shortcut_keys_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
