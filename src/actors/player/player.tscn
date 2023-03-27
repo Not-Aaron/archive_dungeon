@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://src/actors/player/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/right2.png" type="Texture" id=2]
@@ -18,6 +18,13 @@
 [ext_resource path="res://assets/player/useitem.png" type="Texture" id=16]
 [ext_resource path="res://assets/particles/whitelight.png" type="Texture" id=17]
 [ext_resource path="res://assets/environments/dimlight.png" type="Texture" id=18]
+[ext_resource path="res://assets/GUI/buttonpressed1.png" type="Texture" id=19]
+[ext_resource path="res://assets/GUI/buttonunpressed1.png" type="Texture" id=20]
+[ext_resource path="res://assets/palette.bmp" type="Texture" id=21]
+[ext_resource path="res://assets/GUI/buttonunpressed2.png" type="Texture" id=22]
+[ext_resource path="res://assets/GUI/buttonpressed 2.png" type="Texture" id=23]
+[ext_resource path="res://assets/GUI/healthbar.png" type="Texture" id=24]
+[ext_resource path="res://assets/fonts/Orwell.ttf" type="DynamicFontData" id=25]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 24 )
@@ -85,6 +92,69 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="StyleBoxTexture" id=3]
+margin_right = 10.0491
+margin_top = 52.822
+margin_bottom = 57.0785
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 19 )
+region_rect = Rect2( 0, 0, 64, 32 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 20 )
+region_rect = Rect2( 0, 0, 64, 32 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 20 )
+region_rect = Rect2( 0, 0, 64, 32 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 22 )
+region_rect = Rect2( 0, 0, 64, 32 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 23 )
+region_rect = Rect2( 0, 0, 64, 32 )
+
+[sub_resource type="DynamicFont" id=11]
+font_data = ExtResource( 25 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 24 )
+region_rect = Rect2( 0, 0, 45, 21 )
+
+[sub_resource type="StyleBoxTexture" id=12]
+texture = ExtResource( 24 )
+region_rect = Rect2( 0, 0, 45, 21 )
+modulate_color = Color( 0.372549, 0.513726, 0.247059, 1 )
+
+[sub_resource type="Theme" id=13]
+resource_local_to_scene = true
+default_font = SubResource( 11 )
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/styles/buttontexture = SubResource( 3 )
+Button/styles/disabled = SubResource( 4 )
+Button/styles/focus = SubResource( 5 )
+Button/styles/hover = SubResource( 6 )
+Button/styles/normal = SubResource( 7 )
+Button/styles/pressed = SubResource( 8 )
+ColorPicker/icons/add_preset = null
+ColorPicker/icons/color_hue = null
+ColorPicker/icons/color_sample = ExtResource( 21 )
+ColorPicker/icons/overbright_indicator = null
+Fonts/fonts/large = SubResource( 11 )
+Fonts/fonts/normal = SubResource( 11 )
+ProgressBar/colors/font_color = Color( 0.94, 0.94, 0.94, 1 )
+ProgressBar/colors/font_color_shadow = Color( 0, 0, 0, 1 )
+ProgressBar/styles/bg = SubResource( 9 )
+ProgressBar/styles/fg = SubResource( 12 )
+
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 4
 script = ExtResource( 1 )
@@ -110,6 +180,7 @@ margin_left = -60.0
 margin_top = 33.0
 margin_right = 60.0
 margin_bottom = 47.0
+theme = SubResource( 13 )
 
 [node name="slowtimer" type="Timer" parent="."]
 
@@ -127,12 +198,13 @@ visible = false
 current = true
 
 [node name="Light2D" type="Light2D" parent="."]
+visible = false
 z_index = 12
 z_as_relative = false
 texture = ExtResource( 17 )
 texture_scale = 5.0
 color = Color( 0.933333, 0.913725, 0.890196, 1 )
-energy = 0.3
+energy = 1.11
 shadow_enabled = true
 shadow_color = Color( 0.933333, 0.901961, 0.788235, 1 )
 shadow_gradient_length = 258.6
@@ -140,6 +212,7 @@ shadow_filter = 5
 shadow_filter_smooth = 64.0
 
 [node name="Light2D2" type="Light2D" parent="."]
+visible = false
 z_index = 13
 z_as_relative = false
 texture = ExtResource( 18 )

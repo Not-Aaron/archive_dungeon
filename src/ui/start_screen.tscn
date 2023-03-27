@@ -80,7 +80,6 @@ align = 1
 position = Vector2( 387, 50 )
 amount = 40
 preprocess = 2.75
-explosiveness = 1.0
 fixed_fps = 60
 fract_delta = false
 process_material = SubResource( 6 )

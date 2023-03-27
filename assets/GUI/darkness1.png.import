@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gridtilefloor.png-bbbb9b4e537d171e52eeb9f68f7b5fa4.stex"
+path="res://.import/darkness1.png-9b6e29e8d1b82b22c4b5f5a3c869b6d8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environments/gridtilefloor.png"
-dest_files=[ "res://.import/gridtilefloor.png-bbbb9b4e537d171e52eeb9f68f7b5fa4.stex" ]
+source_file="res://assets/GUI/darkness1.png"
+dest_files=[ "res://.import/darkness1.png-9b6e29e8d1b82b22c4b5f5a3c869b6d8.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

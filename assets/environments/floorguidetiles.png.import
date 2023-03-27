@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gridtilefloor.png-bbbb9b4e537d171e52eeb9f68f7b5fa4.stex"
+path="res://.import/floorguidetiles.png-a93293cf443b863e919dd28cf6fd8191.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environments/gridtilefloor.png"
-dest_files=[ "res://.import/gridtilefloor.png-bbbb9b4e537d171e52eeb9f68f7b5fa4.stex" ]
+source_file="res://assets/environments/floorguidetiles.png"
+dest_files=[ "res://.import/floorguidetiles.png-a93293cf443b863e919dd28cf6fd8191.stex" ]
 
 [params]
 
