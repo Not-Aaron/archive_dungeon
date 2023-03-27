@@ -2,8 +2,8 @@ extends Area2D
 
 onready var player = $"../Player"
 export var aggro_radius = 500
-export var speed = 600
-var health = 20
+export var speed = 100
+var health = 200
 var damage = 10
 var max_health = 20
 var velocity = Vector2.ZERO
@@ -38,6 +38,9 @@ func _process(delta: float) -> void:
 	$AnimatedSprite.animation = "walk"
 	$AnimatedSprite.play()
 	velocity = speed*position.direction_to(player.position)
+	#$Particles2D.gravity(velocity.x,velocity.y)
+	#$Paritcles2d
+#	have gravity follow behind ghosts
 	position += velocity * delta
 	
 
