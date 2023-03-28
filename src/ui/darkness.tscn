@@ -12,7 +12,6 @@ z_index = 15
 z_as_relative = false
 texture = ExtResource( 1 )
 mode = 3
-shadow_enabled = true
 shadow_color = Color( 0.0823529, 0.0392157, 0.0392157, 1 )
 shadow_gradient_length = 194.4
 shadow_filter = 1
