@@ -14,7 +14,6 @@ func _ready():
 	kill_timer.start()
 	$AnimatedSprite.animation = "shot"
 	$AnimatedSprite.play()
-	#var my_random_number = rng.randf_range(.5, 1.5)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float):
 	if direction != Vector2.ZERO:
@@ -23,22 +22,15 @@ func _physics_process(_delta: float):
 		
 		global_position += velocity
 	spin+=1
-	#self.set_rotation(spin)
+	
 	
 	
 func set_direction(direction: Vector2):
 	self.direction = direction 
-	
+
 
 func _on_KillTimer_timeout():
-	
-	
 	queue_free()
-
-
-
-
-
 
 func _on_tricklestardust_body_entered(body):
 	if body.has_method("take_damage"):

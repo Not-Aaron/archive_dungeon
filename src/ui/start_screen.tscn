@@ -1,13 +1,11 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/fonts/VeniceClassic.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/ui/start_screen.gd" type="Script" id=2]
 [ext_resource path="res://levels/overworld/main.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/particles/stardust.png" type="Texture" id=4]
+[ext_resource path="res://assets/particles/stardust_texture_animated.tres" type="Texture" id=4]
 [ext_resource path="res://addons/rmsmartshape/assets/GUI_Theme.tres" type="Theme" id=5]
 [ext_resource path="res://src/widgettheme1.tres" type="Theme" id=6]
-[ext_resource path="res://assets/particles/stardust2.png" type="Texture" id=7]
-[ext_resource path="res://assets/particles/stardust3.png" type="Texture" id=8]
 [ext_resource path="res://assets/environments/background1280_720mk2.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
@@ -33,13 +31,11 @@ orbit_velocity = 1.0
 orbit_velocity_random = 0.0
 orbit_velocity_curve = SubResource( 8 )
 
-[sub_resource type="AnimatedTexture" id=5]
-frames = 3
-frame_0/texture = ExtResource( 4 )
-frame_1/texture = ExtResource( 7 )
-frame_1/delay_sec = 0.0
-frame_2/texture = ExtResource( 8 )
-frame_2/delay_sec = 0.0
+[sub_resource type="ParticlesMaterial" id=11]
+flag_disable_z = true
+gravity = Vector3( 0, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
 
 [sub_resource type="Shader" id=10]
 
@@ -83,7 +79,11 @@ preprocess = 2.75
 fixed_fps = 60
 fract_delta = false
 process_material = SubResource( 6 )
-texture = SubResource( 5 )
+texture = ExtResource( 4 )
+
+[node name="Particles2D" type="Particles2D" parent="Title"]
+process_material = SubResource( 11 )
+texture = ExtResource( 4 )
 
 [node name="StartButton" type="Button" parent="."]
 anchor_right = 1.0
@@ -102,5 +102,23 @@ position = Vector2( 34, 24 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 9 )
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = 896.0
+margin_top = 544.0
+margin_right = 1088.0
+margin_bottom = 672.0
+theme = ExtResource( 6 )
+text = "WASD to Move
+Click to Shoot
+Shift to Switch Weapon
+"
+context_menu_enabled = false
+shortcut_keys_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
