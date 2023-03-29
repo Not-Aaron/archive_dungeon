@@ -30,7 +30,7 @@ func _ready():
 func _physics_process(_delta: float) -> void:
 	
 	
-	file.open("")
+	#file.open("")
 	
 	
 	
