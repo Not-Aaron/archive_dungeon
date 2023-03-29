@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dilatedtiles.png-b021eb4c42960cdb4b4cea411cfb531f.stex"
+path="res://.import/fademap.png-1b4bd8e0833f0864ca9eb98a53ef5dcc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environments/dilatedtiles.png"
-dest_files=[ "res://.import/dilatedtiles.png-b021eb4c42960cdb4b4cea411cfb531f.stex" ]
+source_file="res://assets/particles/fademap.png"
+dest_files=[ "res://.import/fademap.png-1b4bd8e0833f0864ca9eb98a53ef5dcc.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

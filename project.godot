@@ -270,6 +270,7 @@ enabled=PoolStringArray( "res://addons/color-palette/plugin.cfg" )
 fullscreen=false
 fullscreen\=false
 filter=false
+import=false
 
 [gui]
 

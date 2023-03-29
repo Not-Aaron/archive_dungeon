@@ -142,14 +142,26 @@ texture = ExtResource( 3 )
 [node name="wasd2move" parent="." instance=ExtResource( 10 )]
 position = Vector2( -597, 431 )
 texture = ExtResource( 3 )
+initial = 0.5
+intensity = 0.03
 texture = ExtResource( 3 )
+maximum = 4.0
+minimum = 0.0
 
 [node name="shift2switch" parent="." instance=ExtResource( 10 )]
 position = Vector2( -522, -116 )
 texture = ExtResource( 5 )
+initial = 0.25
+intensity = 0.03
 texture = ExtResource( 5 )
+maximum = 4.0
+minimum = 0.0
 
 [node name="click2atk" parent="." instance=ExtResource( 10 )]
 position = Vector2( -472, 273 )
 texture = ExtResource( 8 )
+initial = 0.0
+intensity = 0.03
 texture = ExtResource( 8 )
+maximum = 4.0
+minimum = 0.0

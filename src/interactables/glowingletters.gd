@@ -1,9 +1,10 @@
 extends Node2D
 class_name GlowingLetters
-var i = 2
-var j = 0.1
+export (float) var initial = 2
+export (float) var intensity = 0.1
 export (Texture) var texture
-
+export (float) var maximum = 5
+export (float) var minimum = 1
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -18,8 +19,8 @@ func _ready():
 func _physics_process(_delta: float):
 	$Sprite.set_texture(texture)
 	$lights.set_texture(texture)
-	i+=j
-	if ( i >=5 ) or ( i <= 1 ):
-		j = j * -1
+	initial+=intensity
+	if ( initial >= maximum ) or ( initial <= minimum ):
+		intensity = intensity * -1
 	
-	$lights.set_energy(i)
+	$lights.set_energy(initial)

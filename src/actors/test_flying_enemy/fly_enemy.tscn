@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://src/actors/test_flying_enemy/fly_enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/enemy/ghost/move1.png" type="Texture" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://assets/fonts/Orwell.ttf" type="DynamicFontData" id=19]
 [ext_resource path="res://assets/particles/stardust.png" type="Texture" id=20]
 [ext_resource path="res://assets/ghost copy.png" type="Texture" id=21]
+[ext_resource path="res://assets/enemy/hit.png" type="Texture" id=22]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -166,8 +167,10 @@ Slice = null
 [node name="deathtimer" type="Timer" parent="."]
 
 [node name="sound" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2( 0.998492, 1 )
 stream = ExtResource( 12 )
 volume_db = 6.0
+pitch_scale = 0.01
 
 [node name="Particles2D" type="Particles2D" parent="."]
 material = SubResource( 14 )
@@ -183,7 +186,7 @@ shape = SubResource( 13 )
 [node name="Particles2D2" type="Particles2D" parent="."]
 material = SubResource( 14 )
 position = Vector2( -1, 3 )
-z_index = -1
+z_index = -4
 randomness = 1.0
 process_material = SubResource( 16 )
 texture = ExtResource( 21 )
@@ -191,6 +194,10 @@ texture = ExtResource( 21 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Particles2D2"]
 position = Vector2( 0, -13 )
 shape = SubResource( 13 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 22 )
+texture_scale = 2.79
 
 [connection signal="body_entered" from="." to="." method="_on_FlyingEnemy_body_entered"]
 [connection signal="timeout" from="deathtimer" to="." method="_on_deathtimer_timeout"]
