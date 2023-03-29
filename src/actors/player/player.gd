@@ -1,9 +1,21 @@
 extends KinematicBody2D
 class_name Player
 onready var weapon = $weapon
-var health = 100
-var max_health = 100
+export (float) var health = 100
+export (float) var max_health = 100
 var vulnerable = true
+export (float) var clearance = 0
+export (float) var clearance_requirement = 0
+export (PackedScene) var weaponequipped
+var file = File.new()
+
+
+#system that first checks the file, then adds stuff to it
+
+
+
+
+
 onready var slowtimer = $slowtimer
 onready var isslowed = false
 export(String, FILE, "*.tscn") var path_to_start
@@ -16,6 +28,12 @@ func _ready():
 	$AnimatedSprite.animation = "idle"
 	
 func _physics_process(_delta: float) -> void:
+	
+	
+	file.open("")
+	
+	
+	
 	if isslowed == true:
 		
 		var newvelocity = velocity #* slow
@@ -120,4 +138,8 @@ func _on_slowtimer_timeout():
 
 func _on_hittimer_timeout():
 	$hit.stop()# Replace with function body.
+
+#func get_stats(float hp, float maxhp) -> list:
+	health 
 	
+#func set_stats

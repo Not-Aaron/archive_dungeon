@@ -10,24 +10,6 @@
 [ext_resource path="res://assets/fonts/Punktype.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://assets/environments/background1280_720mk2.png" type="Texture" id=9]
 
-[sub_resource type="DynamicFont" id=12]
-font_data = ExtResource( 8 )
-
-[sub_resource type="Theme" id=13]
-default_font = SubResource( 12 )
-Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
-Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
-Button/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
-Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
-Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
-Button/constants/hseparation = 2
-Button/fonts/font = SubResource( 12 )
-Button/styles/disabled = null
-Button/styles/focus = null
-Button/styles/hover = null
-Button/styles/normal = null
-Button/styles/pressed = null
-
 [sub_resource type="Curve" id=7]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.977528, 1 ), 0.0, 0.0, 0, 0 ]
 
@@ -52,6 +34,24 @@ flag_disable_z = true
 gravity = Vector3( 0, 98, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
+
+[sub_resource type="DynamicFont" id=12]
+font_data = ExtResource( 8 )
+
+[sub_resource type="Theme" id=13]
+default_font = SubResource( 12 )
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = SubResource( 12 )
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
 
 [sub_resource type="Shader" id=10]
 
@@ -93,6 +93,20 @@ texture = ExtResource( 1 )
 
 [node name="Particles2D" type="Particles2D" parent="Glowing_Letters"]
 
+[node name="stardust" type="Particles2D" parent="."]
+position = Vector2( 966, 193 )
+amount = 40
+preprocess = 2.75
+fixed_fps = 60
+fract_delta = false
+process_material = SubResource( 6 )
+texture = ExtResource( 4 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 970, 194 )
+process_material = SubResource( 11 )
+texture = ExtResource( 4 )
+
 [node name="Title" type="Label" parent="."]
 margin_left = 579.0
 margin_top = 143.0
@@ -101,19 +115,6 @@ margin_bottom = 305.0
 theme = SubResource( 13 )
 text = "Archive Dungeon"
 align = 1
-
-[node name="stardust" type="Particles2D" parent="Title"]
-position = Vector2( 387, 50 )
-amount = 40
-preprocess = 2.75
-fixed_fps = 60
-fract_delta = false
-process_material = SubResource( 6 )
-texture = ExtResource( 4 )
-
-[node name="Particles2D" type="Particles2D" parent="Title"]
-process_material = SubResource( 11 )
-texture = ExtResource( 4 )
 
 [node name="StartButton" type="Button" parent="."]
 anchor_right = 1.0

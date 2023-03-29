@@ -91,5 +91,5 @@ z_index = 16
 z_as_relative = false
 texture = ExtResource( 7 )
 texture_scale = 4.0
-energy = 1.41
+energy = 0.5
 mode = 2

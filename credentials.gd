@@ -1,17 +1,21 @@
 extends ProgressBar
-# player wiill have to kill n number of enemies to get high enough credentials to enter deeper into the archives
-#higher credentials means more skill points
+
 
 # Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+# var a: int = 2
+# var b: String = "text"
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta: float) -> void:
+	var parent = get_parent()
+	if parent:
+		value = parent.clearance*100/parent.clearance_requirement
+		
+		$TextEdit.text = String(parent.clearance + "/" + parent.clearance_requirement)
+		
