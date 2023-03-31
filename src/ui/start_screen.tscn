@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/fonts/VeniceClassic.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/ui/start_screen.gd" type="Script" id=2]
@@ -30,12 +30,6 @@ initial_velocity_random = 1.0
 orbit_velocity = 1.0
 orbit_velocity_random = 0.0
 orbit_velocity_curve = SubResource( 8 )
-
-[sub_resource type="ParticlesMaterial" id=11]
-flag_disable_z = true
-gravity = Vector3( 0, 98, 0 )
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
 
 [sub_resource type="Shader" id=10]
 
@@ -79,10 +73,6 @@ preprocess = 2.75
 fixed_fps = 60
 fract_delta = false
 process_material = SubResource( 6 )
-texture = ExtResource( 4 )
-
-[node name="Particles2D" type="Particles2D" parent="Title"]
-process_material = SubResource( 11 )
 texture = ExtResource( 4 )
 
 [node name="StartButton" type="Button" parent="."]
