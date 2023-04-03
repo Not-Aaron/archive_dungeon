@@ -197,7 +197,6 @@ wait_time = 0.5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( -5.5, 5.5 )
 shape = SubResource( 14 )
-disabled = true
 
 [connection signal="timeout" from="phase" to="." method="_on_phase_timeout"]
 [connection signal="timeout" from="attack1" to="." method="_on_attack1_timeout"]

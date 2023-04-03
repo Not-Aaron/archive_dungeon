@@ -184,6 +184,7 @@ margin_bottom = 47.0
 theme = SubResource( 13 )
 
 [node name="slowtimer" type="Timer" parent="."]
+wait_time = 5.0
 
 [node name="HUD" parent="." instance=ExtResource( 10 )]
 

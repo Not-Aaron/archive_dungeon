@@ -70,13 +70,16 @@ func die():
 	dead = true
 	#queue_free()
 	
+	
 func _on_attackcooldown_timeout():
+	
 	attack(attackdmg)
 	#queue_free()
 	#pass()
-
+	
 
 func _on_Tarenemy_body_entered(body):
+	
 	if body == player:
 		if player.vulnerable and dead == false:
 			$AnimatedSprite.animation = "attack"

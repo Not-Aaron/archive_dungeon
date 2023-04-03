@@ -4,7 +4,7 @@ export (int) var speed = 20
 
 var direction := Vector2.ZERO
 var spin = PI
-var damage = 1
+var damage = 10
 onready var kill_timer = $KillTimer
 #var rng = RandomNumberGenerator.new()
 

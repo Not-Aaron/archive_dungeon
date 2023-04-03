@@ -5,8 +5,9 @@ var health = 100
 var max_health = 100
 var vulnerable = true
 onready var slowtimer = $slowtimer
-onready var isslowed = false
+var isslowed = false
 export(String, FILE, "*.tscn") var path_to_start
+#const physics = preload("physics.gd")
 const physics = preload("physics.gd")
 var physicsType = physics.Default
 var velocity = Vector2.ZERO
@@ -16,11 +17,16 @@ func _ready():
 	$AnimatedSprite.animation = "idle"
 	
 func _physics_process(_delta: float) -> void:
-	print(isslowed)
+	#print(isslowed)
 	if isslowed == true:
-		
-		var newvelocity = velocity #* slow
-		velocity = move_and_slide(physicsType.calculate_move_velocity(newvelocity, get_direction()))
+		#print(velocity)
+		var newvelocity = velocity 
+		newvelocity.x = velocity.x * 0.1 #* slow
+		newvelocity.y = velocity.y * 0.1
+		#print(newvelocity)
+		#print(haskey)
+		#print(velocity)
+		velocity = move_and_slide(physicsType.calculate_move_velocity(newvelocity, get_direction())) * 0.1
 	else:
 		
 		velocity = move_and_slide(physicsType.calculate_move_velocity(velocity, get_direction()))
@@ -44,10 +50,11 @@ func _physics_process(_delta: float) -> void:
 		#$AnimatedSprite.flip_v = velocity.y > 0
 
 func get_direction() -> Vector2:
-	if isslowed == true:
-		var input=Vector2(Input.get_action_strength("move_right")-Input.get_action_strength("move_left"), Input.get_action_strength("move_down")-Input.get_action_strength("move_up"))
-		var slow = Vector2(0.5,0.5)
-		return input*slow
+#	if isslowed == true:
+#		var input=Vector2(Input.get_action_strength("move_right")-Input.get_action_strength("move_left"), Input.get_action_strength("move_down")-Input.get_action_strength("move_up"))
+#		var slow = Vector2(0.5,0.5)
+#		print(isslowed)
+#		return input*slow
 	return Vector2(Input.get_action_strength("move_right")-Input.get_action_strength("move_left"), Input.get_action_strength("move_down")-Input.get_action_strength("move_up"))
 func _input(event):
 	if event is InputEventMouseButton:
@@ -73,10 +80,12 @@ func take_damage(damage: float):
 		$IFrameTimer.start()
 		
 func take_slow():
-	slowtimer.start()
+	if isslowed == false:
+		slowtimer.start()
+	#print(isslowed)
 	#if not vulnerable:
 	#	return
-	var isslowed = true 
+		isslowed = true 
 	#if health <= 0:
 	#	die()
 	#else:
@@ -116,7 +125,7 @@ func _on_IFrameTimer_timeout() -> void:
 
 
 func _on_slowtimer_timeout():
-	var isslowed=false # Replace with function body.
+	 isslowed=false # Replace with function body.
 
 
 func _on_hittimer_timeout():
