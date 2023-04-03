@@ -15,7 +15,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var parent = get_parent()
 	if parent:
-		value = parent.clearance*100/parent.clearance_requirement
+		if parent.clearance_requirement >=1:
+			value = parent.clearance*100 / parent.clearance_requirement
+		else: 
+			value = 100
 		
-		$TextEdit.text = String(parent.clearance + "/" + parent.clearance_requirement)
+		$TextEdit.text = String(parent.clearance) + "/" + String(parent.clearance_requirement)
 		

@@ -2,7 +2,7 @@ extends Area2D
 
 onready var player = $"../Player"
 
-var health = 200
+export (float) var health = 200
 var max_health = 200
 var velocity = Vector2.ZERO
 

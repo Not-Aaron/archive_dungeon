@@ -68,6 +68,7 @@ func die():
 	$AnimatedSprite.animation = "die"
 	$AnimatedSprite.play()
 	dead = true
+	player.take_credentials(1)
 	#queue_free()
 	
 	

@@ -8,7 +8,7 @@ var damage = 10
 var max_health = 2000
 var velocity = Vector2.ZERO
 onready var attack = $attack1
-
+export (PackedScene) var target
 onready var deathtimer = $deathtimer
 onready var cooldowntimer = $cooldowntimer
 onready var weapon = $weapon
@@ -74,6 +74,7 @@ func die():
 	$AnimatedSprite.animation = "die"
 	$AnimatedSprite.play()
 	dead = true
+	get_tree().change_scene_to(target)
 func attack():
 		var target = player.position
 		weapon.attack(target)

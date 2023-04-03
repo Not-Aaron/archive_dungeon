@@ -66,7 +66,7 @@ func die():
 	$AnimatedSprite.play()
 	
 	dead = true
-
+	player.take_credentials(1)
 
 func _on_deathtimer_timeout():
 	queue_free() # Replace with function body.

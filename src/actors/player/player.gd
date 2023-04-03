@@ -1,6 +1,9 @@
 extends KinematicBody2D
 class_name Player
 onready var weapon = $weapon
+var clearance = 0
+#maybe the clearance requirement should all be taken from what the level scene is. For instance lock doors are not manually entered credentials but taken from the level.
+export (float) var clearance_requirement = 0
 var health = 100
 var max_health = 100
 var vulnerable = true
@@ -64,7 +67,8 @@ func _unhandled_input(event: InputEvent):
 		weapon.shoot()
 	if event.is_action_released("switch"):
 		weapon.switch()
-	
+func take_credentials(creds: float):
+	clearance += 1	
 func take_damage(damage: float):
 	if not vulnerable:
 		return
@@ -130,4 +134,6 @@ func _on_slowtimer_timeout():
 
 func _on_hittimer_timeout():
 	$hit.stop()# Replace with function body.
-	
+
+func get_credentials():
+	return clearance

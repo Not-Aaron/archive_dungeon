@@ -1,6 +1,7 @@
 extends Area2D
 
 export (PackedScene) var target
+export (float) var credentials_requirement = 0
 onready var player = $"../Player"
 
 # Called when the node enters the scene tree for the first time.
@@ -25,12 +26,15 @@ func _on_dooranimation_timeout():
 func _on_lockeddoor_body_entered(body: Node) -> void:
 	if body == player:
 		if player.check_key()==true:
-			$dooranimation.start()
-			$AnimatedSprite.animation = "open"
+			if player.get_credentials() >= credentials_requirement:
+				$dooranimation.start()
+				$AnimatedSprite.animation = "open"
+			else:
+				$AnimatedSprite.animation = "denied"
 		if player.check_key()==false:
 			$AnimatedSprite.animation = "denied"
 
 
 func _on_lockeddoor_body_exited(body):
-	if player.haskey==false:
+	if player.haskey==false or player.get_credentials() >= credentials_requirement:
 		$AnimatedSprite.animation = "locked" # Replace with function body.

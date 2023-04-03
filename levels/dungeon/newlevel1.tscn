@@ -31,6 +31,7 @@ target = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1823, 988 )
+clearance_requirement = 5.0
 
 [node name="darkness" parent="Player" instance=ExtResource( 8 )]
 position = Vector2( 1, 4 )
@@ -81,10 +82,12 @@ position = Vector2( 2060, 1005 )
 
 [node name="debris" parent="." instance=ExtResource( 9 )]
 position = Vector2( -397, 575 )
+health = 40.0
 
 [node name="lockeddoor" parent="." instance=ExtResource( 10 )]
 position = Vector2( -608, 39 )
 target = ExtResource( 12 )
+credentials_requirement = 5.0
 
 [node name="walls" type="TileMap" parent="."]
 z_index = 4
