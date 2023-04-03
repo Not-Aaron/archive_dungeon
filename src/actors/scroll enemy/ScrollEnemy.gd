@@ -71,6 +71,7 @@ func die():
 	$AnimatedSprite.animation = "die"
 	$AnimatedSprite.play()
 	dead = true
+	player.take_credentials(1)
 	#queue_free()
 	
 func _on_attackcooldown_timeout():

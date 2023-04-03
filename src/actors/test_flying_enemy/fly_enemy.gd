@@ -5,7 +5,7 @@ export var aggro_radius = 500
 export var speed = 100
 var health = 200
 var damage = 10
-var max_health = 20
+var max_health = 200
 var velocity = Vector2.ZERO
 onready var dead = false
 
@@ -66,7 +66,7 @@ func die():
 	$AnimatedSprite.play()
 	
 	dead = true
-
+	player.take_credentials(1)
 
 func _on_deathtimer_timeout():
 	queue_free() # Replace with function body.

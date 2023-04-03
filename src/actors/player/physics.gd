@@ -13,7 +13,7 @@ func _ready() -> void:
 
 
 class Default:
-	
+
 	const speed = 500.0
 	
 	static func calculate_move_velocity(

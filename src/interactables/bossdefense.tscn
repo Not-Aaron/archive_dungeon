@@ -1,49 +1,42 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=24 format=2]
 
-[ext_resource path="res://assets/enemy/frozen head boss/mr prsident.png" type="Texture" id=1]
-[ext_resource path="res://src/environment/mrpresident.gd" type="Script" id=2]
-[ext_resource path="res://assets/audio/ew ew ew wssshhhhhhh.wav" type="AudioStream" id=3]
-[ext_resource path="res://src/ui/health_bar.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/actors/player/weapons/ranged.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/actors/player/weapons/mrpresidentweapon.gd" type="Script" id=6]
-[ext_resource path="res://src/actors/tar enemy/tarenemy.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/actors/tar enemy/tar.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/enemy/frozen head boss/die5.png" type="Texture" id=9]
-[ext_resource path="res://assets/enemy/frozen head boss/die2.png" type="Texture" id=10]
-[ext_resource path="res://assets/enemy/frozen head boss/die3.png" type="Texture" id=11]
-[ext_resource path="res://assets/enemy/frozen head boss/die4.png" type="Texture" id=12]
-[ext_resource path="res://assets/enemy/frozen head boss/die6.png" type="Texture" id=13]
-[ext_resource path="res://assets/enemy/frozen head boss/die1.png" type="Texture" id=14]
-[ext_resource path="res://assets/enemy/frozen head boss/die7.png" type="Texture" id=15]
-[ext_resource path="res://src/actors/mr president fight/tricklestar.tscn" type="PackedScene" id=16]
-[ext_resource path="res://assets/palette.bmp" type="Texture" id=17]
-[ext_resource path="res://assets/GUI/healthbar.png" type="Texture" id=18]
-[ext_resource path="res://assets/GUI/buttonunpressed1.png" type="Texture" id=19]
-[ext_resource path="res://assets/GUI/buttonunpressed2.png" type="Texture" id=20]
-[ext_resource path="res://assets/GUI/buttonpressed 2.png" type="Texture" id=21]
-[ext_resource path="res://assets/GUI/buttonpressed1.png" type="Texture" id=22]
-[ext_resource path="res://assets/fonts/Orwell.ttf" type="DynamicFontData" id=23]
+[ext_resource path="res://assets/palette.bmp" type="Texture" id=1]
+[ext_resource path="res://assets/GUI/healthbar.png" type="Texture" id=2]
+[ext_resource path="res://assets/GUI/buttonunpressed1.png" type="Texture" id=3]
+[ext_resource path="res://assets/GUI/buttonunpressed2.png" type="Texture" id=4]
+[ext_resource path="res://assets/GUI/buttonpressed 2.png" type="Texture" id=5]
+[ext_resource path="res://assets/GUI/buttonpressed1.png" type="Texture" id=6]
+[ext_resource path="res://assets/items/mrpresidentdefense.png" type="Texture" id=7]
+[ext_resource path="res://assets/items/mrpresidentdefensedead.png" type="Texture" id=8]
+[ext_resource path="res://src/ui/health_bar.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/fonts/Orwell.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://src/interactables/debris.gd" type="Script" id=13]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 66.5, 80 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [  ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "attack",
+"name": "die1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 15 ) ],
-"loop": false,
-"name": "die",
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "die2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "walk",
+"name": "idle1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "idle2",
 "speed": 5.0
 } ]
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 104, 147.5 )
 
 [sub_resource type="StyleBoxTexture" id=3]
 margin_right = 10.0491
@@ -51,34 +44,34 @@ margin_top = 52.822
 margin_bottom = 57.0785
 
 [sub_resource type="StyleBoxTexture" id=4]
-texture = ExtResource( 22 )
+texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 64, 32 )
 
 [sub_resource type="StyleBoxTexture" id=5]
-texture = ExtResource( 19 )
+texture = ExtResource( 3 )
 region_rect = Rect2( 0, 0, 64, 32 )
 
 [sub_resource type="StyleBoxTexture" id=6]
-texture = ExtResource( 19 )
+texture = ExtResource( 3 )
 region_rect = Rect2( 0, 0, 64, 32 )
 
 [sub_resource type="StyleBoxTexture" id=7]
-texture = ExtResource( 20 )
+texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 64, 32 )
 
 [sub_resource type="StyleBoxTexture" id=8]
-texture = ExtResource( 21 )
+texture = ExtResource( 5 )
 region_rect = Rect2( 0, 0, 64, 32 )
 
 [sub_resource type="DynamicFont" id=11]
-font_data = ExtResource( 23 )
+font_data = ExtResource( 12 )
 
 [sub_resource type="StyleBoxTexture" id=9]
-texture = ExtResource( 18 )
+texture = ExtResource( 2 )
 region_rect = Rect2( 0, 0, 45, 21 )
 
 [sub_resource type="StyleBoxTexture" id=12]
-texture = ExtResource( 18 )
+texture = ExtResource( 2 )
 region_rect = Rect2( 0, 0, 45, 21 )
 modulate_color = Color( 0.372549, 0.513726, 0.247059, 1 )
 
@@ -99,7 +92,7 @@ Button/styles/normal = SubResource( 7 )
 Button/styles/pressed = SubResource( 8 )
 ColorPicker/icons/add_preset = null
 ColorPicker/icons/color_hue = null
-ColorPicker/icons/color_sample = ExtResource( 17 )
+ColorPicker/icons/color_sample = ExtResource( 1 )
 ColorPicker/icons/overbright_indicator = null
 Fonts/fonts/large = SubResource( 11 )
 Fonts/fonts/normal = SubResource( 11 )
@@ -146,59 +139,40 @@ TextEdit/styles/focus = null
 TextEdit/styles/normal = null
 TextEdit/styles/read_only = null
 
-[sub_resource type="RectangleShape2D" id=14]
-extents = Vector2( 104.5, 143.5 )
-
-[node name="mrpresident" type="Area2D"]
-script = ExtResource( 2 )
-TarEnemy = ExtResource( 7 )
-presidentattack = ExtResource( 8 )
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 1 )
-animation = "walk"
+[node name="debris" type="Area2D"]
+script = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -5, 7 )
+position = Vector2( -1.5, 2 )
 shape = SubResource( 2 )
+one_way_collision_margin = 0.0
 
-[node name="HealthBar" parent="." instance=ExtResource( 4 )]
-margin_left = -48.0
-margin_top = 164.0
-margin_right = 52.0
-margin_bottom = 185.0
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 1 )
+animation = "die2"
+
+[node name="HealthBar" parent="." instance=ExtResource( 11 )]
+margin_left = -23.0
+margin_top = 16.0
+margin_right = 17.0
+margin_bottom = 37.0
 theme = SubResource( 13 )
 
-[node name="phase" type="Timer" parent="."]
-wait_time = 30.0
-
-[node name="weapon" parent="." instance=ExtResource( 5 )]
-script = ExtResource( 6 )
-TarEnemy = ExtResource( 7 )
-presidentattack = ExtResource( 16 )
-
 [node name="deathtimer" type="Timer" parent="."]
-
-[node name="sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 3 )
-volume_db = 6.0
-
-[node name="attack1" type="Timer" parent="."]
-wait_time = 3.0
-
-[node name="attack2" type="Timer" parent="."]
-wait_time = 3.0
-
-[node name="cooldowntimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( -5.5, 5.5 )
-shape = SubResource( 14 )
+position = Vector2( 0, -2.5 )
+shape = SubResource( 2 )
+one_way_collision_margin = 0.0
 
-[connection signal="timeout" from="phase" to="." method="_on_phase_timeout"]
-[connection signal="timeout" from="attack1" to="." method="_on_attack1_timeout"]
-[connection signal="timeout" from="attack2" to="." method="_on_attack2_timeout"]
-[connection signal="timeout" from="cooldowntimer" to="." method="_on_cooldowntimer_timeout"]
+[node name="regen" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="slow aura" type="CollisionShape2D" parent="."]
+
+[connection signal="timeout" from="deathtimer" to="." method="_on_deathtimer_timeout"]
+[connection signal="timeout" from="regen" to="." method="_on_regen_timeout"]

@@ -5,6 +5,7 @@ onready var attack = Slice
 onready var cooldown = false
 	
 # Called when the node enters the scene tree for the first time.
+
 func shoot():
 	#if $atkcd.is_stopped() == false or $atkcd.get_time_left()!=0:
 		#return

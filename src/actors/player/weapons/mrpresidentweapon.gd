@@ -5,6 +5,12 @@ onready var player = $"../Player"
 onready var attack = presidentattack
 var rng = RandomNumberGenerator.new()
 
+func get_target():
+	if player:
+		return player.position
+	else:
+		return Vector2.ZERO
+
 func attack(target:Vector2):
 	if attack==TarEnemy:
 		attack2()
@@ -29,6 +35,7 @@ func attack1(target:Vector2):
 	var y = rng.randf_range(-10, 10)
 	var randomtarg = Vector2(x,y) * target
 	bullet_instance.set_direction(randomtarg)
+	bullet_instance.set_direction(target)
 	#bullet_instance.set_direction(target)
 	get_parent().get_parent().add_child(bullet_instance)
 	bullet_instance.global_position = global_position

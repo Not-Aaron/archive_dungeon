@@ -8,7 +8,7 @@ var damage = 10
 var max_health = 2000
 var velocity = Vector2.ZERO
 onready var attack = $attack1
-
+export (PackedScene) var target
 onready var deathtimer = $deathtimer
 onready var cooldowntimer = $cooldowntimer
 onready var weapon = $weapon
@@ -16,7 +16,7 @@ onready var dead = false
 
 export (PackedScene) var TarEnemy
 export (PackedScene) var presidentattack
-
+#need to have him target the player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -74,6 +74,7 @@ func die():
 	$AnimatedSprite.animation = "die"
 	$AnimatedSprite.play()
 	dead = true
+	get_tree().change_scene_to(target)
 func attack():
 		var target = player.position
 		weapon.attack(target)

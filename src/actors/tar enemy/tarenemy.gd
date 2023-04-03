@@ -3,10 +3,10 @@ extends Area2D
 onready var player = $"../Player"
 onready var weapon = $tarweapon
 export var aggro_radius = 800
-export var speed = 400
+export var speed = 250
 var health = 30
 var damage = 5
-var max_health = 20
+var max_health = 30
 var velocity = Vector2.ZERO
 var attackdmg = 3
 onready var cooldowntimer = $attackcooldown
@@ -68,15 +68,19 @@ func die():
 	$AnimatedSprite.animation = "die"
 	$AnimatedSprite.play()
 	dead = true
+	player.take_credentials(1)
 	#queue_free()
 	
+	
 func _on_attackcooldown_timeout():
+	
 	attack(attackdmg)
 	#queue_free()
 	#pass()
-
+	
 
 func _on_Tarenemy_body_entered(body):
+	
 	if body == player:
 		if player.vulnerable and dead == false:
 			$AnimatedSprite.animation = "attack"

@@ -123,6 +123,7 @@ position = Vector2( -515, -110 )
 
 [node name="debris" parent="." instance=ExtResource( 12 )]
 position = Vector2( -545, 159 )
+health = 20.0
 
 [node name="Shifttoswitchweapon" type="Sprite" parent="."]
 visible = false
