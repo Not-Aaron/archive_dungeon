@@ -5,6 +5,12 @@ onready var player = $"../Player"
 onready var attack = presidentattack
 var rng = RandomNumberGenerator.new()
 
+func get_target():
+	if player:
+		return player.position
+	else:
+		return Vector2.ZERO
+
 func attack(target:Vector2):
 	if attack==TarEnemy:
 		attack2()

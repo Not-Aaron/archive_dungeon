@@ -9,6 +9,7 @@ var damage = 12
 onready var kill_timer = $KillTimer
 #var rng = RandomNumberGenerator.new()
 var rng = RandomNumberGenerator.new()
+#var target = Vector2.ZERO
 func _ready():
 	kill_timer.set_wait_time(rng.randf_range(.1,5))
 	kill_timer.start()
@@ -18,6 +19,7 @@ func _ready():
 	#var my_random_number = rng.randf_range(.5, 1.5)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float):
+	
 	if direction != Vector2.ZERO:
 		
 		var velocity = position.direction_to(direction) * speed 
