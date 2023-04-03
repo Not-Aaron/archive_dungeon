@@ -3,10 +3,10 @@ extends Area2D
 onready var player = $"../Player"
 onready var weapon = $tarweapon
 export var aggro_radius = 800
-export var speed = 400
+export var speed = 250
 var health = 30
 var damage = 5
-var max_health = 20
+var max_health = 30
 var velocity = Vector2.ZERO
 var attackdmg = 3
 onready var cooldowntimer = $attackcooldown

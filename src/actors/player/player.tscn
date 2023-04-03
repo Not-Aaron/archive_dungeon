@@ -169,6 +169,7 @@ frames = SubResource( 2 )
 animation = "idle"
 
 [node name="IFrameTimer" type="Timer" parent="."]
+wait_time = 0.25
 one_shot = true
 
 [node name="weapon" parent="." instance=ExtResource( 12 )]

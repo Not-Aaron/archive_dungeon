@@ -36,9 +36,12 @@ func _on_KillTimer_timeout():
 		var x = rng.randf_range(-9999,9999)
 		var y = rng.randf_range(-9999,9999)
 	
-		var randomtarg = Vector2(x,y) 
+		#var randomtarg = self.direction * Vector2(x,y) 
 		
-		$weapon.burst(randomtarg)
+		#$weapon.burst(randomtarg)
+		
+		
+		$weapon.burst(self.direction)
 	
 	queue_free()
 

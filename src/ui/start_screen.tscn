@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/fonts/VeniceClassic.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/ui/start_screen.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://assets/particles/stardust_texture_animated.tres" type="Texture" id=4]
 [ext_resource path="res://addons/rmsmartshape/assets/GUI_Theme.tres" type="Theme" id=5]
 [ext_resource path="res://src/widgettheme1.tres" type="Theme" id=6]
+[ext_resource path="res://assets/LOGO.png" type="Texture" id=7]
+[ext_resource path="res://src/interactables/glowingletters.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/environments/background1280_720mk2.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
@@ -58,6 +60,7 @@ shadow_color = Color( 0.619608, 0.878431, 0.854902, 1 )
 shadow_gradient_length = 3.2
 
 [node name="Title" type="Label" parent="."]
+visible = false
 margin_left = 579.0
 margin_top = 143.0
 margin_right = 1398.0
@@ -89,6 +92,24 @@ expand_icon = true
 
 [node name="Light2D" type="Light2D" parent="StartButton"]
 position = Vector2( 34, 24 )
+
+[node name="Glowing_Letters" parent="." instance=ExtResource( 8 )]
+position = Vector2( 992, 247 )
+texture = ExtResource( 7 )
+texture = ExtResource( 7 )
+
+[node name="stardust" type="Particles2D" parent="Glowing_Letters"]
+amount = 40
+preprocess = 2.75
+fixed_fps = 60
+fract_delta = false
+process_material = SubResource( 6 )
+texture = ExtResource( 4 )
+
+[node name="Logo" type="Sprite" parent="Glowing_Letters"]
+visible = false
+position = Vector2( 980, 204 )
+texture = ExtResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 9 )

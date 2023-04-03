@@ -16,7 +16,7 @@ onready var dead = false
 
 export (PackedScene) var TarEnemy
 export (PackedScene) var presidentattack
-
+#need to have him target the player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
