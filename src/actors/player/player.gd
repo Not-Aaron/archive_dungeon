@@ -16,6 +16,7 @@ func _ready():
 	$AnimatedSprite.animation = "idle"
 	
 func _physics_process(_delta: float) -> void:
+	print(isslowed)
 	if isslowed == true:
 		
 		var newvelocity = velocity #* slow

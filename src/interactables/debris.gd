@@ -2,8 +2,8 @@ extends Area2D
 
 onready var player = $"../Player"
 
-var health = 20
-var max_health = 20
+var health = 200
+var max_health = 200
 var velocity = Vector2.ZERO
 
 onready var deathtimer = $deathtimer
@@ -13,6 +13,7 @@ onready var dead = false
 ## Add something that randomly selects which sprite it will be for randomizations
 export (PackedScene) var TarEnemy
 export (PackedScene) var presidentattack
+export (PackedScene) var respawndebris
 #onready var die  = "t"
 #onready var idle = "z"
 var rng = RandomNumberGenerator.new()
@@ -56,5 +57,13 @@ func die():
 	dead = true
 	
 func _on_deathtimer_timeout():
+	$regen.start()
 	queue_free() # Replace with function body.
-	# Replace with function body.
+	
+
+
+func _on_regen_timeout():
+	#reloads scene, need to make the debris scene somethign that spawns the debris itself
+	#pass # Replace with function body.
+	pass
+	#respawndebris.instance()
