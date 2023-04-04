@@ -1,6 +1,7 @@
 extends Area2D
 class_name Eye
 export (int) var speed = 20
+var damage = 20
 
 var direction := Vector2.ZERO
 var spin = PI
@@ -30,9 +31,13 @@ func _on_KillTimer_timeout():
 
 
 func _on_Bullet_body_entered(body):
-	if body.has_method("handle_hit"):
-		body.handle_hit()
+	if body.has_method("take_damage"):
+		body.take_damage(damage)
+		if body.has_method("take_blind"):
+			body.take_blind()
 		queue_free()
+	
+		
 
 
 

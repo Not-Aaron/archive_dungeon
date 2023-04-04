@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://src/actors/player/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/right2.png" type="Texture" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://assets/GUI/healthbar.png" type="Texture" id=24]
 [ext_resource path="res://assets/fonts/Orwell.ttf" type="DynamicFontData" id=25]
 [ext_resource path="res://src/credentials.tscn" type="PackedScene" id=26]
+[ext_resource path="res://src/ui/extradarkness.tscn" type="PackedScene" id=27]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 24 )
@@ -279,10 +280,10 @@ one_shot = true
 [node name="atkcd" type="Timer" parent="weapon"]
 
 [node name="HealthBar" parent="." instance=ExtResource( 11 )]
-margin_left = -60.0
-margin_top = 33.0
-margin_right = 60.0
-margin_bottom = 47.0
+margin_left = -58.0
+margin_top = 25.0
+margin_right = 62.0
+margin_bottom = 46.0
 theme = SubResource( 13 )
 
 [node name="slowtimer" type="Timer" parent="."]
@@ -324,13 +325,20 @@ color = Color( 0.0823529, 0.0392157, 0.0392157, 1 )
 energy = 0.5
 
 [node name="creedentials" parent="." instance=ExtResource( 26 )]
-margin_left = -58.0
-margin_top = 54.0
-margin_right = 73.0
-margin_bottom = 75.0
+margin_left = 547.0
+margin_top = 306.0
+margin_right = 678.0
+margin_bottom = 327.0
 theme = SubResource( 23 )
+
+[node name="extradarkness" parent="." instance=ExtResource( 27 )]
+visible = false
+
+[node name="blindtimer" type="Timer" parent="."]
+wait_time = 3.0
 
 [connection signal="timeout" from="IFrameTimer" to="." method="_on_IFrameTimer_timeout"]
 [connection signal="timeout" from="weapon/atkcd" to="weapon" method="_on_Timer_timeout"]
 [connection signal="timeout" from="slowtimer" to="." method="_on_slowtimer_timeout"]
 [connection signal="timeout" from="hittimer" to="." method="_on_hittimer_timeout"]
+[connection signal="timeout" from="blindtimer" to="." method="_on_blindtimer_timeout"]

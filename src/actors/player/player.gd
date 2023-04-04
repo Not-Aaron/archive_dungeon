@@ -9,6 +9,7 @@ var max_health = 100
 var vulnerable = true
 onready var slowtimer = $slowtimer
 var isslowed = false
+var isblinded = false
 export(String, FILE, "*.tscn") var path_to_start
 #const physics = preload("physics.gd")
 const physics = preload("physics.gd")
@@ -21,6 +22,12 @@ func _ready():
 	
 func _physics_process(_delta: float) -> void:
 	#print(isslowed)
+	
+	if isblinded == true:
+		$extradarkness.visible = true	
+	if isblinded == false:
+		$extradarkness.visible = false
+		
 	if isslowed == true:
 		#print(velocity)
 		var newvelocity = velocity 
@@ -96,7 +103,10 @@ func take_slow():
 	#	vulnerable = false
 	#	$IFrameTimer.start()
 		
-
+func take_blind():
+	if isblinded == false:
+		$blindtimer.start()
+		isblinded = true
 func take_key():
 	haskey = true
 	$AnimatedSprite.animation = "retrieve"
@@ -137,3 +147,7 @@ func _on_hittimer_timeout():
 
 func get_credentials():
 	return clearance
+
+
+func _on_blindtimer_timeout():
+	isblinded = false # Replace with function body.

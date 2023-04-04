@@ -85,6 +85,7 @@ func _on_ScrollEnemy_body_entered(body):
 		if player.vulnerable and dead==false:
 			$AnimatedSprite.animation = "attack"
 			player.take_damage(damage) # Replace with function body.
+			player.take_blind()
 
 
 func _on_ScrollEnemy_body_exited(body):
