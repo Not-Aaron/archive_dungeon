@@ -1,6 +1,7 @@
 extends Area2D
 
 onready var player = $"../Player"
+onready var blood = $stardustbloodparticles
 export var aggro_radius = 500
 export var speed = 100
 var health = 200
@@ -54,6 +55,7 @@ func _on_FlyingEnemy_body_entered(body: Node) -> void:
 func take_damage(damage: float):
 	health -= damage
 	if health >= 0:
+		blood.parent_hit()
 		$AnimatedSprite.animation = "hit"
 		$AnimatedSprite.play()
 	if health <= 0 and dead == false:

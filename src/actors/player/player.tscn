@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://src/actors/player/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/right2.png" type="Texture" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://assets/fonts/Orwell.ttf" type="DynamicFontData" id=25]
 [ext_resource path="res://src/credentials.tscn" type="PackedScene" id=26]
 [ext_resource path="res://src/ui/extradarkness.tscn" type="PackedScene" id=27]
+[ext_resource path="res://src/particles/bloodparticles.tscn" type="PackedScene" id=28]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 24 )
@@ -93,69 +94,6 @@ animations = [ {
 "name": "useitem",
 "speed": 5.0
 } ]
-
-[sub_resource type="StyleBoxTexture" id=3]
-margin_right = 10.0491
-margin_top = 52.822
-margin_bottom = 57.0785
-
-[sub_resource type="StyleBoxTexture" id=4]
-texture = ExtResource( 19 )
-region_rect = Rect2( 0, 0, 64, 32 )
-
-[sub_resource type="StyleBoxTexture" id=5]
-texture = ExtResource( 20 )
-region_rect = Rect2( 0, 0, 64, 32 )
-
-[sub_resource type="StyleBoxTexture" id=6]
-texture = ExtResource( 20 )
-region_rect = Rect2( 0, 0, 64, 32 )
-
-[sub_resource type="StyleBoxTexture" id=7]
-texture = ExtResource( 22 )
-region_rect = Rect2( 0, 0, 64, 32 )
-
-[sub_resource type="StyleBoxTexture" id=8]
-texture = ExtResource( 23 )
-region_rect = Rect2( 0, 0, 64, 32 )
-
-[sub_resource type="DynamicFont" id=11]
-font_data = ExtResource( 25 )
-
-[sub_resource type="StyleBoxTexture" id=9]
-texture = ExtResource( 24 )
-region_rect = Rect2( 0, 0, 45, 21 )
-
-[sub_resource type="StyleBoxTexture" id=12]
-texture = ExtResource( 24 )
-region_rect = Rect2( 0, 0, 45, 21 )
-modulate_color = Color( 0.372549, 0.513726, 0.247059, 1 )
-
-[sub_resource type="Theme" id=13]
-resource_local_to_scene = true
-default_font = SubResource( 11 )
-Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
-Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
-Button/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
-Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
-Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
-Button/constants/hseparation = 2
-Button/styles/buttontexture = SubResource( 3 )
-Button/styles/disabled = SubResource( 4 )
-Button/styles/focus = SubResource( 5 )
-Button/styles/hover = SubResource( 6 )
-Button/styles/normal = SubResource( 7 )
-Button/styles/pressed = SubResource( 8 )
-ColorPicker/icons/add_preset = null
-ColorPicker/icons/color_hue = null
-ColorPicker/icons/color_sample = ExtResource( 21 )
-ColorPicker/icons/overbright_indicator = null
-Fonts/fonts/large = SubResource( 11 )
-Fonts/fonts/normal = SubResource( 11 )
-ProgressBar/colors/font_color = Color( 0.94, 0.94, 0.94, 1 )
-ProgressBar/colors/font_color_shadow = Color( 0, 0, 0, 1 )
-ProgressBar/styles/bg = SubResource( 9 )
-ProgressBar/styles/fg = SubResource( 12 )
 
 [sub_resource type="StyleBoxTexture" id=14]
 margin_right = 10.0491
@@ -258,10 +196,73 @@ TextEdit/styles/focus = null
 TextEdit/styles/normal = null
 TextEdit/styles/read_only = null
 
+[sub_resource type="StyleBoxTexture" id=3]
+margin_right = 10.0491
+margin_top = 52.822
+margin_bottom = 57.0785
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 19 )
+region_rect = Rect2( 0, 0, 64, 32 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 20 )
+region_rect = Rect2( 0, 0, 64, 32 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 20 )
+region_rect = Rect2( 0, 0, 64, 32 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 22 )
+region_rect = Rect2( 0, 0, 64, 32 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 23 )
+region_rect = Rect2( 0, 0, 64, 32 )
+
+[sub_resource type="DynamicFont" id=11]
+font_data = ExtResource( 25 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 24 )
+region_rect = Rect2( 0, 0, 45, 21 )
+
+[sub_resource type="StyleBoxTexture" id=12]
+texture = ExtResource( 24 )
+region_rect = Rect2( 0, 0, 45, 21 )
+modulate_color = Color( 0.372549, 0.513726, 0.247059, 1 )
+
+[sub_resource type="Theme" id=13]
+resource_local_to_scene = true
+default_font = SubResource( 11 )
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/styles/buttontexture = SubResource( 3 )
+Button/styles/disabled = SubResource( 4 )
+Button/styles/focus = SubResource( 5 )
+Button/styles/hover = SubResource( 6 )
+Button/styles/normal = SubResource( 7 )
+Button/styles/pressed = SubResource( 8 )
+ColorPicker/icons/add_preset = null
+ColorPicker/icons/color_hue = null
+ColorPicker/icons/color_sample = ExtResource( 21 )
+ColorPicker/icons/overbright_indicator = null
+Fonts/fonts/large = SubResource( 11 )
+Fonts/fonts/normal = SubResource( 11 )
+ProgressBar/colors/font_color = Color( 0.94, 0.94, 0.94, 1 )
+ProgressBar/colors/font_color_shadow = Color( 0, 0, 0, 1 )
+ProgressBar/styles/bg = SubResource( 9 )
+ProgressBar/styles/fg = SubResource( 12 )
+
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 4
 script = ExtResource( 1 )
-path_to_start = "res://src/ui/start_screen.tscn"
+path_to_start = "res://src/ui/you_died.tscn"
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -279,17 +280,24 @@ one_shot = true
 
 [node name="atkcd" type="Timer" parent="weapon"]
 
-[node name="HealthBar" parent="." instance=ExtResource( 11 )]
+[node name="slowtimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="HUD" parent="." instance=ExtResource( 10 )]
+
+[node name="creedentials" parent="HUD" instance=ExtResource( 26 )]
+margin_left = 547.0
+margin_top = 306.0
+margin_right = 678.0
+margin_bottom = 327.0
+theme = SubResource( 23 )
+
+[node name="HealthBar" parent="HUD" instance=ExtResource( 11 )]
 margin_left = -58.0
 margin_top = 25.0
 margin_right = 62.0
 margin_bottom = 46.0
 theme = SubResource( 13 )
-
-[node name="slowtimer" type="Timer" parent="."]
-wait_time = 5.0
-
-[node name="HUD" parent="." instance=ExtResource( 10 )]
 
 [node name="hit" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 13 )
@@ -324,18 +332,13 @@ texture = ExtResource( 18 )
 color = Color( 0.0823529, 0.0392157, 0.0392157, 1 )
 energy = 0.5
 
-[node name="creedentials" parent="." instance=ExtResource( 26 )]
-margin_left = 547.0
-margin_top = 306.0
-margin_right = 678.0
-margin_bottom = 327.0
-theme = SubResource( 23 )
-
 [node name="extradarkness" parent="." instance=ExtResource( 27 )]
 visible = false
 
 [node name="blindtimer" type="Timer" parent="."]
 wait_time = 3.0
+
+[node name="bloodparticles" parent="." instance=ExtResource( 28 )]
 
 [connection signal="timeout" from="IFrameTimer" to="." method="_on_IFrameTimer_timeout"]
 [connection signal="timeout" from="weapon/atkcd" to="weapon" method="_on_Timer_timeout"]
