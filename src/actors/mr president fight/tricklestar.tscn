@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/enemy/frozen head boss/star.png" type="Texture" id=1]
 [ext_resource path="res://assets/enemy/frozen head boss/starparticles.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/actors/player/weapons/ranged.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/actors/player/weapons/tricklestarburst.gd" type="Script" id=5]
 [ext_resource path="res://src/actors/mr president fight/tricklestarburst.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/particles/circlingstardust_mk2.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 12.0
@@ -28,10 +29,10 @@ gravity = Vector3( 0, 98, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 
-[sub_resource type="CanvasItemMaterial" id=8]
+[sub_resource type="CanvasItemMaterial" id=10]
 
 [sub_resource type="ParticlesMaterial" id=9]
-next_pass = SubResource( 8 )
+next_pass = SubResource( 10 )
 flag_disable_z = true
 gravity = Vector3( 0, 98, 0 )
 orbit_velocity = 0.0
@@ -70,6 +71,7 @@ TarEnemy = null
 presidentattack = ExtResource( 6 )
 
 [node name="particles" type="Particles2D" parent="."]
+visible = false
 scale = Vector2( 2, 2 )
 preprocess = 6.75
 explosiveness = 1.0
@@ -85,6 +87,8 @@ color = Color( 0.176471, 0.552941, 0.517647, 1 )
 range_height = -127.8
 shadow_enabled = true
 shadow_filter_smooth = 26.5
+
+[node name="circlingstardust_mk2" parent="." instance=ExtResource( 7 )]
 
 [connection signal="body_entered" from="." to="." method="_on_tricklestar_body_entered"]
 [connection signal="timeout" from="KillTimer" to="." method="_on_KillTimer_timeout"]
