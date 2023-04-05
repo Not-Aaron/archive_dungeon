@@ -4,11 +4,14 @@ onready var weapon = $weapon
 var clearance = 0
 #maybe the clearance requirement should all be taken from what the level scene is. For instance lock doors are not manually entered credentials but taken from the level.
 export (float) var clearance_requirement = 0
+###export (PackedScene) var blood
+onready var blood = $bloodparticles
 var health = 100
 var max_health = 100
 var vulnerable = true
 onready var slowtimer = $slowtimer
 var isslowed = false
+var isblinded = false
 export(String, FILE, "*.tscn") var path_to_start
 #const physics = preload("physics.gd")
 const physics = preload("physics.gd")
@@ -21,6 +24,12 @@ func _ready():
 	
 func _physics_process(_delta: float) -> void:
 	#print(isslowed)
+	
+	if isblinded == true:
+		$extradarkness.visible = true	
+	if isblinded == false:
+		$extradarkness.visible = false
+		
 	if isslowed == true:
 		#print(velocity)
 		var newvelocity = velocity 
@@ -60,8 +69,9 @@ func get_direction() -> Vector2:
 #		return input*slow
 	return Vector2(Input.get_action_strength("move_right")-Input.get_action_strength("move_left"), Input.get_action_strength("move_down")-Input.get_action_strength("move_up"))
 func _input(event):
-	if event is InputEventMouseButton:
-		weapon.shoot()
+	pass
+	#if event is InputEventMouseButton:
+		#weapon.shoot()
 func _unhandled_input(event: InputEvent):
 	if event.is_action_released("shoot"):
 		weapon.shoot()
@@ -73,6 +83,7 @@ func take_damage(damage: float):
 	if not vulnerable:
 		return
 	health -= damage
+	blood.parent_hit()
 	$hittimer.start()
 	
 	$hit.play()
@@ -96,7 +107,10 @@ func take_slow():
 	#	vulnerable = false
 	#	$IFrameTimer.start()
 		
-
+func take_blind():
+	if isblinded == false:
+		$blindtimer.start()
+		isblinded = true
 func take_key():
 	haskey = true
 	$AnimatedSprite.animation = "retrieve"
@@ -130,6 +144,7 @@ func _on_IFrameTimer_timeout() -> void:
 
 func _on_slowtimer_timeout():
 	 isslowed=false # Replace with function body.
+	 isslowed=false # Replace with function body.
 
 
 func _on_hittimer_timeout():
@@ -137,3 +152,7 @@ func _on_hittimer_timeout():
 
 func get_credentials():
 	return clearance
+
+
+func _on_blindtimer_timeout():
+	isblinded = false # Replace with function body.

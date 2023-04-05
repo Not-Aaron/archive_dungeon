@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://src/actors/test_flying_enemy/fly_enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/enemy/ghost/move1.png" type="Texture" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://assets/fonts/Orwell.ttf" type="DynamicFontData" id=19]
 [ext_resource path="res://assets/particles/stardust.png" type="Texture" id=20]
 [ext_resource path="res://assets/ghost copy.png" type="Texture" id=21]
+[ext_resource path="res://src/particles/stardustbloodparticles.tscn" type="PackedScene" id=22]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -197,9 +198,12 @@ position = Vector2( 0, -13 )
 shape = SubResource( 13 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource( 17 )
+
+[node name="stardustbloodparticles" parent="." instance=ExtResource( 22 )]
 
 [connection signal="body_entered" from="." to="." method="_on_FlyingEnemy_body_entered"]
 [connection signal="timeout" from="deathtimer" to="." method="_on_deathtimer_timeout"]
