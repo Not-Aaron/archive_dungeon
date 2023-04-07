@@ -1061,7 +1061,7 @@ orbit_velocity_random = 0.0
 script = ExtResource( 9 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1823, 988 )
+position = Vector2( -175, 1010 )
 z_index = 2
 
 [node name="Camera2D" type="Camera2D" parent="Player"]

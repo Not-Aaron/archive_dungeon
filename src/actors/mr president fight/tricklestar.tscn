@@ -1,11 +1,45 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=47 format=2]
 
-[ext_resource path="res://assets/enemy/frozen head boss/star.png" type="Texture" id=1]
+[ext_resource path="res://src/actors/stardustcubeanimation.tres" type="Animation" id=1]
 [ext_resource path="res://assets/enemy/frozen head boss/starparticles.png" type="Texture" id=2]
 [ext_resource path="res://src/actors/mr president fight/tricklestar.gd" type="Script" id=3]
 [ext_resource path="res://src/actors/player/weapons/ranged.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/actors/player/weapons/tricklestarburst.gd" type="Script" id=5]
 [ext_resource path="res://src/actors/mr president fight/tricklestarburst.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/particles/circlingstardust_mk2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_28.png" type="Texture" id=8]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_29.png" type="Texture" id=9]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_18.png" type="Texture" id=10]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_2.png" type="Texture" id=11]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_1.png" type="Texture" id=12]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_5.png" type="Texture" id=13]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_6.png" type="Texture" id=14]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_0.png" type="Texture" id=15]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_9.png" type="Texture" id=16]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_3.png" type="Texture" id=17]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_16.png" type="Texture" id=18]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_17.png" type="Texture" id=19]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_19.png" type="Texture" id=20]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_20.png" type="Texture" id=21]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_22.png" type="Texture" id=22]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_25.png" type="Texture" id=23]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_12.png" type="Texture" id=24]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_26.png" type="Texture" id=25]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_11.png" type="Texture" id=26]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_14.png" type="Texture" id=27]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_10.png" type="Texture" id=28]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_4.png" type="Texture" id=29]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_7.png" type="Texture" id=30]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_8.png" type="Texture" id=31]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_15.png" type="Texture" id=32]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_21.png" type="Texture" id=33]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_13.png" type="Texture" id=34]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_23.png" type="Texture" id=35]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_24.png" type="Texture" id=36]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_27.png" type="Texture" id=37]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_31.png" type="Texture" id=38]
+[ext_resource path="res://assets/particles/stardust_cube/sprite_30.png" type="Texture" id=39]
+[ext_resource path="res://assets/enemy/frozen head boss/star.png" type="Texture" id=40]
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 12.0
@@ -13,10 +47,10 @@ height = 0.0
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ ExtResource( 1 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 11 ), ExtResource( 17 ), ExtResource( 29 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 30 ), ExtResource( 15 ), ExtResource( 31 ), ExtResource( 16 ), ExtResource( 28 ), ExtResource( 26 ), ExtResource( 24 ), ExtResource( 34 ), ExtResource( 27 ), ExtResource( 32 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 10 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 33 ), ExtResource( 22 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 23 ), ExtResource( 25 ), ExtResource( 37 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 39 ), ExtResource( 38 ) ],
 "loop": true,
 "name": "shot",
-"speed": 5.0
+"speed": 30.0
 } ]
 
 [sub_resource type="CanvasItemMaterial" id=7]
@@ -28,10 +62,10 @@ gravity = Vector3( 0, 98, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 
-[sub_resource type="CanvasItemMaterial" id=8]
+[sub_resource type="CanvasItemMaterial" id=10]
 
 [sub_resource type="ParticlesMaterial" id=9]
-next_pass = SubResource( 8 )
+next_pass = SubResource( 10 )
 flag_disable_z = true
 gravity = Vector3( 0, 98, 0 )
 orbit_velocity = 0.0
@@ -41,12 +75,17 @@ orbit_velocity_random = 0.0
 script = ExtResource( 3 )
 Burst = ExtResource( 6 )
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CollisionShape2D")
+anims/shot = ExtResource( 1 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 1, 0 )
-scale = Vector2( 5, 5 )
+scale = Vector2( 0.8, 0.8 )
+z_index = 3
 frames = SubResource( 5 )
 animation = "shot"
 
@@ -70,6 +109,7 @@ TarEnemy = null
 presidentattack = ExtResource( 6 )
 
 [node name="particles" type="Particles2D" parent="."]
+visible = false
 scale = Vector2( 2, 2 )
 preprocess = 6.75
 explosiveness = 1.0
@@ -79,12 +119,15 @@ texture = ExtResource( 2 )
 normal_map = ExtResource( 2 )
 
 [node name="lights" type="Light2D" parent="."]
-texture = ExtResource( 1 )
+texture = ExtResource( 40 )
 texture_scale = 3.82
 color = Color( 0.176471, 0.552941, 0.517647, 1 )
 range_height = -127.8
 shadow_enabled = true
 shadow_filter_smooth = 26.5
+
+[node name="circlingstardust_mk2" parent="." instance=ExtResource( 7 )]
+modulate = Color( 1, 1, 1, 0.160784 )
 
 [connection signal="body_entered" from="." to="." method="_on_tricklestar_body_entered"]
 [connection signal="timeout" from="KillTimer" to="." method="_on_KillTimer_timeout"]

@@ -17,7 +17,7 @@ font_data = ExtResource( 1 )
 [sub_resource type="Curve" id=7]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.977528, 1 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=10]
+[sub_resource type="CurveTexture" id=12]
 curve = SubResource( 7 )
 
 [sub_resource type="ParticlesMaterial" id=6]
@@ -31,7 +31,7 @@ gravity = Vector3( 1, 1, 0 )
 initial_velocity_random = 1.0
 orbit_velocity = 1.0
 orbit_velocity_random = 0.0
-orbit_velocity_curve = SubResource( 10 )
+orbit_velocity_curve = SubResource( 12 )
 
 [sub_resource type="Shader" id=11]
 
