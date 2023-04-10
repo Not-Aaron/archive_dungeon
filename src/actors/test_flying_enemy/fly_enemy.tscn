@@ -172,7 +172,6 @@ Slice = null
 [node name="sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 12 )
 volume_db = 1.0
-pitch_scale = 0.01
 
 [node name="Particles2D" type="Particles2D" parent="."]
 material = SubResource( 14 )
@@ -204,6 +203,11 @@ visible = false
 shape = SubResource( 17 )
 
 [node name="stardustbloodparticles" parent="." instance=ExtResource( 22 )]
+
+[node name="hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
+volume_db = -4.0
+pitch_scale = 0.25
 
 [connection signal="body_entered" from="." to="." method="_on_FlyingEnemy_body_entered"]
 [connection signal="timeout" from="deathtimer" to="." method="_on_deathtimer_timeout"]

@@ -268,6 +268,11 @@ _global_script_classes=[ {
 "class": "tricklestardust",
 "language": "GDScript",
 "path": "res://tricklestardust.gd"
+}, {
+"base": "Area2D",
+"class": "zap",
+"language": "GDScript",
+"path": "res://src/particles/boss_defense_attack.gd"
 } ]
 _global_script_class_icons={
 "AcrylicGlass": "res://addons/acrylic_glass/icon.svg",
@@ -321,7 +326,8 @@ _global_script_class_icons={
 "TriggerTime": "",
 "tricklestar": "",
 "tricklestarb": "",
-"tricklestardust": ""
+"tricklestardust": "",
+"zap": ""
 }
 
 [application]

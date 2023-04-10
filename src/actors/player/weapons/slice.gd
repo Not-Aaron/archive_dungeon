@@ -1,6 +1,6 @@
 extends Area2D
 
-var damage = 10
+var damage = 20
 onready var kill_timer = $KillTimer
 
 func _ready():

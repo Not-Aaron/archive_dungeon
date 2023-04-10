@@ -4,7 +4,7 @@ onready var player = $"../Player"
 onready var blood = $stardustbloodparticles
 export var aggro_radius = 500
 export var speed = 100
-var health = 200
+var health = 100
 var damage = 10
 var max_health = 200
 var velocity = Vector2.ZERO
@@ -58,6 +58,7 @@ func take_damage(damage: float):
 		blood.parent_hit()
 		$AnimatedSprite.animation = "hit"
 		$AnimatedSprite.play()
+		$hit.play()
 	if health <= 0 and dead == false:
 		die()
 		
