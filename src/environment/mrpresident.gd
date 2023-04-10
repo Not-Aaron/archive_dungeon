@@ -13,7 +13,8 @@ onready var deathtimer = $deathtimer
 onready var cooldowntimer = $cooldowntimer
 onready var weapon = $weapon
 onready var dead = false
-
+onready var weaponrange = 1000
+var rng = RandomNumberGenerator.new()
 export (PackedScene) var TarEnemy
 export (PackedScene) var presidentattack
 #need to have him target the player
@@ -76,7 +77,10 @@ func die():
 	dead = true
 	get_tree().change_scene_to(target)
 func attack():
-		var target = player.position
+		#var target = player.position\
+		#var target = self.position.x + 20
+		var target = Vector2(rand_range((self.position.x - weaponrange),(self.position.x + weaponrange)), rand_range((self.position.y - weaponrange),(self.position.y + weaponrange)))
+		#var target = Vector2(rand_range(-999,999), rand_range(-999,999))
 		weapon.attack(target)
 	
 func _on_deathtimer_timeout():
