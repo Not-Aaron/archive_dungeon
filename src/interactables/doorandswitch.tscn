@@ -10,4 +10,3 @@ script = ExtResource( 1 )
 [node name="switchdoor" parent="." instance=ExtResource( 3 )]
 
 [node name="switch" parent="." instance=ExtResource( 2 )]
-position = Vector2( -170, -226 )

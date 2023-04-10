@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://key.gd" type="Script" id=1]
 [ext_resource path="res://assets/items/keycard.png" type="Texture" id=2]
 [ext_resource path="res://assets/items/keycardfound.png" type="Texture" id=3]
+[ext_resource path="res://src/particles/circlingstardust_mk3.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/items/keycard_2.png" type="Texture" id=5]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
@@ -27,13 +29,12 @@ script = ExtResource( 1 )
 frames = SubResource( 1 )
 animation = "idle"
 
-[node name="Particles2D" type="Particles2D" parent="."]
-visible = false
-
 [node name="animation" type="Timer" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+
+[node name="circlingstardust_mk3" parent="." instance=ExtResource( 4 )]
 
 [connection signal="body_entered" from="." to="." method="_on_key_body_entered"]
 [connection signal="timeout" from="animation" to="." method="_on_animation_timeout"]

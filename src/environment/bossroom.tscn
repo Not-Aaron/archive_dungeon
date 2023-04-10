@@ -1,4 +1,4 @@
-[gd_scene load_steps=132 format=2]
+[gd_scene load_steps=133 format=2]
 
 [ext_resource path="res://src/actors/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/mrpresident.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://assets/environments/LOBBYTILES_MK2_3.png" type="Texture" id=14]
 [ext_resource path="res://assets/environments/floor.tres" type="TileSet" id=15]
 [ext_resource path="res://src/interactables/bossdefense.tscn" type="PackedScene" id=16]
+[ext_resource path="res://src/interactables/doorandswitch.tscn" type="PackedScene" id=17]
 [ext_resource path="res://assets/crunch/crunchtiles.png" type="Texture" id=18]
 [ext_resource path="res://assets/crunch/crunch.png" type="Texture" id=19]
 [ext_resource path="res://assets/environments/oil.png" type="Texture" id=20]
@@ -1060,8 +1061,12 @@ orbit_velocity_random = 0.0
 [node name="mr president fight" type="Node2D"]
 script = ExtResource( 9 )
 
+[node name="doorandswitch" parent="." instance=ExtResource( 17 )]
+position = Vector2( 854, 1029 )
+switch_x = 500.0
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -175, 1010 )
+position = Vector2( 1568, 999 )
 z_index = 2
 
 [node name="Camera2D" type="Camera2D" parent="Player"]

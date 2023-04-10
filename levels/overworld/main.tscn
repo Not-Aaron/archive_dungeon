@@ -45,7 +45,7 @@ mode = 2
 position = Vector2( -484, 475 )
 z_index = 2
 
-[node name="music" type="AudioStreamPlayer" parent="."]
+[node name="music" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource( 4 )
 volume_db = -0.408
 autoplay = true
@@ -90,6 +90,8 @@ autowrap = true
 [node name="doorandswitch" parent="." instance=ExtResource( 15 )]
 position = Vector2( -346, -131 )
 z_as_relative = false
+switch_x = -200.0
+switch_y = -200.0
 
 [node name="FrontLobby" type="Node" parent="."]
 

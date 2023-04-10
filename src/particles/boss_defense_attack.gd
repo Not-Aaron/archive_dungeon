@@ -1,37 +1,40 @@
 extends Area2D
-class_name Bullet
+class_name zap
 export (int) var speed = 20
-var damage = 15
 
 var direction := Vector2.ZERO
 var spin = PI
-
+var damage = 10
 onready var kill_timer = $KillTimer
+#var rng = RandomNumberGenerator.new()
 
 func _ready():
 	kill_timer.start()
-
+	$AnimatedSprite.animation = "shot"
+	$AnimatedSprite.play()
+	#var my_random_number = rng.randf_range(.5, 1.5)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float):
 	if direction != Vector2.ZERO:
-		var velocity = direction * speed
+		
+		var velocity = position.direction_to(direction) * speed 
 		
 		global_position += velocity
 	spin+=1
 	self.set_rotation(spin)
-
+	
+	
 func set_direction(direction: Vector2):
-	self.direction = direction
+	self.direction = direction 
 	
 
 func _on_KillTimer_timeout():
 	queue_free()
 
-func gettime() -> float:
-	return kill_timer.get_time_left()
+func _on_bossdefenseattack_body_entered(body):
 	
-func _on_Bullet_area_entered(area: Area2D) -> void:
-	if area.has_method("take_damage"):
-		area.take_damage(damage)
-		queue_free()
-
+	if body.has_method("take_damage"):
+		body.take_damage(damage)
+		if body.has_method("take_slow"):
+			body.take_slow()
+		queue_free() 

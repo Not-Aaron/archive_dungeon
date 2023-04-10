@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://assets/palette.bmp" type="Texture" id=1]
 [ext_resource path="res://assets/GUI/healthbar.png" type="Texture" id=2]
@@ -8,9 +8,11 @@
 [ext_resource path="res://assets/GUI/buttonpressed1.png" type="Texture" id=6]
 [ext_resource path="res://assets/items/mrpresidentdefense.png" type="Texture" id=7]
 [ext_resource path="res://assets/items/mrpresidentdefensedead.png" type="Texture" id=8]
+[ext_resource path="res://src/particles/bossdefenseweapon.gd" type="Script" id=9]
+[ext_resource path="res://src/particles/boss_defense_attack.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/ui/health_bar.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/fonts/Orwell.ttf" type="DynamicFontData" id=12]
-[ext_resource path="res://src/interactables/debris.gd" type="Script" id=13]
+[ext_resource path="res://src/interactables/bossdefense.gd" type="Script" id=13]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 66.5, 80 )
@@ -174,5 +176,13 @@ wait_time = 5.0
 
 [node name="slow aura" type="CollisionShape2D" parent="."]
 
+[node name="bossdefenseweapon" type="Position2D" parent="."]
+script = ExtResource( 9 )
+block = ExtResource( 10 )
+zap = ExtResource( 10 )
+
+[node name="cooldowntimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="deathtimer" to="." method="_on_deathtimer_timeout"]
 [connection signal="timeout" from="regen" to="." method="_on_regen_timeout"]
+[connection signal="timeout" from="cooldowntimer" to="." method="_on_cooldowntimer_timeout"]
