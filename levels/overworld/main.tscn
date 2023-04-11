@@ -118,7 +118,6 @@ tile_data = PoolIntArray( -655370, 13, 8, -655369, 13, 10, -655368, 13, 10, -655
 
 [node name="lockeddoor" parent="." instance=ExtResource( 11 )]
 position = Vector2( 153, 281 )
-scale = Vector2( 3, 3 )
 z_index = -1
 target = ExtResource( 14 )
 

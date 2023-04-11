@@ -3,9 +3,20 @@ export (PackedScene) var Bullet
 export (PackedScene) var Slice
 onready var attack = Slice
 onready var cooldown = false
-	
+var cpos = Vector2.ZERO
+var bullet_instance = null
 # Called when the node enters the scene tree for the first time.
 
+
+
+func _process(delta: float) -> void:
+	#var parent = get_parent()
+	#cpos = parent.position
+	if bullet_instance:
+		if bullet_instance.has_method("set_cpos"):
+			bullet_instance.set_cpos(self.position)
+#func get_cpos():
+#	return cpos
 func shoot():
 	#if $atkcd.is_stopped() == false or $atkcd.get_time_left()!=0:
 		#return
