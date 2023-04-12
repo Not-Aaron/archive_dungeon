@@ -5,6 +5,7 @@ var curd = Vector2.ZERO
 onready var kill_timer = $KillTimer
 var ppos = Vector2.ZERO
 #var parent = get_parent()
+var is_crit = false
 
 func _ready():
 	$sound.play()
@@ -19,6 +20,10 @@ func _on_Slice_area_entered(area: Area2D) -> void:
 		area.take_damage(damage)
 		queue_free()
 
+func get_damage():
+	return damage
+func set_damage(setdamage: float):
+	damage = setdamage
 
 func _on_KillTimer_timeout() -> void:
 	queue_free()

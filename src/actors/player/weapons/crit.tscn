@@ -30,6 +30,7 @@ hue_variation = 0.2
 hue_variation_random = 0.72
 
 [node name="crit" type="Particles2D"]
+scale = Vector2( 4, 4 )
 z_index = 99
 z_as_relative = false
 
