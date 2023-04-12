@@ -6,6 +6,7 @@ onready var kill_timer = $KillTimer
 var ppos = Vector2.ZERO
 #var parent = get_parent()
 var is_crit = false
+var speed = 10
 
 func _ready():
 	$sound.play()
@@ -45,7 +46,14 @@ func _process(delta: float) -> void:
 	#print(swing)
 	#print(delta)
 		set_rotation(swing)
+	var parent = get_parent()
+	#var curpos = parent.global_position
+	#self.position = curpos
 	
+	if curd != Vector2.ZERO:
+		var velocity = curd * speed
+		
+		global_position += velocity
 	
 	#swing += Vector2(delta, delta)
 	#swing += Vector2(30,30)

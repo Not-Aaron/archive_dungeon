@@ -8,14 +8,21 @@ var cpos = Vector2.ZERO
 var bullet_instance = null
 # Called when the node enters the scene tree for the first time.
 
-
+func get_position():
+	return global_position
 
 func _process(delta: float) -> void:
+	pass
+	#return global_position
 	#var parent = get_parent()
 	#cpos = parent.position
-	if bullet_instance:
-		if bullet_instance.has_method("set_cpos"):
-			bullet_instance.set_cpos(self.position)
+	#make sure the bullet instance exists
+	#multiplayer send data online and download it w/ svg using processing 
+	#if bullet_instance
+	#if bullet_instance.is_instance_valid()==true:
+		#bullet_instance.global_position = global_position
+		#if bullet_instance.has_method("set_cpos"):
+			#bullet_instance.set_cpos(self.position)
 #func get_cpos():
 #	return cpos
 
@@ -28,14 +35,7 @@ func critical_land(position: Vector2):
 			#have crit as its own scene and instance it at that position
 		
 func shoot():
-	#if $atkcd.is_stopped() == false or $atkcd.get_time_left()!=0:
-		#return
-		#$atkcd.start
-#	if $atkcd.get_time_left() !=0 and $atkcd.get_time_left()>=0:
-	#	return
-	#different weapons ahve different cooldowns
-	#if $atkcd.get_time_left()>0:
-		#return
+
 	if cooldown == false:
 		#return
 		$atkcd.start()
@@ -60,12 +60,16 @@ func shoot():
 			totdamage=totdamage
 			bullet_instance.is_crit = true
 		
+		
+		
 		bullet_instance.set_damage(totdamage)
 		var target = get_global_mouse_position()
 		var direction_to_mouse = global_position.direction_to(target).normalized()
 		bullet_instance.set_direction(direction_to_mouse)
 		get_parent().get_parent().add_child(bullet_instance)
-		bullet_instance.global_position = global_position
+		
+		
+	#	bullet_instance.global_position = global_position + playerposition
 		cooldown == true
 func switch():
 	match(attack):
