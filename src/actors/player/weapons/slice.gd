@@ -46,14 +46,18 @@ func _process(delta: float) -> void:
 	#print(swing)
 	#print(delta)
 		set_rotation(swing)
-	var parent = get_parent()
+	#var parent = get_parent()
+	
+	#var player = get_tree().get_root().get_node()
+	var player = $"../Player"
 	#var curpos = parent.global_position
 	#self.position = curpos
-	
-	if curd != Vector2.ZERO:
-		var velocity = curd * speed
+	#self.global_position = self.position+player.position
+	self.global_position=player.global_position
+	#if curd != Vector2.ZERO:
+		#var velocity = curd * speed
 		
-		global_position += velocity
+		#aelf.global_position += velocity
 	
 	#swing += Vector2(delta, delta)
 	#swing += Vector2(30,30)

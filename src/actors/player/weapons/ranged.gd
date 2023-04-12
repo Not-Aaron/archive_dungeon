@@ -13,18 +13,7 @@ func get_position():
 
 func _process(delta: float) -> void:
 	pass
-	#return global_position
-	#var parent = get_parent()
-	#cpos = parent.position
-	#make sure the bullet instance exists
-	#multiplayer send data online and download it w/ svg using processing 
-	#if bullet_instance
-	#if bullet_instance.is_instance_valid()==true:
-		#bullet_instance.global_position = global_position
-		#if bullet_instance.has_method("set_cpos"):
-			#bullet_instance.set_cpos(self.position)
-#func get_cpos():
-#	return cpos
+	
 
 func critical_land(position: Vector2):
 	var critical = critpar.instance()
@@ -47,15 +36,7 @@ func shoot():
 		if crit >= 3:
 			totdamage = totdamage * 2
 			bullet_instance.is_crit=false
-		#	is_crit = true
-			#print(crit)
-			#$crit.visible = true
-			#var critical = critpar.instance()
-			#critical.global_position = global_position
-			#critical.position = bullet_instance.
-			#var parent = get_parent()
-			
-			#have crit as its own scene and instance it at that position
+		
 		else:
 			totdamage=totdamage
 			bullet_instance.is_crit = true
@@ -69,7 +50,7 @@ func shoot():
 		get_parent().get_parent().add_child(bullet_instance)
 		
 		
-	#	bullet_instance.global_position = global_position + playerposition
+		bullet_instance.global_position = global_position 
 		cooldown == true
 func switch():
 	match(attack):
