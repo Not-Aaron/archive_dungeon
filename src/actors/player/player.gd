@@ -1,6 +1,7 @@
 extends KinematicBody2D
 class_name Player
 onready var weapon = $weapon
+export(PackedScene) var Slice
 var clearance = 0
 #maybe the clearance requirement should all be taken from what the level scene is. For instance lock doors are not manually entered credentials but taken from the level.
 export (float) var clearance_requirement = 0
@@ -10,6 +11,7 @@ var health = 100
 var max_health = 100
 var vulnerable = true
 onready var slowtimer = $slowtimer
+onready var attacktimer = $attacktimer
 var isslowed = false
 var isblinded = false
 export(String, FILE, "*.tscn") var path_to_start
@@ -17,6 +19,7 @@ export(String, FILE, "*.tscn") var path_to_start
 const physics = preload("physics.gd")
 var physicsType = physics.Default
 var velocity = Vector2.ZERO
+var isattacking = false
 #onready var haskey=false
 onready var haskey=false
 func _ready():
@@ -30,18 +33,23 @@ func _physics_process(_delta: float) -> void:
 	if isblinded == false:
 		$extradarkness.visible = false
 		
-	if isslowed == true:
-		#print(velocity)
-		var newvelocity = velocity 
-		newvelocity.x = velocity.x * 0.1 #* slow
-		newvelocity.y = velocity.y * 0.1
+	#if isslowed == true:
+	#	#print(velocity)
+	#	var newvelocity = velocity 
+	#	newvelocity.x = velocity.x * 0.1 #* slow
+	#	newvelocity.y = velocity.y * 0.1
 		#print(newvelocity)
 		#print(haskey)
 		#print(velocity)
-		velocity = move_and_slide(physicsType.calculate_move_velocity(newvelocity, get_direction())) * 0.1
-	else:
+		#velocity = move_and_slide(physicsType.calculate_move_velocity(newvelocity, get_direction())) * 0.1
+	
+	#if isattacking == true:
+		#var newvelocity = velocity 
+		#velocity = move_and_slide(physicsType.calculate_move_velocity(newvelocity, get_direction())) * 0.1
+	
+	#elif isslowed!= true:
 		
-		velocity = move_and_slide(physicsType.calculate_move_velocity(velocity, get_direction()))
+	velocity = move_and_slide(physicsType.calculate_move_velocity(velocity, get_direction(), isattacking,isslowed, attacktimer.get_time_left()))
 	
 	if velocity.length() > 0:
 		#velocity = velocity.normalized() * 3
@@ -60,13 +68,19 @@ func _physics_process(_delta: float) -> void:
 			$AnimatedSprite.animation = "down"
 	
 		#$AnimatedSprite.flip_v = velocity.y > 0
-
+func lunge():
+	pass
+	#velocity = move_and_slide(physicsType.calculate_move_velocity(velocity, get_direction(), isattacking, isslowed))
 func get_direction() -> Vector2:
 #	if isslowed == true:
 #		var input=Vector2(Input.get_action_strength("move_right")-Input.get_action_strength("move_left"), Input.get_action_strength("move_down")-Input.get_action_strength("move_up"))
 #		var slow = Vector2(0.5,0.5)
-#		print(isslowed)
+##########		print(isslowed)
 #		return input*slow
+	#if isattacking==true:
+		#return Vector2(2,2)*Vector2(Input.get_action_strength("move_right")-Input.get_action_strength("move_left"), Input.get_action_strength("move_down")-Input.get_action_strength("move_up"))
+		#return Vector2.ZERO
+		#return  Vector2(2*(Input.get_action_strength("move_right")-Input.get_action_strength("move_left")),2**( Input.get_action_strength("move_down")-Input.get_action_strength("move_up")))
 	return Vector2(Input.get_action_strength("move_right")-Input.get_action_strength("move_left"), Input.get_action_strength("move_down")-Input.get_action_strength("move_up"))
 func _input(event):
 	pass
@@ -75,6 +89,11 @@ func _input(event):
 func _unhandled_input(event: InputEvent):
 	if event.is_action_released("shoot"):
 		weapon.shoot()
+		#isattacking=true
+		if weapon.get_type() == Slice:
+			isattacking=true
+			$attacktimer.start()
+			lunge()
 	if event.is_action_released("switch"):
 		weapon.switch()
 func take_credentials(creds: float):
@@ -156,3 +175,7 @@ func get_credentials():
 
 func _on_blindtimer_timeout():
 	isblinded = false # Replace with function body.
+
+
+func _on_attacktimer_timeout():
+	isattacking = false # Replace with function body.

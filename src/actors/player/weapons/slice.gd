@@ -38,11 +38,13 @@ func gettime() -> float:
 #have it following a quarter circle shape. 
 func _process(delta: float) -> void:
 	#self.position = parent.position
-	var parent = get_parent()
+	if $KillTimer.get_time_left() > 0:
+		var parent = get_parent()
 	#self.position = parent.get_cpos()
-	var swing = curd.angle() + (PI/3)*delta
-	print(swing)
-	set_rotation(swing)
+		var swing = curd.angle() + (PI/6)*delta*10*PI
+	#print(swing)
+	#print(delta)
+		set_rotation(swing)
 	
 	
 	#swing += Vector2(delta, delta)

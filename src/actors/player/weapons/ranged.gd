@@ -74,6 +74,8 @@ func switch():
 		Slice:
 			attack = Bullet
 
-
+func get_type():
+	return attack
+	
 func _on_atkcd_timeout():
 	cooldown == false # Replace with function body.
