@@ -1059,10 +1059,11 @@ orbit_velocity_random = 0.0
 [sub_resource type="OccluderPolygon2D" id=153]
 
 [node name="mr president fight" type="Node2D"]
+position = Vector2( 223, 52 )
 script = ExtResource( 9 )
 
 [node name="doorandswitch" parent="." instance=ExtResource( 17 )]
-position = Vector2( 854, 1029 )
+position = Vector2( 927, 793 )
 switch_x = 500.0
 
 [node name="Player" parent="." instance=ExtResource( 1 )]

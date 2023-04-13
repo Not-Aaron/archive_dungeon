@@ -1,12 +1,20 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/actors/player/weapons/slice.gd" type="Script" id=1]
 [ext_resource path="res://assets/bullet/sword.png" type="Texture" id=2]
 [ext_resource path="res://assets/particles/stardust.png" type="Texture" id=3]
 [ext_resource path="res://assets/audio/shin.mp3" type="AudioStream" id=4]
+[ext_resource path="res://src/particles/bladeparticles.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 45.5, 13 )
+
+[sub_resource type="ParticlesMaterial" id=2]
+flag_disable_z = true
+gravity = Vector3( 0, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color = Color( 0.933333, 0.913725, 0.890196, 1 )
 
 [node name="Slice" type="Area2D"]
 script = ExtResource( 1 )
@@ -16,9 +24,10 @@ position = Vector2( 45.5, 0 )
 shape = SubResource( 1 )
 
 [node name="PlaceholderSprite" type="TextureRect" parent="."]
-margin_top = -13.0
+margin_top = -22.0
 margin_right = 91.0
-margin_bottom = 13.0
+margin_bottom = 4.0
+rect_scale = Vector2( 1, 2 )
 texture = ExtResource( 2 )
 expand = true
 
@@ -27,14 +36,22 @@ wait_time = 0.1
 one_shot = true
 
 [node name="Particles2D" type="Particles2D" parent="."]
-position = Vector2( 35, -6 )
-scale = Vector2( 3.51754, 0.623206 )
-explosiveness = 0.22
-randomness = 0.5
+visible = false
+position = Vector2( 25, 14 )
+process_material = SubResource( 2 )
 texture = ExtResource( 3 )
 
 [node name="sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
+
+[node name="bladeparticles3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 77, 8 )
+
+[node name="bladeparticles" parent="." instance=ExtResource( 5 )]
+position = Vector2( 51, 8 )
+
+[node name="bladeparticles2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 24, 9 )
 
 [connection signal="area_entered" from="." to="." method="_on_Slice_area_entered"]
 [connection signal="timeout" from="KillTimer" to="." method="_on_KillTimer_timeout"]
