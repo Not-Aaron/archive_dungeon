@@ -1,4 +1,4 @@
-[gd_scene load_steps=133 format=2]
+[gd_scene load_steps=134 format=2]
 
 [ext_resource path="res://src/actors/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/mrpresident.tscn" type="PackedScene" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://assets/crunch/crunch.png" type="Texture" id=19]
 [ext_resource path="res://assets/environments/oil.png" type="Texture" id=20]
 [ext_resource path="res://assets/environments/dimlight.png" type="Texture" id=21]
+[ext_resource path="res://src/particles/cable.tscn" type="PackedScene" id=22]
 
 [sub_resource type="Resource" id=154]
 script = ExtResource( 7 )
@@ -1065,6 +1066,11 @@ script = ExtResource( 9 )
 [node name="doorandswitch" parent="." instance=ExtResource( 17 )]
 position = Vector2( 927, 793 )
 switch_x = 500.0
+
+[node name="cable" parent="." instance=ExtResource( 22 )]
+position = Vector2( -768, 0 )
+point_a = Vector2( -768, 1264 )
+point_b = Vector2( -765, 982 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -106, 1075 )
