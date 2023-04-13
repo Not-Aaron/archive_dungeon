@@ -46,8 +46,9 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 37.5, 58 )
+[sub_resource type="CapsuleShape2D" id=18]
+radius = 16.0
+height = 46.0
 
 [sub_resource type="StyleBoxTexture" id=3]
 margin_right = 10.0491
@@ -153,8 +154,8 @@ frames = SubResource( 2 )
 animation = "move"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1, -12 )
-shape = SubResource( 1 )
+position = Vector2( -2, -1 )
+shape = SubResource( 18 )
 
 [node name="HealthBar" parent="." instance=ExtResource( 3 )]
 margin_left = -50.0

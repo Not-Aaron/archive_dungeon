@@ -7,6 +7,11 @@ var ppos = Vector2.ZERO
 #var parent = get_parent()
 var is_crit = false
 var speed = 10
+var swing = 0
+#export (Vector2) var direction
+
+
+
 
 func _ready():
 	$sound.play()
@@ -14,7 +19,13 @@ func _ready():
 
 func set_direction(direction: Vector2):
 	curd = direction
-	set_rotation(direction.angle())
+#	swing = curd.angle()
+	swing = curd.angle()+PI/4
+	#print(direction.angle())+PI
+	#var start = direction.angle()+(PI)
+	#print(start)
+	set_rotation(swing)
+#	set_rotation(direction.angle()+(PI/4))
 
 func _on_Slice_area_entered(area: Area2D) -> void:
 	if area.has_method("take_damage"):
@@ -27,7 +38,10 @@ func set_damage(setdamage: float):
 	damage = setdamage
 
 func _on_KillTimer_timeout() -> void:
-	queue_free()
+	#queue_free()
+	$CollisionShape2D.set_disabled(true)
+	$PlaceholderSprite.set_visible(false)
+	#pass
 
 func set_cpos(cpos: Vector2):
 	self.position = cpos
@@ -40,24 +54,23 @@ func gettime() -> float:
 func _process(delta: float) -> void:
 	#self.position = parent.position
 	if $KillTimer.get_time_left() > 0:
-		var parent = get_parent()
-	#self.position = parent.get_cpos()
-		var swing = curd.angle() + (PI/6)*delta*10*PI
-	#print(swing)
-	#print(delta)
+	#	print(curd.angle())	
+	#	var swing = curd.angle()+(PI/8) - (PI/8)*delta*6
+	#starts pi/8 away from target, and in .1 seconds will rotate Pi/4 degrees total. .1 seconds is roguhly 6 frames. 
+	#delta is seconds per frame, which is roughly 1/60, so we multiple by 6
+		#print(delta)
+	#	var swing = curd.angle()+(PI/8) - (PI/24)*delta*60
+		#var swing = curd.angle() - (PI/24)/60
+		swing = swing - (PI/12)
 		set_rotation(swing)
-	#var parent = get_parent()
-	
-	#var player = get_tree().get_root().get_node()
+	#var swing = curd.angle()
+	#set_rotation(swing)
 	var player = $"../Player"
-	#var curpos = parent.global_position
-	#self.position = curpos
-	#self.global_position = self.position+player.position
+	
+	
+	
 	self.global_position=player.global_position
-	#if curd != Vector2.ZERO:
-		#var velocity = curd * speed
-		
-		#aelf.global_position += velocity
+	
 	
 	#swing += Vector2(delta, delta)
 	#swing += Vector2(30,30)

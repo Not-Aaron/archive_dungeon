@@ -27,7 +27,9 @@ class Default:
 	) -> Vector2:
 		var i = 1
 		if isattacking == true:
-			i = i*5*(attacktimer/0.1)
+			#i = i*5*(attacktimer/0.1)
+			#lunge that slows down to stop over period of attack
+			i = i*2*(attacktimer/0.1)
 		if isslow == true:
 			i-=.5
 		#return direction.normalized()*speed

@@ -22,6 +22,9 @@ var velocity = Vector2.ZERO
 var isattacking = false
 #onready var haskey=false
 onready var haskey=false
+
+func critical_land(pos: Vector2):
+	weapon.critical_land(pos)
 func _ready():
 	$AnimatedSprite.animation = "idle"
 	

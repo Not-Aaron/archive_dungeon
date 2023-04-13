@@ -56,8 +56,10 @@ func _on_Bullet_area_entered(area: Area2D) -> void:
 	#		totdamage=damage
 		if is_crit == true:
 			
-			var parent = get_parent()
-			parent.critical_land(self.position)
+		#	var parent = get_parent()
+			var player = $"../Player"
+			player.critical_land(self.position)
+		#	parent.critical_land(self.position)
 			
 		if pierce >= 1:
 			
