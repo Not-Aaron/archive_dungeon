@@ -75,7 +75,9 @@ func die():
 	$AnimatedSprite.animation = "die"
 	$AnimatedSprite.play()
 	dead = true
-	get_tree().change_scene_to(target)
+	#get_tree().change_scene_to(target)
+	var parttwo = $"../mrpresident_part_2"
+	parttwo.init()
 func attack():
 		#var target = player.position\
 		#var target = self.position.x + 20

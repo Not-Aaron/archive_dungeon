@@ -1,7 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/particles/wave_5.png" type="Texture" id=1]
 [ext_resource path="res://src/particles/bladeparticles.gd" type="Script" id=2]
+
+[sub_resource type="Curve" id=4]
+min_value = -45.0
+max_value = 0.0
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, -45 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
 
 [sub_resource type="Curve" id=2]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
@@ -15,6 +23,7 @@ spread = 180.0
 gravity = Vector3( 0, 98, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
+angle_curve = SubResource( 5 )
 scale_curve = SubResource( 3 )
 color = Color( 0.933333, 0.913725, 0.890196, 1 )
 
@@ -25,6 +34,7 @@ script = ExtResource( 2 )
 [node name="sparks" type="Particles2D" parent="."]
 emitting = false
 amount = 50
+lifetime = 0.7
 one_shot = true
 preprocess = 1.0
 process_material = SubResource( 1 )
