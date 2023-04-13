@@ -255,6 +255,11 @@ _global_script_classes=[ {
 "path": "res://Triggers/TriggerTime.gd"
 }, {
 "base": "Area2D",
+"class": "laser",
+"language": "GDScript",
+"path": "res://src/environment/laser.gd"
+}, {
+"base": "Area2D",
 "class": "tricklestar",
 "language": "GDScript",
 "path": "res://src/actors/mr president fight/tricklestar.gd"
@@ -324,6 +329,7 @@ _global_script_class_icons={
 "TriggerPos": "",
 "TriggerSignal": "",
 "TriggerTime": "",
+"laser": "",
 "tricklestar": "",
 "tricklestarb": "",
 "tricklestardust": "",

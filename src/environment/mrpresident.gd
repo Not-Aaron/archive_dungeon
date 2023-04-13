@@ -13,6 +13,8 @@ export (PackedScene) var target
 onready var deathtimer = $deathtimer
 onready var cooldowntimer = $cooldowntimer
 onready var weapon = $weapon
+onready var weapon2 = $weapon_p2_1
+onready var weapon3 = $weapon_p2_2
 onready var dead = false
 onready var weaponrange = 1000
 var rng = RandomNumberGenerator.new()
@@ -107,6 +109,10 @@ func die():
 func attack():
 		#var target = player.position\
 		#var target = self.position.x + 20
+		if phase == 1:
+			weapon2.attack3(player.position)
+			#weapon3.attack3(player)
+			weapon3.attack(player.position)
 		var target = Vector2(rand_range((self.position.x - weaponrange),(self.position.x + weaponrange)), rand_range((self.position.y - weaponrange),(self.position.y + weaponrange)))
 		#var target = Vector2(rand_range(-999,999), rand_range(-999,999))
 		weapon.attack(target)
