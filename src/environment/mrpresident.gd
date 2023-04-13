@@ -1,12 +1,13 @@
 extends Area2D
 
 onready var player = $"../Player"
-export var aggro_radius = 500
+export var aggro_radius = 2000
 export var speed = 0
-var health = 2000
+var health = 200
 var damage = 10
 var max_health = 2000
 var velocity = Vector2.ZERO
+var defense = 8
 onready var attack = $attack1
 export (PackedScene) var target
 onready var deathtimer = $deathtimer
@@ -17,15 +18,27 @@ onready var weaponrange = 1000
 var rng = RandomNumberGenerator.new()
 export (PackedScene) var TarEnemy
 export (PackedScene) var presidentattack
+var phase = 0
 #need to have him target the player
 
 # Called when the node enters the scene tree for the first time.
+
+func take_defense(taken:float):
+	defense = defense+taken
+	
 func _ready() -> void:
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # warning-ignore:unused_argument
 func _process(delta: float) -> void:
+#	if health <= 1000:
+#		#$AnimatedSprite.animation = "two"
+##		velocity = speed*position.direction_to(player.position)
+#		position += velocity * delta
+#		return
+	#if health <= 1500:
+	#	speed=50
 	if dead == true:
 		$AnimatedSprite.animation = "die"
 		return
@@ -51,6 +64,13 @@ func _process(delta: float) -> void:
 		$sound.play()
 	
 	$AnimatedSprite.animation = "walk"
+	
+	
+	#if health <= 1500:
+	if phase ==1:
+		$AnimatedSprite.animation = "phase2"
+		speed=50
+		
 	$AnimatedSprite.play()
 	velocity = speed*position.direction_to(player.position)
 	position += velocity * delta
@@ -64,6 +84,8 @@ func _on_FlyingEnemy_body_entered(body: Node) -> void:
 			player.take_damage(damage)
 	
 func take_damage(damage: float):
+	if defense < 8:
+		return
 	health -= damage
 	$AnimatedSprite.animation = "hit"
 	if health <= 0 and dead == false:
@@ -72,12 +94,16 @@ func take_damage(damage: float):
 func die():
 	
 	deathtimer.start()
-	$AnimatedSprite.animation = "die"
-	$AnimatedSprite.play()
+	if phase == 0:
+		$AnimatedSprite.animation = "die"
+		$AnimatedSprite.play()
+	else:
+		$AnimatedSprite.animation = "die" #will be new die animation
+		$AnimatedSprite.play()
 	dead = true
 	#get_tree().change_scene_to(target)
-	var parttwo = $"../mrpresident_part_2"
-	parttwo.init()
+	#var parttwo = $"../mrpresident_part_2"
+	#parttwo.init()
 func attack():
 		#var target = player.position\
 		#var target = self.position.x + 20
@@ -86,7 +112,14 @@ func attack():
 		weapon.attack(target)
 	
 func _on_deathtimer_timeout():
-	queue_free() # Replace with function body.
+	#queue_free() # Replace with function body.
+	if phase == 0:
+		health = 2000	
+		dead = false
+		phase= phase+1
+		return
+	elif health <= 0:
+		queue_free()
 
 
 func _on_attack2_timeout():
