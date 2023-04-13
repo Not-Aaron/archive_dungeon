@@ -105,3 +105,4 @@ texture_scale = 2.04
 color = Color( 0.176471, 0.552941, 0.517647, 1 )
 
 [connection signal="body_entered" from="." to="." method="_on_tricklestardust_body_entered"]
+[connection signal="timeout" from="KillTimer" to="." method="_on_KillTimer_timeout"]

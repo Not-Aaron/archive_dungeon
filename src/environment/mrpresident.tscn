@@ -208,7 +208,7 @@ position = Vector2( -5.5, 5.5 )
 shape = SubResource( 14 )
 
 [node name="weapon_p2_1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 141, 3 )
+position = Vector2( 109, 38 )
 script = ExtResource( 6 )
 TarEnemy = ExtResource( 7 )
 presidentattack = ExtResource( 16 )
@@ -216,7 +216,7 @@ attack2 = ExtResource( 25 )
 attack3 = null
 
 [node name="weapon_p2_2" parent="." instance=ExtResource( 5 )]
-position = Vector2( -172, 1 )
+position = Vector2( -112, 36 )
 script = ExtResource( 6 )
 TarEnemy = ExtResource( 7 )
 presidentattack = ExtResource( 16 )

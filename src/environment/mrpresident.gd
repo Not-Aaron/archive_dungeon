@@ -34,13 +34,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # warning-ignore:unused_argument
 func _process(delta: float) -> void:
-#	if health <= 1000:
-#		#$AnimatedSprite.animation = "two"
-##		velocity = speed*position.direction_to(player.position)
-#		position += velocity * delta
-#		return
-	#if health <= 1500:
-	#	speed=50
+#	
 	if dead == true:
 		$AnimatedSprite.animation = "die"
 		return
@@ -67,8 +61,6 @@ func _process(delta: float) -> void:
 	
 	$AnimatedSprite.animation = "walk"
 	
-	
-	#if health <= 1500:
 	if phase ==1:
 		$AnimatedSprite.animation = "phase2"
 		speed=50
@@ -110,9 +102,9 @@ func attack():
 		#var target = player.position\
 		#var target = self.position.x + 20
 		if phase == 1:
-			weapon2.attack3(player.position)
+			weapon2.attack3(player.global_position)
 			#weapon3.attack3(player)
-			weapon3.attack(player.position)
+			weapon3.attack(player.global_position)
 		var target = Vector2(rand_range((self.position.x - weaponrange),(self.position.x + weaponrange)), rand_range((self.position.y - weaponrange),(self.position.y + weaponrange)))
 		#var target = Vector2(rand_range(-999,999), rand_range(-999,999))
 		weapon.attack(target)

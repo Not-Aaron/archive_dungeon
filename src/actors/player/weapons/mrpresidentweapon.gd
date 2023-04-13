@@ -27,6 +27,10 @@ func attack2():
 	
 	get_parent().get_parent().add_child(bullet_instance)
 	bullet_instance.global_position = global_position
+	
+	
+	
+	
 func attack1(target:Vector2):
 
 	var bullet_instance = attack.instance()
@@ -36,6 +40,7 @@ func attack1(target:Vector2):
 
 func attack3(target:Vector2):
 	var bullet_instance = attack2.instance()
+	target = global_position.direction_to(target).normalized()
 	bullet_instance.set_direction(target)
 	#bullet_instance.set_direction(target)
 	get_parent().get_parent().add_child(bullet_instance)

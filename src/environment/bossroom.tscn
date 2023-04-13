@@ -1067,14 +1067,14 @@ position = Vector2( 927, 793 )
 switch_x = 500.0
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1568, 999 )
+position = Vector2( -106, 1075 )
 z_index = 2
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 
 [node name="mrpresident" parent="." instance=ExtResource( 2 )]
-position = Vector2( -849, 912 )
+position = Vector2( -765, 982 )
 presidentattack = ExtResource( 11 )
 
 [node name="defense6" parent="mrpresident" instance=ExtResource( 16 )]

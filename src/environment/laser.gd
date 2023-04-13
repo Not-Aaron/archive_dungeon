@@ -1,6 +1,7 @@
 extends Area2D
 class_name laser
-export (int) var speed = 900
+#export (int) var speed = 900
+var speed = 900
 #onready var player = $"../Player"
 export (PackedScene) var Burst
 var direction := Vector2.ZERO
@@ -16,7 +17,7 @@ var target = Vector2.ZERO
 
 func _ready():
 	#kill_timer.set_wait_time(rng.randf_range(.1,5))
-#	kill_timer.start()
+	kill_timer.start()
 	speed = rng.randf_range(.33,.66)
 	$AnimatedSprite.animation = "shot"
 	$AnimatedSprite.play()
@@ -29,11 +30,11 @@ func _physics_process(_delta: float):
 		j = j * -1
 	
 #	$lights.set_energy(i)
-	if direction != Vector2.ZERO:
+	#if direction != Vector2.ZERO:
 		
-		var velocity = position.direction_to(direction) * speed 
+	var velocity = position.direction_to(direction) * speed 
 		
-		global_position += velocity
+	global_position += velocity
 	spin+=1
 	#self.set_rotation(spin)
 	#$particles.set_rotation(spin)
@@ -44,6 +45,7 @@ func set_direction(direction: Vector2):
 	
 
 func _on_KillTimer_timeout():
+	queue_free()
 	#for i in range(2):
 		#$weapon.burst(player.position)
 		#var x = rng.randf_range(-1000,1000)
