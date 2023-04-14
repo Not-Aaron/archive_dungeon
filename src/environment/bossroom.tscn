@@ -1,4 +1,4 @@
-[gd_scene load_steps=134 format=2]
+[gd_scene load_steps=135 format=2]
 
 [ext_resource path="res://src/actors/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/mrpresident.tscn" type="PackedScene" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://assets/environments/oil.png" type="Texture" id=20]
 [ext_resource path="res://assets/environments/dimlight.png" type="Texture" id=21]
 [ext_resource path="res://src/particles/cable.tscn" type="PackedScene" id=22]
+[ext_resource path="res://src/particles/cable_mk3.tscn" type="PackedScene" id=23]
 
 [sub_resource type="Resource" id=154]
 script = ExtResource( 7 )
@@ -1086,26 +1087,42 @@ presidentattack = ExtResource( 11 )
 [node name="defense6" parent="mrpresident" instance=ExtResource( 16 )]
 position = Vector2( 208, -102 )
 
+[node name="cable_mk3" parent="mrpresident/defense6" instance=ExtResource( 23 )]
+
 [node name="defense2" parent="mrpresident" instance=ExtResource( 16 )]
 position = Vector2( -3, 282 )
+
+[node name="cable_mk3" parent="mrpresident/defense2" instance=ExtResource( 23 )]
 
 [node name="defense7" parent="mrpresident" instance=ExtResource( 16 )]
 position = Vector2( -207, -106 )
 
+[node name="cable_mk3" parent="mrpresident/defense7" instance=ExtResource( 23 )]
+
 [node name="defense5" parent="mrpresident" instance=ExtResource( 16 )]
 position = Vector2( -243, 68 )
+
+[node name="cable_mk3" parent="mrpresident/defense5" instance=ExtResource( 23 )]
 
 [node name="defense4" parent="mrpresident" instance=ExtResource( 16 )]
 position = Vector2( 291, 67.9999 )
 
+[node name="cable_mk3" parent="mrpresident/defense4" instance=ExtResource( 23 )]
+
 [node name="defense3" parent="mrpresident" instance=ExtResource( 16 )]
 position = Vector2( 173, 222 )
+
+[node name="cable_mk3" parent="mrpresident/defense3" instance=ExtResource( 23 )]
 
 [node name="defense" parent="mrpresident" instance=ExtResource( 16 )]
 position = Vector2( -204, 246 )
 
+[node name="cable_mk3" parent="mrpresident/defense" instance=ExtResource( 23 )]
+
 [node name="defense8" parent="mrpresident" instance=ExtResource( 16 )]
 position = Vector2( 0, -189 )
+
+[node name="cable_mk3" parent="mrpresident/defense8" instance=ExtResource( 23 )]
 
 [node name="SS2D_Shape_Closed" type="Node2D" parent="."]
 script = ExtResource( 5 )

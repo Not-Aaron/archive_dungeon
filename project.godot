@@ -353,7 +353,7 @@ window/size/height=1080
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/AS2P/plugin.cfg", "res://addons/acrylic_glass/plugin.cfg", "res://addons/color-palette/plugin.cfg", "res://addons/tile_setup_helper/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/AS2P/plugin.cfg", "res://addons/acrylic_glass/plugin.cfg", "res://addons/color-palette/plugin.cfg", "res://addons/rmsmartshape/plugin.cfg", "res://addons/tile_setup_helper/plugin.cfg" )
 
 [global]
 

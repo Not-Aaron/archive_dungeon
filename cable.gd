@@ -23,8 +23,12 @@ func _process(delta):
 	
 	point_b = boss.global_position
 	
-	rope.process_material.set_gravity(Vector3(-1*point_b.x,-1*point_b.y,0))
+	
+	#rope.process_material.set_gravity(Vector3(-1*point_b.x,-1*point_b.y,0))
 	self.global_position = point_a
+	rope.process_material.set_gravity(Vector3(-1*point_b.x,-1*point_b.y,0))
+	
+	
 	var ang = rad2deg((global_position.direction_to(point_b)).angle())
 	var ropcur = rope.process_material.angle_curve.get_curve()
 	ropcur.set_point_value(1,ang)
