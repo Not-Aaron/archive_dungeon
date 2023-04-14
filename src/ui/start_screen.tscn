@@ -135,7 +135,5 @@ drag_and_drop_selection_enabled = false
 
 [node name="cable" parent="." instance=ExtResource( 10 )]
 position = Vector2( 137, 84 )
-point_a = Vector2( 0, 0 )
-point_b = Vector2( 0, 0 )
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]

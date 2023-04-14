@@ -25,7 +25,10 @@ func _process(delta):
 	#gravity must curve this way too, have it do the negative of 
 	#the vector 2 position you are going for
 	rope.process_material.set_gravity(Vector3(-1*point_b.x,-1*point_b.y,0))
-	
+	#rope.process_material.angle.set_angle(rad2deg(point_a.angle_to(point_b)))
+	#the angle with be subtracting 180 from the angle from a to b, from b to the origin.
+	#rope.process_material.set_param("emission_angle", rad2deg(point_a.angle_to(point_b)))
+	rope.process_material.angle= (180-rad2deg(point_a.angle_to(point_b))-rad2deg(Vector2(0,0).angle_to(point_b)))
 	print(ropcur.get_point_count())
 	#print(ropcur.)
 	#sets curve points to direction2, normalized and in degrees
