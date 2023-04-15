@@ -1088,41 +1088,49 @@ presidentattack = ExtResource( 11 )
 position = Vector2( 208, -102 )
 
 [node name="cable_mk3" parent="mrpresident/defense6" instance=ExtResource( 23 )]
+org = Vector2( 0, 0 )
 
 [node name="defense2" parent="mrpresident" instance=ExtResource( 16 )]
 position = Vector2( -3, 282 )
 
 [node name="cable_mk3" parent="mrpresident/defense2" instance=ExtResource( 23 )]
+org = Vector2( 0, 0 )
 
 [node name="defense7" parent="mrpresident" instance=ExtResource( 16 )]
 position = Vector2( -207, -106 )
 
 [node name="cable_mk3" parent="mrpresident/defense7" instance=ExtResource( 23 )]
+org = Vector2( 0, 0 )
 
 [node name="defense5" parent="mrpresident" instance=ExtResource( 16 )]
 position = Vector2( -243, 68 )
 
 [node name="cable_mk3" parent="mrpresident/defense5" instance=ExtResource( 23 )]
+org = Vector2( 0, 0 )
 
 [node name="defense4" parent="mrpresident" instance=ExtResource( 16 )]
 position = Vector2( 291, 67.9999 )
 
 [node name="cable_mk3" parent="mrpresident/defense4" instance=ExtResource( 23 )]
+org = Vector2( 0, 0 )
 
 [node name="defense3" parent="mrpresident" instance=ExtResource( 16 )]
 position = Vector2( 173, 222 )
 
 [node name="cable_mk3" parent="mrpresident/defense3" instance=ExtResource( 23 )]
+org = Vector2( 0, 0 )
 
 [node name="defense" parent="mrpresident" instance=ExtResource( 16 )]
 position = Vector2( -204, 246 )
 
 [node name="cable_mk3" parent="mrpresident/defense" instance=ExtResource( 23 )]
+org = Vector2( 0, 0 )
 
 [node name="defense8" parent="mrpresident" instance=ExtResource( 16 )]
 position = Vector2( 0, -189 )
 
 [node name="cable_mk3" parent="mrpresident/defense8" instance=ExtResource( 23 )]
+org = Vector2( 0, 0 )
 
 [node name="SS2D_Shape_Closed" type="Node2D" parent="."]
 script = ExtResource( 5 )

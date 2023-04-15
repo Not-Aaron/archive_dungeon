@@ -55,7 +55,7 @@ func _process(delta: float) -> void:
 	else:
 		$AnimatedSprite.animation = idle
 	
-
+	#self.
 # Damage player upon collision
 	
 func take_damage(damage: float):

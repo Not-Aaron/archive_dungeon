@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://addons/rmsmartshape/RMSmartShapeMaterial.gd" type="Script" id=1]
 [ext_resource path="res://addons/rmsmartshape/shapes/point_array.gd" type="Script" id=2]
@@ -100,6 +100,58 @@ point_in = Vector2( 0, 0 )
 point_out = Vector2( 0, 0 )
 properties = SubResource( 48 )
 
+[sub_resource type="Resource" id=55]
+script = ExtResource( 6 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=56]
+script = ExtResource( 8 )
+position = Vector2( 244.27, -64.1581 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 55 )
+
+[sub_resource type="Resource" id=57]
+script = ExtResource( 6 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=58]
+script = ExtResource( 8 )
+position = Vector2( 274.946, 54.7701 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 57 )
+
+[sub_resource type="Resource" id=59]
+script = ExtResource( 6 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=60]
+script = ExtResource( 8 )
+position = Vector2( 216.897, -82.0917 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 59 )
+
+[sub_resource type="Resource" id=61]
+script = ExtResource( 6 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=62]
+script = ExtResource( 8 )
+position = Vector2( 205.571, -70.2933 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 61 )
+
 [sub_resource type="Resource" id=50]
 script = ExtResource( 2 )
 _points = {
@@ -109,13 +161,17 @@ _points = {
 3: SubResource( 43 ),
 4: SubResource( 45 ),
 5: SubResource( 47 ),
-6: SubResource( 49 )
+6: SubResource( 49 ),
+7: SubResource( 56 ),
+8: SubResource( 58 ),
+9: SubResource( 60 ),
+10: SubResource( 62 )
 }
-_point_order = [ 3, 5, 2, 1, 4, 6, 0 ]
+_point_order = [ 3, 5, 2, 1, 10, 9, 7, 4, 8, 6, 0 ]
 _constraints = {
 [ 0, 3 ]: 15
 }
-_next_key = 7
+_next_key = 11
 
 [sub_resource type="Curve2D" id=51]
 _data = {
