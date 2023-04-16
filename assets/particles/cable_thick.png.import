@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hit.png-edb41de51ccb4edfbe4d81e22ee52fbf.stex"
+path="res://.import/cable_thick.png-d4c7f070499e5c77d5fa1b1f01b29c2b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hit.png"
-dest_files=[ "res://.import/hit.png-edb41de51ccb4edfbe4d81e22ee52fbf.stex" ]
+source_file="res://assets/particles/cable_thick.png"
+dest_files=[ "res://.import/cable_thick.png-d4c7f070499e5c77d5fa1b1f01b29c2b.stex" ]
 
 [params]
 

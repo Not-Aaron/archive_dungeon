@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://src/actors/scroll enemy/ScrollEnemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/actors/tar enemy/tarenemy.tscn" type="PackedScene" id=2]
@@ -10,7 +10,7 @@
 [ext_resource path="res://addons/rmsmartshape/shapes/point.gd" type="Script" id=8]
 [ext_resource path="res://addons/rmsmartshape/vertex_properties.gd" type="Script" id=9]
 [ext_resource path="res://addons/rmsmartshape/materials/shape_material.gd" type="Script" id=10]
-[ext_resource path="res://assets/environments/oil.png" type="Texture" id=11]
+[ext_resource path="res://assets/particles/cable_thick.png" type="Texture" id=11]
 [ext_resource path="res://addons/rmsmartshape/shapes/point_array.gd" type="Script" id=12]
 [ext_resource path="res://addons/rmsmartshape/shapes/shape_closed.gd" type="Script" id=13]
 [ext_resource path="res://assets/audio/swanlakemodification fortot.mp3" type="AudioStream" id=14]
@@ -19,6 +19,9 @@
 [ext_resource path="res://src/ui/darkness.tscn" type="PackedScene" id=17]
 [ext_resource path="res://src/interactables/doorandswitch.tscn" type="PackedScene" id=18]
 [ext_resource path="res://levels/dungeon/newlevel2.gd" type="Script" id=19]
+[ext_resource path="res://addons/rmsmartshape/materials/edge_material.gd" type="Script" id=20]
+[ext_resource path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" type="Script" id=21]
+[ext_resource path="res://addons/rmsmartshape/normal_range.gd" type="Script" id=22]
 
 [sub_resource type="Resource" id=21]
 script = ExtResource( 9 )
@@ -156,11 +159,43 @@ _constraints = {
 }
 _next_key = 10
 
+[sub_resource type="Resource" id=53]
+script = ExtResource( 20 )
+textures = [ ExtResource( 11 ) ]
+texture_normals = [  ]
+textures_corner_outer = [  ]
+textures_corner_inner = [  ]
+texture_normals_corner_outer = [  ]
+texture_normals_corner_inner = [  ]
+textures_taper_left = [  ]
+textures_taper_right = [  ]
+texture_normals_taper_left = [  ]
+texture_normals_taper_right = [  ]
+use_corner_texture = true
+use_taper_texture = true
+fit_mode = 0
+
+[sub_resource type="Resource" id=54]
+script = ExtResource( 22 )
+begin = 0.0
+distance = 0.0
+edgeRendering = Vector2( 0, 0 )
+
+[sub_resource type="Resource" id=55]
+script = ExtResource( 21 )
+edge_material = SubResource( 53 )
+normal_range = SubResource( 54 )
+weld = true
+render = true
+z_index = 0
+z_as_relative = true
+offset = 0.0
+
 [sub_resource type="Resource" id=20]
 script = ExtResource( 10 )
-_edge_meta_materials = [  ]
-fill_textures = [ ExtResource( 11 ) ]
-fill_texture_normals = [ ExtResource( 11 ) ]
+_edge_meta_materials = [ SubResource( 55 ) ]
+fill_textures = [  ]
+fill_texture_normals = [  ]
 fill_texture_z_index = 0
 fill_mesh_offset = 0.0
 render_offset = 0.0
@@ -249,25 +284,25 @@ texture_idx = 1
 flip = false
 width = 1.0
 
-[sub_resource type="Resource" id=53]
+[sub_resource type="Resource" id=59]
 script = ExtResource( 8 )
 position = Vector2( -203.211, -128.082 )
 point_in = Vector2( 0, 0 )
 point_out = Vector2( 0, 0 )
 properties = SubResource( 52 )
 
-[sub_resource type="Resource" id=54]
+[sub_resource type="Resource" id=60]
 script = ExtResource( 9 )
 texture_idx = 0
 flip = false
 width = 1.0
 
-[sub_resource type="Resource" id=55]
+[sub_resource type="Resource" id=61]
 script = ExtResource( 8 )
 position = Vector2( -261.127, -171.628 )
 point_in = Vector2( 0, 0 )
 point_out = Vector2( 0, 0 )
-properties = SubResource( 54 )
+properties = SubResource( 60 )
 
 [sub_resource type="Resource" id=56]
 script = ExtResource( 9 )
@@ -291,8 +326,8 @@ _points = {
 3: SubResource( 47 ),
 4: SubResource( 49 ),
 5: SubResource( 51 ),
-6: SubResource( 53 ),
-7: SubResource( 55 ),
+6: SubResource( 59 ),
+7: SubResource( 61 ),
 9: SubResource( 57 )
 }
 _point_order = [ 3, 5, 2, 4, 7, 1, 9, 6, 0 ]

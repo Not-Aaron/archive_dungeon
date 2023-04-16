@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://src/actors/test_flying_enemy/fly_enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/enemy/ghost/move1.png" type="Texture" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://assets/enemy/ghost/die3.png" type="Texture" id=8]
 [ext_resource path="res://assets/enemy/ghost/die4.png" type="Texture" id=9]
 [ext_resource path="res://assets/enemy/ghost/ghost attack.png" type="Texture" id=10]
-[ext_resource path="res://assets/enemy/ghost/hit.png" type="Texture" id=11]
 [ext_resource path="res://assets/audio/taste.wav" type="AudioStream" id=12]
 [ext_resource path="res://assets/GUI/buttonpressed1.png" type="Texture" id=13]
 [ext_resource path="res://assets/GUI/buttonunpressed1.png" type="Texture" id=14]
@@ -22,6 +21,8 @@
 [ext_resource path="res://assets/particles/stardust.png" type="Texture" id=20]
 [ext_resource path="res://assets/ghost copy.png" type="Texture" id=21]
 [ext_resource path="res://src/particles/stardustbloodparticles.tscn" type="PackedScene" id=22]
+[ext_resource path="res://assets/enemy/hit.png" type="Texture" id=23]
+[ext_resource path="res://assets/enemy/hit2.png" type="Texture" id=24]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -35,8 +36,8 @@ animations = [ {
 "name": "die",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
+"frames": [ ExtResource( 24 ), ExtResource( 23 ) ],
+"loop": false,
 "name": "hit",
 "speed": 5.0
 }, {

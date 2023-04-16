@@ -6,7 +6,7 @@ export var aggro_radius = 500
 export var speed = 100
 var health = 100
 var damage = 10
-var max_health = 200
+var max_health = 100
 var velocity = Vector2.ZERO
 onready var dead = false
 

@@ -255,6 +255,11 @@ _global_script_classes=[ {
 "path": "res://Triggers/TriggerTime.gd"
 }, {
 "base": "Area2D",
+"class": "laser",
+"language": "GDScript",
+"path": "res://src/environment/laser.gd"
+}, {
+"base": "Area2D",
 "class": "tricklestar",
 "language": "GDScript",
 "path": "res://src/actors/mr president fight/tricklestar.gd"
@@ -324,6 +329,7 @@ _global_script_class_icons={
 "TriggerPos": "",
 "TriggerSignal": "",
 "TriggerTime": "",
+"laser": "",
 "tricklestar": "",
 "tricklestarb": "",
 "tricklestardust": "",
@@ -347,7 +353,7 @@ window/size/height=1080
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/AS2P/plugin.cfg", "res://addons/acrylic_glass/plugin.cfg", "res://addons/color-palette/plugin.cfg", "res://addons/tile_setup_helper/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/AS2P/plugin.cfg", "res://addons/acrylic_glass/plugin.cfg", "res://addons/color-palette/plugin.cfg", "res://addons/rmsmartshape/plugin.cfg", "res://addons/tile_setup_helper/plugin.cfg" )
 
 [global]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hit.png-edb41de51ccb4edfbe4d81e22ee52fbf.stex"
+path="res://.import/18_Jail_48x48 - Copy.png-175e14118f7b4e5a85553a0a4138b2e7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hit.png"
-dest_files=[ "res://.import/hit.png-edb41de51ccb4edfbe4d81e22ee52fbf.stex" ]
+source_file="res://assets/third_party_assets/18_Jail_48x48 - Copy.png"
+dest_files=[ "res://.import/18_Jail_48x48 - Copy.png-175e14118f7b4e5a85553a0a4138b2e7.stex" ]
 
 [params]
 

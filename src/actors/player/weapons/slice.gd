@@ -21,9 +21,7 @@ func set_direction(direction: Vector2):
 	curd = direction
 #	swing = curd.angle()
 	swing = curd.angle()+PI/4
-	#print(direction.angle())+PI
-	#var start = direction.angle()+(PI)
-	#print(start)
+
 	set_rotation(swing)
 #	set_rotation(direction.angle()+(PI/4))
 
@@ -54,11 +52,11 @@ func gettime() -> float:
 func _process(delta: float) -> void:
 	#self.position = parent.position
 	if $KillTimer.get_time_left() > 0:
-	#	print(curd.angle())	
+
 	#	var swing = curd.angle()+(PI/8) - (PI/8)*delta*6
 	#starts pi/8 away from target, and in .1 seconds will rotate Pi/4 degrees total. .1 seconds is roguhly 6 frames. 
 	#delta is seconds per frame, which is roughly 1/60, so we multiple by 6
-		#print(delta)
+		
 	#	var swing = curd.angle()+(PI/8) - (PI/24)*delta*60
 		#var swing = curd.angle() - (PI/24)/60
 		swing = swing - (PI/12)
