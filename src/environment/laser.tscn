@@ -18,6 +18,7 @@ radius = 37.2156
 
 [node name="laser" type="Area2D"]
 script = ExtResource( 1 )
+Burst = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
