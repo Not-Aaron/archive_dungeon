@@ -10,7 +10,7 @@ var parent = get_parent()
 # var b = "text"
 var boss 
 var g =0
-var p=9
+var p=20
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -80,7 +80,8 @@ func _process(delta):
 		#var h_grav = height - height*abs(25/(i*i))
 		#var h_grav = sqrt(height*height - height*height*abs(25-(i*i)))
 		#var h_grav = height-(height/abs(5-i))
-		var h_grav = height/(abs(m-i)+1)
+		#var h_grav = height/(abs(m-i)+1)
+		var h_grav = (i-m)*(i-m)
 	#	var h_grav=0
 		print(i, h_grav)
 		

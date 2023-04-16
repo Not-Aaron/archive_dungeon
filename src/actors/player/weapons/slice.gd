@@ -28,7 +28,7 @@ func set_direction(direction: Vector2):
 func _on_Slice_area_entered(area: Area2D) -> void:
 	if area.has_method("take_damage"):
 		area.take_damage(damage)
-		queue_free()
+		#queue_free()
 
 func get_damage():
 	return damage
@@ -56,23 +56,10 @@ func _process(delta: float) -> void:
 	#	var swing = curd.angle()+(PI/8) - (PI/8)*delta*6
 	#starts pi/8 away from target, and in .1 seconds will rotate Pi/4 degrees total. .1 seconds is roguhly 6 frames. 
 	#delta is seconds per frame, which is roughly 1/60, so we multiple by 6
-		
-	#	var swing = curd.angle()+(PI/8) - (PI/24)*delta*60
-		#var swing = curd.angle() - (PI/24)/60
+
 		swing = swing - (PI/12)
 		set_rotation(swing)
-	#var swing = curd.angle()
-	#set_rotation(swing)
+
 	var player = $"../Player"
-	
-	
-	
+
 	self.global_position=player.global_position
-	
-	
-	#swing += Vector2(delta, delta)
-	#swing += Vector2(30,30)
-	
-	
-	#set_direction(swing)
-	

@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/environment/laser.gd" type="Script" id=1]
 [ext_resource path="res://assets/particles/fire-y.png" type="Texture" id=2]
+[ext_resource path="res://laser_burst.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/environment/burst.gd" type="Script" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -26,4 +28,9 @@ shape = SubResource( 2 )
 
 [node name="KillTimer" type="Timer" parent="."]
 
+[node name="burst" type="Position2D" parent="."]
+script = ExtResource( 4 )
+burst = ExtResource( 3 )
+
+[connection signal="body_entered" from="." to="." method="_on_laser_body_entered"]
 [connection signal="timeout" from="KillTimer" to="." method="_on_KillTimer_timeout"]

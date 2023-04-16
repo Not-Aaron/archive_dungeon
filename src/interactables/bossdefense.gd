@@ -1,6 +1,6 @@
 extends Area2D
 
-#onready var player = $"../Player"
+onready var player = $"../../Player"
 
 export (float) var health = 200
 export (float) var max_health = 200
@@ -15,6 +15,7 @@ onready var cooldowntimer = $cooldowntimer
 onready var weapon = $bossdefenseweapon
 onready var dead = false
 var target = Vector2.ZERO
+
 
 ## Add something that randomly selects which sprite it will be for randomizations
 #export (PackedScene) var presidentattack
@@ -41,10 +42,12 @@ func _ready() -> void:
 # warning-ignore:unused_argument
 func _process(delta: float) -> void:
 	if (cooldowntimer.time_left <= 0):
-			cooldowntimer.set_wait_time(1)
+			var rand = rng.randf_range(.07, .14)
+			cooldowntimer.set_wait_time(rand)
 			cooldowntimer.start()
 			if (weapon.getphase()==zap):
-				 cooldowntimer.set_wait_time(1)
+				 rand = rng.randf_range(.07, .14)
+				 cooldowntimer.set_wait_time(rand)
 				 cooldowntimer.start()
 			if (weapon.getphase()==block):
 				 cooldowntimer.set_wait_time(.5)
@@ -82,13 +85,12 @@ func _on_cooldowntimer_timeout():
 	
 	
 func attack():
-	#var target = Vector2(rand_range((self.position.x - weaponrange),(self.position.x + weaponrange)), rand_range((self.position.y - weaponrange),(self.position.y + weaponrange)))
-	var parent = get_parent()
-	if parent.player:
-		var player = parent.player
-		var target = player.position 
-	else:
-		var target = Vector2.ZERO
+	target = player.global_position 
+	#target.x -= self.position.x*-1
+#	target.y -= self.position.y*-1
+	#target = self.position.x*-1
+	
+	#var target = Vector2.ZERO
 	
 		#var target = Vector2(rand_range(-999,999), rand_range(-999,999))
 	weapon.attack(target)

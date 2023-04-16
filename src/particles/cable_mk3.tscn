@@ -33,37 +33,37 @@ collision_width = 1.0
 collision_offset = 0.0
 collision_extends = 0.0
 
-[sub_resource type="Resource" id=1]
-script = ExtResource( 4 )
-texture_idx = 10
-flip = false
-width = 1.0
-
-[sub_resource type="Resource" id=2]
-script = ExtResource( 5 )
-position = Vector2( 29.0664, -16.9644 )
-point_in = Vector2( 0, 0 )
-point_out = Vector2( 0, 0 )
-properties = SubResource( 1 )
-
-[sub_resource type="Resource" id=3]
+[sub_resource type="Resource" id=8]
 script = ExtResource( 4 )
 texture_idx = 0
 flip = false
 width = 1.0
 
-[sub_resource type="Resource" id=4]
+[sub_resource type="Resource" id=9]
 script = ExtResource( 5 )
 position = Vector2( 80.5075, -19.3241 )
 point_in = Vector2( 0, 0 )
 point_out = Vector2( 0, 0 )
-properties = SubResource( 3 )
+properties = SubResource( 8 )
 
-[sub_resource type="Resource" id=5]
+[sub_resource type="Resource" id=10]
+script = ExtResource( 4 )
+texture_idx = 10
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=11]
+script = ExtResource( 5 )
+position = Vector2( 29.0664, -16.9644 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 10 )
+
+[sub_resource type="Resource" id=12]
 script = ExtResource( 2 )
 _points = {
-0: SubResource( 4 ),
-1: SubResource( 2 )
+0: SubResource( 9 ),
+1: SubResource( 11 )
 }
 _point_order = [ 1, 0 ]
 _constraints = {
@@ -71,6 +71,7 @@ _constraints = {
 _next_key = 0
 
 [node name="cable_mk3" type="Node2D"]
+z_index = -1
 script = ExtResource( 6 )
 
 [node name="RMSmartShape2D" type="Node2D" parent="."]
@@ -81,7 +82,7 @@ shape_material = SubResource( 7 )
 [node name="cab" type="Node2D" parent="."]
 script = ExtResource( 1 )
 curve_bake_interval = 20.013
-_points = SubResource( 5 )
+_points = SubResource( 12 )
 material_overrides = {
 }
 shape_material = ExtResource( 3 )

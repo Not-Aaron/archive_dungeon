@@ -33,4 +33,5 @@ visible = false
 script = ExtResource( 2 )
 
 [connection signal="body_entered" from="." to="." method="_on_Node2D_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_bossdefenseattack_body_entered"]
 [connection signal="timeout" from="KillTimer" to="." method="_on_KillTimer_timeout"]

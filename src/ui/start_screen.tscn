@@ -134,6 +134,7 @@ deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 
 [node name="cable" parent="." instance=ExtResource( 10 )]
+visible = false
 position = Vector2( 137, 84 )
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]

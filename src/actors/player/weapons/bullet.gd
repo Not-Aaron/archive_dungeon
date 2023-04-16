@@ -2,7 +2,8 @@ extends Area2D
 class_name Bullet
 export (int) var speed = 20
 export (int) var damage = 15
-var pierce = 0
+#var pierce = 0
+var pierce = 1
 var direction := Vector2.ZERO
 var spin = PI
 # crit system, does 2 time damage
@@ -59,6 +60,7 @@ func _on_Bullet_area_entered(area: Area2D) -> void:
 		#	var parent = get_parent()
 			var player = $"../Player"
 			player.critical_land(self.position)
+			pierce-=1
 		#	parent.critical_land(self.position)
 			
 		if pierce >= 1:

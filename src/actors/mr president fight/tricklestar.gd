@@ -32,6 +32,7 @@ func _physics_process(_delta: float):
 	if direction != Vector2.ZERO:
 		
 		var velocity = position.direction_to(direction) * speed 
+		#var velocity = direction *speed
 		
 		global_position += velocity
 	spin+=1
@@ -45,13 +46,7 @@ func set_direction(direction: Vector2):
 
 func _on_KillTimer_timeout():
 	for i in range(2):
-		#$weapon.burst(player.position)
-		#var x = rng.randf_range(-1000,1000)
-		#var y = rng.randf_range(-1000, 1000)
-	
-		#var randomtarg = Vector2(x,y) * Vector2(x,y)
-		#var randomtarg = self.direction + Vector2(rng.randf_range(-5,5), rng.randf_range(-5,5))
-		##var randomtarg = target
+		
 		var randomtarg = self.direction
 		$weapon.burst(randomtarg)
 	
