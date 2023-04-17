@@ -22,7 +22,9 @@ class Default:
 		direction: Vector2,
 		isattacking: bool,
 		isslow: bool,
-		attacktimer: float
+		dash: float,
+		attacktimer: float,
+		dashtimer: float
 		
 	) -> Vector2:
 		var i = 1
@@ -30,6 +32,10 @@ class Default:
 			#i = i*5*(attacktimer/0.1)
 			#lunge that slows down to stop over period of attack
 			i = i*2*(attacktimer/0.1)
+		if dash==2:
+			#i = i*5*(attacktimer/0.1)
+			#lunge that slows down to stop over period of attack
+			i = i*3*(dashtimer/0.1)
 		if isslow == true:
 			i-=.5
 		#return direction.normalized()*speed

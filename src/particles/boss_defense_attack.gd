@@ -7,6 +7,9 @@ var velocity = Vector2.ZERO
 var spin = PI
 var damage = 2
 onready var kill_timer = $KillTimer
+onready var light =$light
+var i = 1
+var j = .1
 
 #var rng = RandomNumberGenerator.new()
 
@@ -16,13 +19,17 @@ func _ready():
 
 
 func _physics_process(_delta: float):
+	i+=j
+	if ( i >=5 ) or ( i <= 1 ):
+		j = j * -1
+	light.set_energy(i)
 	if direction != Vector2.ZERO:
 		
-		var velocity = position.direction_to(direction) * speed 
-		
+		#var velocity = position.direction_to(direction) * speed 
+		var velocity = direction*speed
 		global_position += velocity
-	if position.direction_to(direction)==Vector2(0,0):
-		queue_free()
+	#if position.direction_to(direction)==Vector2(0,0):
+	#	queue_free()
 
 	
 	

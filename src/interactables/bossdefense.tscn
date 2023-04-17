@@ -182,7 +182,7 @@ block = ExtResource( 10 )
 zap = ExtResource( 10 )
 
 [node name="cooldowntimer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.5
 
 [connection signal="timeout" from="deathtimer" to="." method="_on_deathtimer_timeout"]
 [connection signal="timeout" from="regen" to="." method="_on_regen_timeout"]

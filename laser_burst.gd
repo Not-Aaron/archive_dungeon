@@ -1,6 +1,7 @@
 extends Area2D
 var direction
 var speed = 1
+var damage = 5
 var dirpos
 
 # Declare member variables here. Examples:
@@ -31,3 +32,8 @@ func set_direction(direction: Vector2):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_laser_burst_body_entered(body):
+	if body.has_method("take_damage"):
+		body.take_damage(damage) # Replace with function body.

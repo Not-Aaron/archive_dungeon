@@ -22,24 +22,31 @@ var velocity = Vector2.ZERO
 var isattacking = false
 #onready var haskey=false
 onready var haskey=false
+onready var dashtimer=$dashtimer
+var dash = 0
 var rng = RandomNumberGenerator.new()
+var dashinv = false
+var candash=true
 
 
 func critical_land(pos: Vector2):
 	weapon.critical_land(pos)
 func _ready():
+	$dashfl.visible = false
+	$dodge.emitting=false
 	$AnimatedSprite.animation = "idle"
 	$tooltiptimer.start()
 	
 func _physics_process(_delta: float) -> void:
 	#print(isslowed)
-	
+	if dashinv==true:
+		$CollisionBox.set_disabled(true)
 	if isblinded == true:
 		$extradarkness.visible = true	
 	if isblinded == false:
 		$extradarkness.visible = false
 		
-	velocity = move_and_slide(physicsType.calculate_move_velocity(velocity, get_direction(), isattacking,isslowed, attacktimer.get_time_left()))
+	velocity = move_and_slide(physicsType.calculate_move_velocity(velocity, get_direction(), isattacking,isslowed, dash, attacktimer.get_time_left(), dashtimer.get_time_left()))
 	
 	if velocity.length() > 0:
 		
@@ -74,9 +81,75 @@ func _unhandled_input(event: InputEvent):
 		if weapon.get_type() == Slice:
 			isattacking=true
 			$attacktimer.start()
-			lunge()
+			####lunge()
 	if event.is_action_released("switch"):
 		weapon.switch()
+		
+	if event.is_action_released("move_right"):
+		$dashtimer.start()
+		#if dash==1:
+			#lunge()
+			#dash=0
+		dash=1
+		#print(dash)
+	if event.is_action_pressed("move_right"):
+		if dash == 1 and candash==true:
+			dash = 2
+			$dashfl.visible = true
+			dashinv = true
+			candash=false
+			$dashcoold.start()
+			#print(dash)
+	
+	if event.is_action_released("move_left"):
+		$dashtimer.start()
+		#if dash==1:
+			#lunge()
+			#dash=0
+		dash=1
+	#	print(dash)
+	if event.is_action_pressed("move_left"):
+		if dash == 1 and candash==true:
+			dash = 2
+			$dashfl.visible = true
+			dashinv = true
+			candash=false
+			$dashcoold.start()
+		#	print(dash)
+	
+	if event.is_action_released("move_up"):
+		$dashtimer.start()
+		#if dash==1:
+			#lunge()
+			#dash=0
+		dash=1
+	#	print(dash)
+	if event.is_action_pressed("move_up"):
+		if dash == 1 and candash==true:
+			dash = 2
+			$dashfl.visible = true
+			dashinv = true
+			candash=false
+			$dashcoold.start()
+			#print(dash)
+	
+	if event.is_action_released("move_down"):
+		$dashtimer.start()
+		#if dash==1:
+			#lunge()
+			#dash=0
+		dash=1
+		
+		#print(dash)
+	if event.is_action_pressed("move_down"):
+		if dash == 1 and candash==true:
+			dash = 2
+			$dashfl.visible = true
+			dashinv = true
+			candash=false
+			$dashcoold.start()
+		#	print(dash)
+	
 func take_credentials(creds: float):
 	var hpup = rng.randf_range(0,10)
 	if hpup >= 8:
@@ -94,6 +167,13 @@ func take_credentials(creds: float):
 func take_damage(damage: float):
 	if not vulnerable:
 		return
+	if dashinv==true:
+		var dodge = rng.randf_range(0,1)
+		if dodge>=.5:
+			$dodge.visible=true
+			return
+		
+			
 	health -= damage
 	blood.parent_hit()
 	$hittimer.start()
@@ -182,3 +262,14 @@ func _on_hpparts_timeout():
 func _on_tooltiptimer_timeout():
 	if $leveltooltip:
 		$leveltooltip.visible = false # Replace with function body.
+
+
+func _on_dashtimer_timeout():
+	dash=0 # Replace with function body.
+	$dashfl.visible=false
+	dashinv = false
+	$CollisionBox.set_disabled(false)
+
+
+func _on_dashcoold_timeout():
+	candash=true # Replace with function body.

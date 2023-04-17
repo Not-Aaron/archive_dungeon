@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://src/actors/player/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/right2.png" type="Texture" id=2]
@@ -31,6 +31,10 @@
 [ext_resource path="res://src/actors/player/weapons/crit.tscn" type="PackedScene" id=29]
 [ext_resource path="res://src/actors/player/weapons/slice.tscn" type="PackedScene" id=30]
 [ext_resource path="res://assets/particles/hpup.png" type="Texture" id=31]
+[ext_resource path="res://assets/particles/stardust.png" type="Texture" id=32]
+[ext_resource path="res://assets/particles/stardust3.png" type="Texture" id=33]
+[ext_resource path="res://assets/particles/stardust2.png" type="Texture" id=34]
+[ext_resource path="res://assets/particles/DODGED.png" type="Texture" id=35]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 24 )
@@ -273,6 +277,21 @@ gravity = Vector3( 0, 98, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 
+[sub_resource type="ParticlesMaterial" id=26]
+flag_disable_z = true
+gravity = Vector3( 0, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+
+[sub_resource type="AnimatedTexture" id=25]
+frames = 3
+fps = 30.0
+frame_0/texture = ExtResource( 32 )
+frame_1/texture = ExtResource( 34 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 33 )
+frame_2/delay_sec = 0.0
+
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 4
 script = ExtResource( 1 )
@@ -301,14 +320,17 @@ critpar = ExtResource( 29 )
 [node name="slowtimer" type="Timer" parent="."]
 wait_time = 5.0
 
-[node name="HealthBar" parent="." instance=ExtResource( 11 )]
+[node name="play" type="Position2D" parent="."]
+z_index = 15
+
+[node name="HealthBar" parent="play" instance=ExtResource( 11 )]
 margin_left = -58.0
 margin_top = 25.0
 margin_right = 62.0
 margin_bottom = 46.0
 theme = SubResource( 13 )
 
-[node name="creedentials" parent="." instance=ExtResource( 26 )]
+[node name="creedentials" parent="play" instance=ExtResource( 26 )]
 margin_left = 547.0
 margin_top = 306.0
 margin_right = 678.0
@@ -371,6 +393,25 @@ one_shot = true
 process_material = SubResource( 24 )
 texture = ExtResource( 31 )
 
+[node name="dashtimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="dodge" type="Particles2D" parent="."]
+emitting = false
+amount = 1
+one_shot = true
+process_material = SubResource( 26 )
+texture = ExtResource( 35 )
+
+[node name="dashfl" type="Light2D" parent="."]
+scale = Vector2( 2, 2 )
+texture = SubResource( 25 )
+texture_scale = 1.5
+energy = 1.17
+
+[node name="dashcoold" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="timeout" from="hpparts" to="." method="_on_hpparts_timeout"]
 [connection signal="timeout" from="IFrameTimer" to="." method="_on_IFrameTimer_timeout"]
 [connection signal="timeout" from="weapon/atkcd" to="weapon" method="_on_Timer_timeout"]
@@ -379,3 +420,5 @@ texture = ExtResource( 31 )
 [connection signal="timeout" from="blindtimer" to="." method="_on_blindtimer_timeout"]
 [connection signal="timeout" from="attacktimer" to="." method="_on_attacktimer_timeout"]
 [connection signal="timeout" from="tooltiptimer" to="." method="_on_tooltiptimer_timeout"]
+[connection signal="timeout" from="dashtimer" to="." method="_on_dashtimer_timeout"]
+[connection signal="timeout" from="dashcoold" to="." method="_on_dashcoold_timeout"]

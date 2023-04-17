@@ -36,22 +36,12 @@ onready var idle = "idle" + String(x)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	$cooldowntimer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # warning-ignore:unused_argument
 func _process(delta: float) -> void:
-	if (cooldowntimer.time_left <= 0):
-			var rand = rng.randf_range(.07, .14)
-			cooldowntimer.set_wait_time(rand)
-			cooldowntimer.start()
-			if (weapon.getphase()==zap):
-				 rand = rng.randf_range(.07, .14)
-				 cooldowntimer.set_wait_time(rand)
-				 cooldowntimer.start()
-			if (weapon.getphase()==block):
-				 cooldowntimer.set_wait_time(.5)
-				 cooldowntimer.start()
+	
 	if dead == true:
 		$AnimatedSprite.animation = die
 		return
@@ -82,10 +72,14 @@ func _on_deathtimer_timeout():
 
 func _on_cooldowntimer_timeout():
 	attack()
+	var rand = rng.randf_range(3, 5)
+	cooldowntimer.set_wait_time(rand)
+	cooldowntimer.start()
+	
 	
 	
 func attack():
-	target = player.global_position 
+#	target = player.global_position 
 	#target.x -= self.position.x*-1
 #	target.y -= self.position.y*-1
 	#target = self.position.x*-1
@@ -93,7 +87,12 @@ func attack():
 	#var target = Vector2.ZERO
 	
 		#var target = Vector2(rand_range(-999,999), rand_range(-999,999))
-	weapon.attack(target)
+	for m in range(0,6):
+		var angl = PI/6 + (m * PI/6)
+		var target = Vector2(cos(angl),sin(angl))
+	#	burst.shoot(Vector2(cos(angl),sin(angl)))
+		weapon.attack(target)
+		
 func _on_regen_timeout():
 	#reloads scene, need to make the debris scene somethign that spawns the debris itself
 	#pass # Replace with function body.

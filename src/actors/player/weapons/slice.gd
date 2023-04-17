@@ -16,6 +16,7 @@ var swing = 0
 func _ready():
 	$sound.play()
 	kill_timer.start()
+	$clear.start()
 
 func set_direction(direction: Vector2):
 	curd = direction
@@ -39,6 +40,7 @@ func _on_KillTimer_timeout() -> void:
 	#queue_free()
 	$CollisionShape2D.set_disabled(true)
 	$PlaceholderSprite.set_visible(false)
+	$sound.stop()
 	#pass
 
 func set_cpos(cpos: Vector2):
@@ -63,3 +65,7 @@ func _process(delta: float) -> void:
 	var player = $"../Player"
 
 	self.global_position=player.global_position
+
+
+func _on_clear_timeout():
+	queue_free() # Replace with function body.

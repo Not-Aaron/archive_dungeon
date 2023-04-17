@@ -198,7 +198,11 @@ stream = ExtResource( 15 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource( 14 )
 
+[node name="phase" type="Timer" parent="."]
+wait_time = 4.0
+
 [connection signal="body_entered" from="." to="." method="_on_Tarenemy_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Tarenemy_body_exited"]
 [connection signal="timeout" from="attackcooldown" to="." method="_on_attackcooldown_timeout"]
 [connection signal="timeout" from="deathtimer" to="." method="_on_deathtimer_timeout"]
+[connection signal="timeout" from="phase" to="." method="_on_phase_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/fonts/VeniceClassic.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/ui/start_screen.gd" type="Script" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://assets/LOGO.png" type="Texture" id=7]
 [ext_resource path="res://src/interactables/glowingletters.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/environments/background1280_720mk2.png" type="Texture" id=9]
-[ext_resource path="res://src/particles/cable.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
@@ -132,9 +131,5 @@ middle_mouse_paste_enabled = false
 selecting_enabled = false
 deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
-
-[node name="cable" parent="." instance=ExtResource( 10 )]
-visible = false
-position = Vector2( 137, 84 )
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]

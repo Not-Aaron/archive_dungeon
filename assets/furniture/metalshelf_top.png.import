@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/oiledge.png-58a34fd0cdf532b7182b0c702a80be95.stex"
+path="res://.import/metalshelf_top.png-a8dae1076df156c51463694315ea5d17.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environments/oiledge.png"
-dest_files=[ "res://.import/oiledge.png-58a34fd0cdf532b7182b0c702a80be95.stex" ]
+source_file="res://assets/furniture/metalshelf_top.png"
+dest_files=[ "res://.import/metalshelf_top.png-a8dae1076df156c51463694315ea5d17.stex" ]
 
 [params]
 

@@ -7,7 +7,7 @@ var health = 200
 var damage = 10
 var max_health = 2000
 var velocity = Vector2.ZERO
-var defense = 8
+var defense = 0
 onready var attack = $attack1
 export (PackedScene) var target
 onready var deathtimer = $deathtimer
@@ -21,6 +21,7 @@ var rng = RandomNumberGenerator.new()
 export (PackedScene) var TarEnemy
 export (PackedScene) var presidentattack
 var phase = 0
+var curatt = 0
 #need to have him target the player
 
 # Called when the node enters the scene tree for the first time.
@@ -29,7 +30,8 @@ func take_defense(taken:float):
 	defense = defense+taken
 	
 func _ready() -> void:
-	pass
+	cooldowntimer.start()
+	$coold2.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # warning-ignore:unused_argument
@@ -39,13 +41,8 @@ func _process(delta: float) -> void:
 		$AnimatedSprite.animation = "die"
 		return
 
-	if (cooldowntimer.time_left <= 0):
-			if (weapon.getphase()==TarEnemy):
-				 cooldowntimer.set_wait_time(1)
-				 cooldowntimer.start()
-			if (weapon.getphase()==presidentattack):
-				 cooldowntimer.set_wait_time(.5)
-				 cooldowntimer.start()
+	#if (cooldowntimer.time_left <= 0):
+		
 	if ($phase.time_left <=0):
 			$phase.start()
 	if not is_instance_valid(player) or position.distance_to(player.position) > aggro_radius or health <= 0:
@@ -100,14 +97,15 @@ func die():
 	#parttwo.init()
 func attack():
 
-		if phase == 1:
 		
-			weapon2.attack3(player.position)
-			weapon3.attack(player.position)
 		var target = Vector2(rand_range((self.position.x - weaponrange),(self.position.x + weaponrange)), rand_range((self.position.y - weaponrange),(self.position.y + weaponrange)))
 		#var target = Vector2(rand_range(-999,999), rand_range(-999,999))
 		weapon.attack(target)
-	
+func attack2():
+	if phase == 1:
+		
+			weapon2.attack3(player.position)
+			weapon3.attack(player.position)
 func _on_deathtimer_timeout():
 	#queue_free() # Replace with function body.
 	if phase == 0:
@@ -139,12 +137,33 @@ func _on_attack1_timeout():
 
 
 func _on_cooldowntimer_timeout():
+	
 	attack()
+	#if (weapon.getphase()==TarEnemy):
+	#if attack == $attack1:
+	if curatt == 1:
+		 cooldowntimer.set_wait_time(5)
+	
+	#if (weapon.getphase()==presidentattack):
+	#if attack == $attack2:
+	if curatt == 0:
+		 cooldowntimer.set_wait_time(.5)
+	
+	cooldowntimer.start()
 	# Replace with function body.
 
 
 
 
 func _on_phase_timeout():
+	if curatt == 1:
+		curatt = 0
+	else:
+		curatt = 1
 	weapon.switch() # Replace with function body.
 	$phase.start()
+
+
+func _on_coold2_timeout():
+	attack2()
+	$coold2.start() # Replace with function body.

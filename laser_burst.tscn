@@ -55,3 +55,5 @@ shape = SubResource( 2 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 3 )
 animation = "shot"
+
+[connection signal="body_entered" from="." to="." method="_on_laser_burst_body_entered"]
