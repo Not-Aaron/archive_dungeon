@@ -59,6 +59,7 @@ frame_3/texture = ExtResource( 7 )
 frame_3/delay_sec = 0.0
 
 [node name="laser" type="Area2D"]
+z_index = 2
 script = ExtResource( 1 )
 Burst = ExtResource( 3 )
 
