@@ -410,7 +410,6 @@ texture_scale = 1.5
 energy = 1.17
 
 [node name="dashcoold" type="Timer" parent="."]
-wait_time = 0.5
 
 [connection signal="timeout" from="hpparts" to="." method="_on_hpparts_timeout"]
 [connection signal="timeout" from="IFrameTimer" to="." method="_on_IFrameTimer_timeout"]

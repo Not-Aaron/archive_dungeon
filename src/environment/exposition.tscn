@@ -18,11 +18,11 @@ rect_scale = Vector2( 25.52, 26.28 )
 texture = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 929, 384 )
+position = Vector2( 929, 264 )
 texture = ExtResource( 2 )
 
 [node name="Glowing_Letters" parent="." instance=ExtResource( 5 )]
-position = Vector2( 932, 836 )
+position = Vector2( 935, 653 )
 scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 1 )
 maxe = 2.0

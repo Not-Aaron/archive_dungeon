@@ -8,6 +8,6 @@ script = ExtResource( 2 )
 [node name="Sprite" type="Sprite" parent="."]
 
 [node name="lights" type="Light2D" parent="."]
-z_index = 1
+z_index = 2
 color = Color( 0.317647, 0.784314, 0.741176, 1 )
 energy = 6.9

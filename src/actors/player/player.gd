@@ -24,6 +24,10 @@ var isattacking = false
 onready var haskey=false
 onready var dashtimer=$dashtimer
 var dash = 0
+var udash = 0
+var ddash=0
+var rdash=0
+var ldash=0
 var rng = RandomNumberGenerator.new()
 var dashinv = false
 var candash=true
@@ -90,10 +94,10 @@ func _unhandled_input(event: InputEvent):
 		#if dash==1:
 			#lunge()
 			#dash=0
-		dash=1
+		rdash=1
 		#print(dash)
 	if event.is_action_pressed("move_right"):
-		if dash == 1 and candash==true:
+		if rdash == 1 and candash==true:
 			dash = 2
 			$dashfl.visible = true
 			dashinv = true
@@ -106,10 +110,10 @@ func _unhandled_input(event: InputEvent):
 		#if dash==1:
 			#lunge()
 			#dash=0
-		dash=1
+		ldash=1
 	#	print(dash)
 	if event.is_action_pressed("move_left"):
-		if dash == 1 and candash==true:
+		if ldash == 1 and candash==true:
 			dash = 2
 			$dashfl.visible = true
 			dashinv = true
@@ -122,10 +126,10 @@ func _unhandled_input(event: InputEvent):
 		#if dash==1:
 			#lunge()
 			#dash=0
-		dash=1
+		udash=1
 	#	print(dash)
 	if event.is_action_pressed("move_up"):
-		if dash == 1 and candash==true:
+		if udash == 1 and candash==true:
 			dash = 2
 			$dashfl.visible = true
 			dashinv = true
@@ -138,11 +142,11 @@ func _unhandled_input(event: InputEvent):
 		#if dash==1:
 			#lunge()
 			#dash=0
-		dash=1
+		ddash=1
 		
 		#print(dash)
 	if event.is_action_pressed("move_down"):
-		if dash == 1 and candash==true:
+		if ddash == 1 and candash==true:
 			dash = 2
 			$dashfl.visible = true
 			dashinv = true
@@ -266,6 +270,10 @@ func _on_tooltiptimer_timeout():
 
 func _on_dashtimer_timeout():
 	dash=0 # Replace with function body.
+	rdash=0
+	ldash=0
+	udash=0
+	ddash=0
 	$dashfl.visible=false
 	dashinv = false
 	$CollisionBox.set_disabled(false)
