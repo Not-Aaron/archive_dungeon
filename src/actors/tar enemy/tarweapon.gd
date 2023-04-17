@@ -5,22 +5,18 @@ onready var player = $"../Player"
 onready var attack = Tar 
 
 var rng = RandomNumberGenerator.new()
-# Called when the node enters the scene tree for the first time.
-##func _ready() -> void:
-	##pass # Replace with function body.
 
-##func _process(delta: float) -> void:
-	##if not is_instance_valid(player):
-		#velocity = Vector2.ZERO
-		#$AnimatedSprite.stop()
-		##return
-	#$AnimatedSprite.animation = "move"
-	#$AnimatedSprite.play()
-	#velocity = speed*position.direction_to(player.position)
-	#position += velocity * delta
-	##shoot()
+func take_tar(ntar: PackedScene):
+	if ntar:
+		Tar = ntar
+		#print(Tar)
+func _ready():
+	var parent = get_parent()
+	if parent.tar:
+		Tar = parent.tar
 	
 func shoot(target:Vector2):
+	print(Tar)
 	###if not is_instance_valid(player):
 		###return
 	var bullet_instance = attack.instance()

@@ -26,7 +26,12 @@ func attack2():
 	var target = get_global_mouse_position()
 	
 	get_parent().get_parent().add_child(bullet_instance)
-	bullet_instance.global_position = global_position
+	
+	var randv = Vector2(rng.randf_range(-100,100), rng.randf_range(-100,100))
+	
+	#bullet_instance.position = randv
+	bullet_instance.global_position = global_position + randv
+	#bullet_instance.global_position = global_position
 	
 	
 	
@@ -40,7 +45,7 @@ func attack1(target:Vector2):
 
 func attack3(target:Vector2):
 	var bullet_instance = attack2.instance()
-	target = global_position.direction_to(target).normalized()
+	#target = global_position.direction_to(target).normalized()
 	bullet_instance.set_direction(target)
 	#bullet_instance.set_direction(target)
 	get_parent().get_parent().add_child(bullet_instance)

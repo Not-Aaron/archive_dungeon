@@ -1,31 +1,42 @@
 extends Area2D
 class_name zap
-export (int) var speed = 20
+export (int) var speed = 2
 
 var direction := Vector2.ZERO
+var velocity = Vector2.ZERO
 var spin = PI
-var damage = 10
+var damage = 2
 onready var kill_timer = $KillTimer
+onready var light =$light
+var i = 1
+var j = .1
+
 #var rng = RandomNumberGenerator.new()
 
 func _ready():
 	kill_timer.start()
 	$AnimatedSprite.animation = "shot"
-	$AnimatedSprite.play()
-	#var my_random_number = rng.randf_range(.5, 1.5)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
+
 func _physics_process(_delta: float):
+	i+=j
+	if ( i >=5 ) or ( i <= 1 ):
+		j = j * -1
+	light.set_energy(i)
 	if direction != Vector2.ZERO:
 		
-		var velocity = position.direction_to(direction) * speed 
-		
+		#var velocity = position.direction_to(direction) * speed 
+		var velocity = direction*speed
 		global_position += velocity
-	spin+=1
-	self.set_rotation(spin)
+	#if position.direction_to(direction)==Vector2(0,0):
+	#	queue_free()
+
 	
 	
 func set_direction(direction: Vector2):
 	self.direction = direction 
+	set_rotation(direction.angle())
+	#set_rotation(direction.angle()+PI/4)
 	
 
 func _on_KillTimer_timeout():

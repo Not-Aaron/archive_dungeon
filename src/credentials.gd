@@ -14,6 +14,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var parent = get_parent()
+	if parent is Position2D:
+		parent = get_parent().get_parent()
 	if parent:
 		if parent.clearance_requirement >=1:
 			value = parent.clearance*100 / parent.clearance_requirement

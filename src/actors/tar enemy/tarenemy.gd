@@ -13,14 +13,22 @@ onready var cooldowntimer = $attackcooldown
 onready var deathtimer = $deathtimer
 var slow = Vector2(.9,.9)
 onready var dead = false
+var tar
+onready var phase = $phase
+var att = 0
 # Declare member variables here. Examples:
 # var a: int = 2
 # var b: String = "text"
 
 
+func take_tar(ntar: PackedScene):
+	 tar = ntar
+	 $tarweapon.take_tar(tar)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	cooldowntimer.start()
+	phase.start()
 	#pass # Replace with function body.
 
 
@@ -50,7 +58,10 @@ func _process(delta: float) -> void:
 
 func attack(attack:float):
 	#weapon._ready()
-	weapon.shoot(player.position)
+	if att ==  0:
+		weapon.shoot(player.position)
+	#else:
+	#	print(att)
 	
 	
 func take_damage(damage: float):
@@ -95,3 +106,18 @@ func _on_Tarenemy_body_exited(body):
 
 func _on_deathtimer_timeout():
 	queue_free() # Replace with function body. # Replace with function body.
+
+
+func _on_phase_timeout():
+	#match(att):
+	#	1:
+	#		att = 0
+	#	0:
+	#		att = 1 # Replace with function body.
+	if att==1:
+		att=0
+	else:
+		att=1
+	phase.start()
+
+	

@@ -1,0 +1,487 @@
+[gd_scene load_steps=78 format=2]
+
+[ext_resource path="res://src/actors/tar enemy/tarpit.gd" type="Script" id=1]
+[ext_resource path="res://addons/rmsmartshape/materials/edge_material.gd" type="Script" id=2]
+[ext_resource path="res://addons/rmsmartshape/shapes/point.gd" type="Script" id=3]
+[ext_resource path="res://addons/rmsmartshape/vertex_properties.gd" type="Script" id=4]
+[ext_resource path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" type="Script" id=5]
+[ext_resource path="res://addons/rmsmartshape/normal_range.gd" type="Script" id=6]
+[ext_resource path="res://addons/rmsmartshape/materials/shape_material.gd" type="Script" id=7]
+[ext_resource path="res://addons/rmsmartshape/shapes/point_array.gd" type="Script" id=8]
+[ext_resource path="res://addons/rmsmartshape/shapes/shape_closed.gd" type="Script" id=9]
+[ext_resource path="res://assets/environments/oil.png" type="Texture" id=10]
+[ext_resource path="res://assets/environments/oiledge.png" type="Texture" id=11]
+[ext_resource path="res://src/actors/tar enemy/tar.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/actors/tar enemy/tarenemy.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/ui/health_bar.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/GUI/healthbar.png" type="Texture" id=15]
+[ext_resource path="res://assets/GUI/buttonpressed1.png" type="Texture" id=16]
+[ext_resource path="res://assets/palette.bmp" type="Texture" id=17]
+[ext_resource path="res://assets/environments/metalfloortilemap.png" type="Texture" id=18]
+[ext_resource path="res://assets/GUI/buttonunpressed2.png" type="Texture" id=19]
+[ext_resource path="res://assets/GUI/buttonunpressed1.png" type="Texture" id=20]
+[ext_resource path="res://assets/GUI/buttonpressed 2.png" type="Texture" id=21]
+[ext_resource path="res://assets/fonts/Orwell.ttf" type="DynamicFontData" id=22]
+
+[sub_resource type="CircleShape2D" id=46]
+radius = 103.484
+
+[sub_resource type="SpriteFrames" id=32]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "growing",
+"speed": 5.0
+} ]
+
+[sub_resource type="Resource" id=56]
+script = ExtResource( 4 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=57]
+script = ExtResource( 3 )
+position = Vector2( -17.8189, -121.911 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 56 )
+
+[sub_resource type="Resource" id=58]
+script = ExtResource( 4 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=59]
+script = ExtResource( 3 )
+position = Vector2( -31.592, 78.8569 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 58 )
+
+[sub_resource type="Resource" id=60]
+script = ExtResource( 4 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=61]
+script = ExtResource( 3 )
+position = Vector2( 49.4128, -41.3876 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 60 )
+
+[sub_resource type="Resource" id=62]
+script = ExtResource( 4 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=63]
+script = ExtResource( 3 )
+position = Vector2( -17.8189, -121.911 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 62 )
+
+[sub_resource type="Resource" id=64]
+script = ExtResource( 4 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=65]
+script = ExtResource( 3 )
+position = Vector2( -77.6786, -98.0734 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 64 )
+
+[sub_resource type="Resource" id=66]
+script = ExtResource( 4 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=67]
+script = ExtResource( 3 )
+position = Vector2( -85.6245, -150.517 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 66 )
+
+[sub_resource type="Resource" id=68]
+script = ExtResource( 4 )
+texture_idx = 10
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=69]
+script = ExtResource( 3 )
+position = Vector2( -102.966, 1.48947 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 68 )
+
+[sub_resource type="Resource" id=70]
+script = ExtResource( 4 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=71]
+script = ExtResource( 3 )
+position = Vector2( 65.9649, 25.5624 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 70 )
+
+[sub_resource type="Resource" id=72]
+script = ExtResource( 4 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=73]
+script = ExtResource( 3 )
+position = Vector2( 19.792, 71.9703 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 72 )
+
+[sub_resource type="Resource" id=74]
+script = ExtResource( 4 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=75]
+script = ExtResource( 3 )
+position = Vector2( -17.001, 76.7535 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 74 )
+
+[sub_resource type="Resource" id=76]
+script = ExtResource( 4 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=77]
+script = ExtResource( 3 )
+position = Vector2( -77.1488, 46.5432 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 76 )
+
+[sub_resource type="Resource" id=78]
+script = ExtResource( 4 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=79]
+script = ExtResource( 3 )
+position = Vector2( -96.7489, -130.917 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 78 )
+
+[sub_resource type="Resource" id=80]
+script = ExtResource( 4 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=81]
+script = ExtResource( 3 )
+position = Vector2( -52.2515, -150.517 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 80 )
+
+[sub_resource type="Resource" id=82]
+script = ExtResource( 4 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=83]
+script = ExtResource( 3 )
+position = Vector2( 9.26184, -106.014 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 82 )
+
+[sub_resource type="Resource" id=84]
+script = ExtResource( 4 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=85]
+script = ExtResource( 3 )
+position = Vector2( -36.0619, -136.354 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 84 )
+
+[sub_resource type="Resource" id=86]
+script = ExtResource( 4 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=87]
+script = ExtResource( 3 )
+position = Vector2( 45.3585, -54.1083 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 86 )
+
+[sub_resource type="Resource" id=88]
+script = ExtResource( 4 )
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id=89]
+script = ExtResource( 3 )
+position = Vector2( 31.8737, -63.0982 )
+point_in = Vector2( 0, 0 )
+point_out = Vector2( 0, 0 )
+properties = SubResource( 88 )
+
+[sub_resource type="Resource" id=90]
+script = ExtResource( 8 )
+_points = {
+0: SubResource( 57 ),
+1: SubResource( 59 ),
+2: SubResource( 61 ),
+3: SubResource( 63 ),
+4: SubResource( 65 ),
+5: SubResource( 67 ),
+6: SubResource( 69 ),
+7: SubResource( 71 ),
+8: SubResource( 73 ),
+9: SubResource( 75 ),
+10: SubResource( 77 ),
+11: SubResource( 79 ),
+12: SubResource( 81 ),
+13: SubResource( 83 ),
+14: SubResource( 85 ),
+15: SubResource( 87 ),
+16: SubResource( 89 )
+}
+_point_order = [ 3, 13, 16, 15, 2, 7, 8, 9, 1, 10, 6, 4, 11, 5, 12, 14, 0 ]
+_constraints = {
+[ 0, 3 ]: 15
+}
+_next_key = 18
+
+[sub_resource type="CanvasItemMaterial" id=55]
+
+[sub_resource type="Resource" id=28]
+script = ExtResource( 2 )
+textures = [ ExtResource( 11 ) ]
+texture_normals = [ ExtResource( 11 ) ]
+textures_corner_outer = [ ExtResource( 11 ) ]
+textures_corner_inner = [ ExtResource( 11 ) ]
+texture_normals_corner_outer = [ ExtResource( 11 ) ]
+texture_normals_corner_inner = [ ExtResource( 11 ) ]
+textures_taper_left = [ ExtResource( 11 ) ]
+textures_taper_right = [ ExtResource( 11 ) ]
+texture_normals_taper_left = [ ExtResource( 11 ) ]
+texture_normals_taper_right = [ ExtResource( 11 ) ]
+use_corner_texture = true
+use_taper_texture = true
+fit_mode = 0
+material = SubResource( 55 )
+
+[sub_resource type="Resource" id=29]
+script = ExtResource( 6 )
+begin = 0.0
+distance = 0.0
+edgeRendering = Vector2( 0, 0 )
+
+[sub_resource type="Resource" id=30]
+script = ExtResource( 5 )
+edge_material = SubResource( 28 )
+normal_range = SubResource( 29 )
+weld = true
+render = true
+z_index = 0
+z_as_relative = true
+offset = 0.0
+
+[sub_resource type="Resource" id=31]
+script = ExtResource( 7 )
+_edge_meta_materials = [ SubResource( 30 ) ]
+fill_textures = [ ExtResource( 10 ) ]
+fill_texture_normals = [  ]
+fill_texture_z_index = 0
+fill_mesh_offset = 0.0
+render_offset = 0.0
+
+[sub_resource type="StyleBoxTexture" id=33]
+margin_right = 10.0491
+margin_top = 52.822
+margin_bottom = 57.0785
+
+[sub_resource type="StyleBoxTexture" id=34]
+texture = ExtResource( 16 )
+region_rect = Rect2( 0, 0, 64, 32 )
+
+[sub_resource type="StyleBoxTexture" id=35]
+texture = ExtResource( 20 )
+region_rect = Rect2( 0, 0, 64, 32 )
+
+[sub_resource type="StyleBoxTexture" id=36]
+texture = ExtResource( 20 )
+region_rect = Rect2( 0, 0, 64, 32 )
+
+[sub_resource type="StyleBoxTexture" id=37]
+texture = ExtResource( 19 )
+region_rect = Rect2( 0, 0, 64, 32 )
+
+[sub_resource type="StyleBoxTexture" id=38]
+texture = ExtResource( 21 )
+region_rect = Rect2( 0, 0, 64, 32 )
+
+[sub_resource type="DynamicFont" id=39]
+font_data = ExtResource( 22 )
+
+[sub_resource type="StyleBoxTexture" id=40]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 45, 21 )
+
+[sub_resource type="StyleBoxTexture" id=41]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 45, 21 )
+modulate_color = Color( 0.372549, 0.513726, 0.247059, 1 )
+
+[sub_resource type="ImageTexture" id=42]
+
+[sub_resource type="ImageTexture" id=43]
+
+[sub_resource type="ImageTexture" id=44]
+
+[sub_resource type="Theme" id=45]
+resource_local_to_scene = true
+default_font = SubResource( 39 )
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/styles/buttontexture = SubResource( 33 )
+Button/styles/disabled = SubResource( 34 )
+Button/styles/focus = SubResource( 35 )
+Button/styles/hover = SubResource( 36 )
+Button/styles/normal = SubResource( 37 )
+Button/styles/pressed = SubResource( 38 )
+ColorPicker/icons/add_preset = null
+ColorPicker/icons/color_hue = null
+ColorPicker/icons/color_sample = ExtResource( 17 )
+ColorPicker/icons/overbright_indicator = null
+Fonts/fonts/large = SubResource( 39 )
+Fonts/fonts/normal = SubResource( 39 )
+ProgressBar/colors/font_color = Color( 0.94, 0.94, 0.94, 1 )
+ProgressBar/colors/font_color_shadow = Color( 0, 0, 0, 1 )
+ProgressBar/styles/bg = SubResource( 40 )
+ProgressBar/styles/fg = SubResource( 41 )
+TextEdit/colors/background_color = Color( 0, 0, 0, 0 )
+TextEdit/colors/bookmark_color = Color( 0.08, 0.49, 0.98, 1 )
+TextEdit/colors/brace_mismatch_color = Color( 1, 0.2, 0.2, 1 )
+TextEdit/colors/breakpoint_color = Color( 0.8, 0.8, 0.4, 0.2 )
+TextEdit/colors/caret_background_color = Color( 0, 0, 0, 1 )
+TextEdit/colors/caret_color = Color( 0.88, 0.88, 0.88, 1 )
+TextEdit/colors/code_folding_color = Color( 0.8, 0.8, 0.8, 0.8 )
+TextEdit/colors/completion_background_color = Color( 0.262745, 0.156863, 0.180392, 1 )
+TextEdit/colors/completion_existing_color = Color( 0.87, 0.87, 0.87, 0.13 )
+TextEdit/colors/completion_font_color = Color( 0.67, 0.67, 0.67, 1 )
+TextEdit/colors/completion_scroll_color = Color( 1, 1, 1, 0.29 )
+TextEdit/colors/completion_selected_color = Color( 0.14902, 0.0666667, 0.0666667, 1 )
+TextEdit/colors/current_line_color = Color( 0.25, 0.25, 0.26, 0.8 )
+TextEdit/colors/executing_line_color = Color( 0.2, 0.8, 0.2, 0.4 )
+TextEdit/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+TextEdit/colors/font_color_readonly = Color( 0.88, 0.88, 0.88, 0.5 )
+TextEdit/colors/font_color_selected = Color( 0, 0, 0, 1 )
+TextEdit/colors/function_color = Color( 0.4, 0.64, 0.81, 1 )
+TextEdit/colors/line_number_color = Color( 0.67, 0.67, 0.67, 0.4 )
+TextEdit/colors/mark_color = Color( 1, 0.4, 0.4, 0.4 )
+TextEdit/colors/member_variable_color = Color( 0.9, 0.31, 0.35, 1 )
+TextEdit/colors/number_color = Color( 0.92, 0.58, 0.2, 1 )
+TextEdit/colors/safe_line_number_color = Color( 0.67, 0.78, 0.67, 0.6 )
+TextEdit/colors/selection_color = Color( 0.49, 0.49, 0.49, 1 )
+TextEdit/colors/symbol_color = Color( 0.94, 0.94, 0.94, 1 )
+TextEdit/colors/word_highlighted_color = Color( 0.8, 0.9, 0.9, 0.15 )
+TextEdit/constants/completion_lines = 7
+TextEdit/constants/completion_max_width = 50
+TextEdit/constants/completion_scroll_width = 6
+TextEdit/constants/line_spacing = 4
+TextEdit/icons/fold = ExtResource( 18 )
+TextEdit/icons/folded = SubResource( 42 )
+TextEdit/icons/space = SubResource( 43 )
+TextEdit/icons/tab = SubResource( 44 )
+TextEdit/styles/completion = null
+TextEdit/styles/focus = null
+TextEdit/styles/normal = null
+TextEdit/styles/read_only = null
+
+[node name="tarpit" type="Area2D"]
+z_index = 1
+script = ExtResource( 1 )
+tarenemy = ExtResource( 13 )
+tar = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -30, -34 )
+shape = SubResource( 46 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 32 )
+
+[node name="respawn" type="Timer" parent="."]
+wait_time = 4.0
+
+[node name="tarshape" type="Node2D" parent="."]
+position = Vector2( 0, 13 )
+script = ExtResource( 9 )
+_points = SubResource( 90 )
+material_overrides = {
+}
+shape_material = SubResource( 31 )
+tessellation_stages = 5
+tessellation_tolerence = 4.0
+flip_edges = false
+render_edges = true
+collision_size = 32.0
+collision_offset = 0.0
+collision_polygon_node_path = NodePath("")
+
+[node name="growing" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="deathtimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="HealthBar" parent="." instance=ExtResource( 14 )]
+margin_left = 23.0
+margin_top = -126.0
+margin_right = 23.0
+margin_bottom = -105.0
+theme = SubResource( 45 )
+
+[connection signal="timeout" from="respawn" to="." method="_on_respawn_timeout"]
+[connection signal="timeout" from="growing" to="." method="_on_growing_timeout"]
+[connection signal="timeout" from="deathtimer" to="." method="_on_deathtimer_timeout"]

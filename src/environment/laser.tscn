@@ -1,11 +1,44 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://src/environment/laser.gd" type="Script" id=1]
-[ext_resource path="res://assets/particles/fire-y.png" type="Texture" id=2]
+[ext_resource path="res://assets/particles/stardust orb/sprite_8.png" type="Texture" id=2]
+[ext_resource path="res://laser_burst.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/environment/burst.gd" type="Script" id=4]
+[ext_resource path="res://assets/particles/stardust orb/sprite_16.png" type="Texture" id=5]
+[ext_resource path="res://assets/particles/stardust orb/sprite_0.png" type="Texture" id=6]
+[ext_resource path="res://assets/particles/stardust orb/sprite_24.png" type="Texture" id=7]
+[ext_resource path="res://assets/particles/stardust orb/sprite_1.png" type="Texture" id=8]
+[ext_resource path="res://assets/particles/stardust orb/sprite_2.png" type="Texture" id=9]
+[ext_resource path="res://assets/particles/stardust orb/sprite_3.png" type="Texture" id=10]
+[ext_resource path="res://assets/particles/stardust orb/sprite_4.png" type="Texture" id=11]
+[ext_resource path="res://assets/particles/stardust orb/sprite_5.png" type="Texture" id=12]
+[ext_resource path="res://assets/particles/stardust orb/sprite_6.png" type="Texture" id=13]
+[ext_resource path="res://assets/particles/stardust orb/sprite_7.png" type="Texture" id=14]
+[ext_resource path="res://assets/particles/stardust orb/sprite_9.png" type="Texture" id=15]
+[ext_resource path="res://assets/particles/stardust orb/sprite_17.png" type="Texture" id=16]
+[ext_resource path="res://assets/particles/stardust orb/sprite_18.png" type="Texture" id=17]
+[ext_resource path="res://assets/particles/stardust orb/sprite_19.png" type="Texture" id=18]
+[ext_resource path="res://assets/particles/stardust orb/sprite_20.png" type="Texture" id=19]
+[ext_resource path="res://assets/particles/stardust orb/sprite_21.png" type="Texture" id=20]
+[ext_resource path="res://assets/particles/stardust orb/sprite_22.png" type="Texture" id=21]
+[ext_resource path="res://assets/particles/stardust orb/sprite_23.png" type="Texture" id=22]
+[ext_resource path="res://assets/particles/stardust orb/sprite_25.png" type="Texture" id=23]
+[ext_resource path="res://assets/particles/stardust orb/sprite_26.png" type="Texture" id=24]
+[ext_resource path="res://assets/particles/stardust orb/sprite_11.png" type="Texture" id=25]
+[ext_resource path="res://assets/particles/stardust orb/sprite_15.png" type="Texture" id=26]
+[ext_resource path="res://assets/particles/stardust orb/sprite_10.png" type="Texture" id=27]
+[ext_resource path="res://assets/particles/stardust orb/sprite_12.png" type="Texture" id=28]
+[ext_resource path="res://assets/particles/stardust orb/sprite_13.png" type="Texture" id=29]
+[ext_resource path="res://assets/particles/stardust orb/sprite_14.png" type="Texture" id=30]
+[ext_resource path="res://assets/particles/stardust orb/sprite_30.png" type="Texture" id=31]
+[ext_resource path="res://assets/particles/stardust orb/sprite_31.png" type="Texture" id=32]
+[ext_resource path="res://assets/particles/stardust orb/sprite_29.png" type="Texture" id=33]
+[ext_resource path="res://assets/particles/stardust orb/sprite_27.png" type="Texture" id=34]
+[ext_resource path="res://assets/particles/stardust orb/sprite_28.png" type="Texture" id=35]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 2 ), ExtResource( 15 ), ExtResource( 27 ), ExtResource( 25 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 26 ), ExtResource( 5 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 7 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 33 ), ExtResource( 31 ), ExtResource( 32 ) ],
 "loop": true,
 "name": "shot",
 "speed": 5.0
@@ -14,8 +47,20 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=2]
 radius = 37.2156
 
+[sub_resource type="AnimatedTexture" id=3]
+flags = 4
+frames = 4
+frame_0/texture = ExtResource( 6 )
+frame_1/texture = ExtResource( 2 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 5 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 7 )
+frame_3/delay_sec = 0.0
+
 [node name="laser" type="Area2D"]
 script = ExtResource( 1 )
+Burst = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
@@ -26,4 +71,16 @@ shape = SubResource( 2 )
 
 [node name="KillTimer" type="Timer" parent="."]
 
+[node name="burst" type="Position2D" parent="."]
+script = ExtResource( 4 )
+burst = ExtResource( 3 )
+
+[node name="Light2D2" type="Light2D" parent="."]
+position = Vector2( 2, 3 )
+scale = Vector2( 0.5, 0.5 )
+z_index = -27
+texture = SubResource( 3 )
+energy = 0.5
+
+[connection signal="body_entered" from="." to="." method="_on_laser_body_entered"]
 [connection signal="timeout" from="KillTimer" to="." method="_on_KillTimer_timeout"]

@@ -23,9 +23,10 @@ onready var dead = false
 #onready var idle = "z"
 var rng = RandomNumberGenerator.new()
 var x = rng.randi_range(0, 1)
-onready var die = "die" + String(x)
-onready var idle = "idle" + String(x)
-
+#onready var die = "die" + String(x)
+#onready var idle = "idle" + String(x)
+var die= "die1"
+var idle = "idle1"
 #if (x>=0.51):
 #	var idle = "idle1"
 #	var die = "die1"
@@ -35,7 +36,8 @@ onready var idle = "idle" + String(x)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	var die = "die" + String(x)
+	var idle = "idle" + String(x)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # warning-ignore:unused_argument
