@@ -1,6 +1,6 @@
 extends Area2D
 class_name zap
-export (int) var speed = .5
+export (int) var speed = 2
 
 var direction := Vector2.ZERO
 var velocity = Vector2.ZERO
@@ -35,8 +35,8 @@ func _physics_process(_delta: float):
 	
 func set_direction(direction: Vector2):
 	self.direction = direction 
-
-	set_rotation(direction.angle()+PI/4)
+	set_rotation(direction.angle())
+	#set_rotation(direction.angle()+PI/4)
 	
 
 func _on_KillTimer_timeout():

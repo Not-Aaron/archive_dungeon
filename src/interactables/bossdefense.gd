@@ -88,7 +88,7 @@ func attack():
 	
 		#var target = Vector2(rand_range(-999,999), rand_range(-999,999))
 	for m in range(0,6):
-		var angl = PI/6 + (m * PI/6)
+		var angl = PI/6 + (m * PI/3)
 		var target = Vector2(cos(angl),sin(angl))
 	#	burst.shoot(Vector2(cos(angl),sin(angl)))
 		weapon.attack(target)

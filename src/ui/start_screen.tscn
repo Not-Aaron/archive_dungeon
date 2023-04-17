@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/fonts/VeniceClassic.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/ui/start_screen.gd" type="Script" id=2]
-[ext_resource path="res://levels/overworld/main.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/environment/exposition.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/particles/stardust_texture_animated.tres" type="Texture" id=4]
 [ext_resource path="res://addons/rmsmartshape/assets/GUI_Theme.tres" type="Theme" id=5]
 [ext_resource path="res://src/widgettheme1.tres" type="Theme" id=6]
