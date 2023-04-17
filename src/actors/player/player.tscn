@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://src/actors/player/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/right2.png" type="Texture" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://src/particles/bloodparticles.tscn" type="PackedScene" id=28]
 [ext_resource path="res://src/actors/player/weapons/crit.tscn" type="PackedScene" id=29]
 [ext_resource path="res://src/actors/player/weapons/slice.tscn" type="PackedScene" id=30]
+[ext_resource path="res://assets/particles/hpup.png" type="Texture" id=31]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 24 )
@@ -65,6 +66,11 @@ animations = [ {
 "loop": true,
 "name": "down",
 "speed": 8.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "hpup",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
@@ -261,6 +267,12 @@ TextEdit/styles/focus = null
 TextEdit/styles/normal = null
 TextEdit/styles/read_only = null
 
+[sub_resource type="ParticlesMaterial" id=24]
+flag_disable_z = true
+gravity = Vector3( 0, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 4
 script = ExtResource( 1 )
@@ -270,10 +282,12 @@ path_to_start = "res://src/ui/you_died.tscn"
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
+[node name="hpparts" type="Timer" parent="."]
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 3, 3 )
 frames = SubResource( 2 )
-animation = "idle"
+animation = "hpup"
 
 [node name="IFrameTimer" type="Timer" parent="."]
 wait_time = 0.25
@@ -347,9 +361,21 @@ wait_time = 3.0
 [node name="attacktimer" type="Timer" parent="."]
 wait_time = 0.1
 
+[node name="tooltiptimer" type="Timer" parent="."]
+wait_time = 7.0
+
+[node name="hpparticles" type="Particles2D" parent="."]
+emitting = false
+amount = 1
+one_shot = true
+process_material = SubResource( 24 )
+texture = ExtResource( 31 )
+
+[connection signal="timeout" from="hpparts" to="." method="_on_hpparts_timeout"]
 [connection signal="timeout" from="IFrameTimer" to="." method="_on_IFrameTimer_timeout"]
 [connection signal="timeout" from="weapon/atkcd" to="weapon" method="_on_Timer_timeout"]
 [connection signal="timeout" from="slowtimer" to="." method="_on_slowtimer_timeout"]
 [connection signal="timeout" from="hittimer" to="." method="_on_hittimer_timeout"]
 [connection signal="timeout" from="blindtimer" to="." method="_on_blindtimer_timeout"]
 [connection signal="timeout" from="attacktimer" to="." method="_on_attacktimer_timeout"]
+[connection signal="timeout" from="tooltiptimer" to="." method="_on_tooltiptimer_timeout"]

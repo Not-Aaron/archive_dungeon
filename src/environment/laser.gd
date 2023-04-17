@@ -15,6 +15,7 @@ var i = 1
 var j = .1
 var dirpos
 onready var burst = $burst
+var angl
 ##var parent = get_parent()
 #var target = Vector2.ZERO
 
@@ -42,12 +43,21 @@ func _physics_process(_delta: float):
 		var velocity = dirpos*speed
 		#var velocity = direction * speed
 		global_position += velocity
-	if global_position>=direction:
-		for i in range(0,4):
+	#if global_position>=direction:
+		if position.distance_to(direction) <=10:
+			for b in range(0,6):
 			#PI/2 *+PI/2*I
-			var angl = PI/4 + (i * PI/2)
-			
-			burst.shoot(Vector2(cos(angl),sin(angl)))
+				angl = PI/6 + (b * PI/6)
+			#	angl = b*PI/6
+				#print(b)
+				#var angl = i
+				#angl = b*(PI/2)
+				print(cos(angl), sin(angl))
+				#burst.shoot(Vector2())
+				burst.shoot(Vector2(cos(angl),sin(angl)))
+				#burst.shoot(Vector2(cos(angl),sin(angl)))
+				
+			queue_free()
 	#spin+=1
 	#self.set_rotation(spin)
 	#$particles.set_rotation(spin)

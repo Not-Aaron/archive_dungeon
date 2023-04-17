@@ -99,12 +99,9 @@ func die():
 	#var parttwo = $"../mrpresident_part_2"
 	#parttwo.init()
 func attack():
-		#var target = player.position\
-		#var target = self.position.x + 20
+
 		if phase == 1:
-		#	weapon2.attack3(player.global_position)
-			#weapon3.attack3(player)
-		#	weapon3.attack(player.global_position)
+		
 			weapon2.attack3(player.position)
 			weapon3.attack(player.position)
 		var target = Vector2(rand_range((self.position.x - weaponrange),(self.position.x + weaponrange)), rand_range((self.position.y - weaponrange),(self.position.y + weaponrange)))

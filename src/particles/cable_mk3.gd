@@ -83,7 +83,7 @@ func _process(delta):
 		#var h_grav = height/(abs(m-i)+1)
 		var h_grav = (i-m)*(i-m)
 	#	var h_grav=0
-		print(i, h_grav)
+		#print(i, h_grav)
 		
 		var point = Vector2(x_intrv*((p+1)-i), y_intrv*((p+1)-i) + h_grav)
 		#var grav = (dipos/(i*i))

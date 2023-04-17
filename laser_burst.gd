@@ -1,6 +1,6 @@
 extends Area2D
 var direction
-var speed = 5
+var speed = 1
 var dirpos
 
 # Declare member variables here. Examples:
@@ -11,23 +11,20 @@ var dirpos
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-	
-	
 func _physics_process(_delta: float):
+	
 	if direction != Vector2.ZERO:
-		#var velocity = position.direction_to(direction) * speed 
-		dirpos =position.direction_to(direction)
-		var velocity = dirpos*speed
-		#var velocity = direction * speed
+		#dirpos =position.direction_to(direction)
+		var velocity = direction * speed
+		#var velocity = dirpos*speed
 		global_position += velocity
-	if global_position>=direction:
-		for i in range(0,4):
-			#PI/2 *+PI/2*I
-			var angl = PI/4 + (i * PI/2)
-			
-			$burst.shoot(Vector2(cos(angl),sin(angl)))
-			
-			
+
+	#if position.direction_to(direction)<=Vector2.ZERO:
+	#if position.direction_to(direction)==self.position:
+	#	for i in range(0,4):
+	#	var angl = PI/4 + (i * PI/2)
+	#		$burst.shoot(Vector2(cos(angl),sin(angl)))
+	#	queue_free()
 func set_direction(direction: Vector2):
 	self.direction = direction 
 
