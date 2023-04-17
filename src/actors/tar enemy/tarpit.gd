@@ -32,23 +32,23 @@ func _ready():
 	y = rng.randf_range(-100,100)
 	origin = (Vector2(x,y))
 	point = (Vector2(x,y))
-	for c in range(0,18):
+	#for c in range(0,18):
 		
-		if c<6:
-			x=rng.randf_range(-20*c, point.x)
-			y = rng.randf_range(-20*c,point.y)
-		if c>6 and c<13:
-			x=rng.randf_range(point.x,20*(c-6))
-			y=rng.randf_range(-20*(c-6),point.y)
-		if c>13 and c<16:
-			x=rng.randf_range(point.x,(20*(c-13)))
-			y = rng.randf_range(point.y,20*(c-13))
-		if c>16:
-			x=rng.randf_range(-20*(c-16),point.x)
-			y = rng.randf_range(point.y,20*(c-16))
-			
+	#	if c<6:
+	#		x=rng.randf_range(-20*c, point.x)
+	#		y = rng.randf_range(-20*c,point.y)
+	#	if c>6 and c<13:
+	#		x=rng.randf_range(point.x,20*(c-6))
+	#		y=rng.randf_range(-20*(c-6),point.y)
+	#	if c>13 and c<16:
+	#		x=rng.randf_range(point.x,(20*(c-13)))
+	#		y = rng.randf_range(point.y,20*(c-13))
+	#	if c>16:
+	#		x=rng.randf_range(-20*(c-16),point.x)
+	#		y = rng.randf_range(point.y,20*(c-16))
+	#		
 		
-		point = Vector2(x,y)
+	#	point = Vector2(x,y)
 	#	if point.x
 		#if lastx < 0:
 		#	var x = rng.randf_range(,500)
@@ -57,9 +57,9 @@ func _ready():
 		#var point = Vector2(rng.randf_range(-500,500),rng.randf_range(-500,500))
 		
 		
-		lastx=point.x
-		lasty=point.y
-		tarshape.set_point_position(c,point)
+	#	lastx=point.x
+	#	lasty=point.y
+	#	tarshape.set_point_position(c,point)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
