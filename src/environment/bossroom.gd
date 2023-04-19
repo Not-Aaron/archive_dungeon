@@ -1,7 +1,8 @@
 extends Node2D
 var switched=false
 export (PackedScene) var winscreen
-
+export (float) var part
+onready var player = $Player
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -9,6 +10,10 @@ export (PackedScene) var winscreen
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if part==1:
+		player.global_position = Vector2(1550,971)
+	if part==2:
+		player.global_position = Vector2(-279,1037)
 	$music1.play()
 	#$music1.play() # Replace with function body.
 

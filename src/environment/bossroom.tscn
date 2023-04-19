@@ -128,6 +128,7 @@ render_offset = 0.0
 position = Vector2( 223, 52 )
 script = ExtResource( 9 )
 winscreen = ExtResource( 25 )
+part = 2.0
 
 [node name="doorandswitch" parent="." instance=ExtResource( 17 )]
 position = Vector2( 228, 3025 )
@@ -140,15 +141,14 @@ point_a = Vector2( -768, 1264 )
 point_b = Vector2( -765, 982 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1550, 971 )
+position = Vector2( -279, 1037 )
 z_index = 2
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 
-[node name="darkness" parent="Player" instance=ExtResource( 24 )]
-
-[node name="Light2D3" type="Light2D" parent="Player"]
+[node name="Light2D3" type="Light2D" parent="Player" groups=["gui_effects"]]
+visible = false
 modulate = Color( 0.14902, 0.0666667, 0.0666667, 0.0862745 )
 self_modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 156, -65 )
@@ -177,6 +177,9 @@ fixed_fps = 20
 process_material = SubResource( 152 )
 texture = ExtResource( 19 )
 normal_map = ExtResource( 18 )
+
+[node name="darkness" parent="Player" groups=["gui_effects"] instance=ExtResource( 24 )]
+visible = false
 
 [node name="mrpresident" parent="." instance=ExtResource( 2 )]
 position = Vector2( -765, 982 )

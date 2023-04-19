@@ -1,6 +1,7 @@
 extends Node2D
 
 export (Vector2) var org = Vector2(0,0)
+export (bool) var droop = true
 onready var cab = $cab
 #onready var boss =$ "../../mrpresident"
 var parent = get_parent()
@@ -52,12 +53,24 @@ func _process(delta):
 	#triangle
 	#cab.set_point_position(9,boss.global_position-self.global_position)
 		#cab.set_point_position(1,boss.global_position-boss.position+self.global_position)
-	
+	if droop == false:
+		for i in range(2,(p+1)):
+			var dipos = (cab.get_point_position(1))
+		#print(dipos)
+		#print(dipos)
+		#var ful = dipos-org
+			var ful = dipos
+			var y_intrv=ful.y/p
+			var x_intrv=ful.x/p
+			var point = Vector2(x_intrv*((p+1)-i), y_intrv*((p+1)-i))
+			cab.set_point_position(i,point)
+		return
 	for i in range(2,(p+1)):
 		#have ti droop relative to gravity. Assuming real gravit,y and our perspect is top down at about a 45 degree angle, this means that 
 		#the gravity should appear as some x,y position scaled down with the top down perspective, versus us looking at it from 0 and seeing the gravity 
 		# vertically with z. 
 		# 
+		
 		
 			
 		#var dist = boss.global_position.distance_to(self.global_position)
@@ -81,10 +94,12 @@ func _process(delta):
 		#var h_grav = sqrt(height*height - height*height*abs(25-(i*i)))
 		#var h_grav = height-(height/abs(5-i))
 		#var h_grav = height/(abs(m-i)+1)
-		var h_grav = (i-m)*(i-m)
+		#var h_grav = (i-m)*(i-m)
+		var h_grav = ((i-m)*(i-m)-20)
 	#	var h_grav=0
 		#print(i, h_grav)
 		
+		#var point = Vector2(x_intrv*((p+1)-i), y_intrv*((p+1)-i) + h_grav)
 		var point = Vector2(x_intrv*((p+1)-i), y_intrv*((p+1)-i) + h_grav)
 		#var grav = (dipos/(i*i))
 		if i==10:

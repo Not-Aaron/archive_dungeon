@@ -36,7 +36,9 @@ onready var idle = "idle" + String(x)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$AnimationPlayer.play("default",1,3.0,false)
 	$cooldowntimer.start()
+	#$Animation.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # warning-ignore:unused_argument
@@ -66,6 +68,7 @@ func die():
 	dead = true
 	
 func _on_deathtimer_timeout():
+	#$AnimationPlayer.play
 	$regen.start()
 	queue_free() # Replace with function body.
 	
