@@ -20,8 +20,10 @@ onready var weaponrange = 1000
 var rng = RandomNumberGenerator.new()
 export (PackedScene) var TarEnemy
 export (PackedScene) var presidentattack
-var phase = 0
+#export (float) var phase = 0
 var curatt = 0
+export (bool) var part_2=false
+var phase
 #need to have him target the player
 
 # Called when the node enters the scene tree for the first time.
@@ -30,8 +32,17 @@ func take_defense(taken:float):
 	defense = defense+taken
 	
 func _ready() -> void:
+	if not phase:
+		if part_2==true:
+			phase=1
+		else:
+			phase=0
 	cooldowntimer.start()
 	$coold2.start()
+	if part_2==true:
+		#phase = 1
+		defense =9
+		health -= 10
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # warning-ignore:unused_argument
