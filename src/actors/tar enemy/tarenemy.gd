@@ -61,7 +61,7 @@ func attack(attack:float):
 	if att ==  0:
 		weapon.shoot(player.position)
 	#else:
-	#	print(att)
+	#
 	
 	
 func take_damage(damage: float):

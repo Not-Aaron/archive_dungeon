@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/environments/background1280_720mk2.png" type="Texture" id=2]
 [ext_resource path="res://assets/particles/stardust_texture_animated.tres" type="Texture" id=3]
 [ext_resource path="res://src/widgettheme1.tres" type="Theme" id=5]
 [ext_resource path="res://addons/rmsmartshape/assets/GUI_Theme.tres" type="Theme" id=6]
 [ext_resource path="res://src/ui/start_screen.gd" type="Script" id=8]
-[ext_resource path="res://levels/overworld/main.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Curve" id=12]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.977528, 1 ), 0.0, 0.0, 0, 0 ]
@@ -28,7 +27,6 @@ orbit_velocity_curve = SubResource( 8 )
 
 [node name="you_win" type="Node2D"]
 script = ExtResource( 8 )
-start_level = ExtResource( 9 )
 
 [node name="ColorRect" type="TextureRect" parent="."]
 margin_right = 1917.0

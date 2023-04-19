@@ -1,25 +1,40 @@
 extends Area2D
 class_name Eye
-export (int) var speed = 20
-var damage = 20
+export (int) var speed = .4
+var damage = 5
 
 var direction := Vector2.ZERO
 var spin = PI
 onready var kill_timer = $KillTimer
+var velocity
 
 func _ready():
 	kill_timer.start()
 	$AnimatedSprite.animation = "shot"
-	$AnimatedSprite.play()
+	#$AnimatedSprite.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float):
 	if direction != Vector2.ZERO:
-		var velocity = position.direction_to(direction) * speed
+		velocity = position.direction_to(direction) * speed
 		
+		#var velocity = direction*speed
 		global_position += velocity
 	#spin+=1
 	#self.set_rotation(spin)
+	
+#	var dirang = rad2deg(global_position.angle_to(direction))
+	#var dirang = rad2deg(position.angle_to(direction))
+	var dirang = rad2deg(position.angle_to(velocity))
+	if dirang < 0:
+		dirang = 360+dirang
+	
+	for s in range (0,32):
+		var a = s*11.25
+		if a > dirang:
+			var f = s+4
+			$AnimatedSprite.set_frame((f))
+			break
 	
 	
 func set_direction(direction: Vector2):
@@ -27,8 +42,12 @@ func set_direction(direction: Vector2):
 	
 
 func _on_KillTimer_timeout():
+	#var dirang = global_position.angle_to(direction)
+	
+#	print(dirang)	
+	#print(rad2deg(dirang))
 	queue_free()
-
+	
 
 func _on_Bullet_body_entered(body):
 	if body.has_method("take_damage"):
