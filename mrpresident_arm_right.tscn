@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/enemy/frozen head boss/square_blaster.png" type="Texture" id=1]
 [ext_resource path="res://mrpresident_arm_right.gd" type="Script" id=2]
+[ext_resource path="res://src/particles/cable_mk3.tscn" type="PackedScene" id=3]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -13,6 +14,8 @@ animations = [ {
 
 [node name="mrpresident_arm_right" type="Node2D"]
 script = ExtResource( 2 )
+
+[node name="cable_mk3" parent="." instance=ExtResource( 3 )]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )

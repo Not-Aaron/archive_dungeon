@@ -25,9 +25,17 @@ var curatt = 0
 export (bool) var part_2=false
 var phase
 #need to have him target the player
-
+func set_weapos(weap: bool, weapos:Vector2):
+	if weap==true:
+		weapon3.global_position=weapos
+	else:
+		weapon2.global_position=weapos
 # Called when the node enters the scene tree for the first time.
-
+func get_weapon(lor:bool):
+	if lor==true:
+		return weapon3
+	else:
+		return weapon2
 func take_defense(taken:float):
 	defense = defense+taken
 	
@@ -100,7 +108,7 @@ func die():
 		$AnimatedSprite.animation = "die"
 		$AnimatedSprite.play()
 	else:
-		$AnimatedSprite.animation = "die" #will be new die animation
+		$AnimatedSprite.animation = "die2" #will be new die animation
 		$AnimatedSprite.play()
 	dead = true
 	#get_tree().change_scene_to(target)
@@ -117,17 +125,31 @@ func attack2():
 		
 			weapon2.attack3(player.position)
 			weapon3.attack(player.position)
-func _on_deathtimer_timeout():
-	#queue_free() # Replace with function body.
+			
+			
+			
+###phase change###
+func change_phase():
 	if phase == 0:
 		health = 2000	
 		dead = false
 		phase= phase+1
+		$left.activate(self.global_position)
+		$right.activate(self.global_position)
+	
 		return
 	elif health <= 0:
-		var p = get_parent()
-		p.endtime_start()
-		queue_free()
+		actually_dies()
+	
+	
+func _on_deathtimer_timeout():
+	change_phase()
+	#queue_free() 
+	
+func actually_dies():
+	var p = get_parent()
+	p.endtime_start()
+	queue_free()
 		
 
 
@@ -137,7 +159,7 @@ func _on_attack2_timeout():
 		attack.start()
 	if attack == $attack2:
 		attack = $attack1
-		attack.start() # Replace with function body.
+		attack.start() 
 
 
 func _on_attack1_timeout():
@@ -147,7 +169,7 @@ func _on_attack1_timeout():
 		attack.start()
 	if attack == $attack2:
 		attack = $attack1 
-		attack.start()# Replace with function body.
+		attack.start()
 
 
 func _on_cooldowntimer_timeout():
@@ -164,20 +186,16 @@ func _on_cooldowntimer_timeout():
 		 cooldowntimer.set_wait_time(.5)
 	
 	cooldowntimer.start()
-	# Replace with function body.
-
-
-
-
+	
 func _on_phase_timeout():
 	if curatt == 1:
 		curatt = 0
 	else:
 		curatt = 1
-	weapon.switch() # Replace with function body.
+	weapon.switch() 
 	$phase.start()
 
 
 func _on_coold2_timeout():
 	attack2()
-	$coold2.start() # Replace with function body.
+	$coold2.start() 

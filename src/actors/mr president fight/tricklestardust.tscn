@@ -81,7 +81,8 @@ presidentattack = null
 
 [node name="circlingstardust_mk2" parent="." instance=ExtResource( 8 )]
 modulate = Color( 1, 1, 1, 0.164706 )
-scale = Vector2( 2, 2 )
+scale = Vector2( 0.3, 0.3 )
+amount = 3.0
 
 [node name="exploding_stardust" parent="." instance=ExtResource( 7 )]
 visible = false

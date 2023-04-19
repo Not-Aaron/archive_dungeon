@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/particles/stardust_texture_animated.tres" type="Texture" id=1]
+[ext_resource path="res://src/particles/circlingstardust_mk2.gd" type="Script" id=2]
 
 [sub_resource type="Curve" id=11]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.977528, 1 ), 0.0, 0.0, 0, 0 ]
@@ -22,6 +23,7 @@ orbit_velocity_random = 0.0
 orbit_velocity_curve = SubResource( 10 )
 
 [node name="circlingstardust_mk2" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="stardust" type="Particles2D" parent="."]
 amount = 40

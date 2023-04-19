@@ -157,11 +157,16 @@ script = ExtResource( 2 )
 TarEnemy = ExtResource( 7 )
 presidentattack = ExtResource( 8 )
 
-[node name="mrpresident_arm_right2" parent="." instance=ExtResource( 10 )]
+[node name="right" parent="." instance=ExtResource( 10 )]
 position = Vector2( 160, 29 )
+z_index = 1
+lor = true
+radius = 200.0
 
-[node name="mrpresident_arm_right" parent="." instance=ExtResource( 10 )]
+[node name="left" parent="." instance=ExtResource( 10 )]
 position = Vector2( -168, 29 )
+z_index = 1
+radius = 200.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )

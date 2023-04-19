@@ -15,6 +15,10 @@ func _ready():
 func phase_switch():
 	$music1.stop()
 	$music2.play()
+	#var pres = $mrpresident
+#pres.$left.activate(pres.global_position)
+	#pres.$right.activate(pres.global_position)
+	
 	switched==true
 	
 
