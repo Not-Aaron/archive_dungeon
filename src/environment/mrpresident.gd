@@ -114,7 +114,10 @@ func _on_deathtimer_timeout():
 		phase= phase+1
 		return
 	elif health <= 0:
+		var p = get_parent()
+		p.endtime_start()
 		queue_free()
+		
 
 
 func _on_attack2_timeout():
