@@ -1,7 +1,8 @@
 extends Node2D
 export (PackedScene) var weapon
 export (float) var sprite = 0
-export (bool) var lor = false
+#export (bool) var lor = false
+export (float) var lor = 1
 export (float) var speed = 2
 var weapos
 onready var player = $"../../Player"
@@ -16,13 +17,21 @@ export (float) var radius = 0
 # var a = 2
 # var b = "text"
 func activate(spawn:Vector2):
-	global_position = spawn
+	
 	active = true
+	##self.global_position = spawn
+	self.visible=true
+	#while self.position != org:
+	#	var gotoarm = self.position.direction_to(org) * speed
+	#	self.position += gotoarm
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$AnimatedSprite.animation = str(lor)
+	$AnimatedSprite.play()
 	org = self.position
+	
 	#pass # Replace with function body.
 
 

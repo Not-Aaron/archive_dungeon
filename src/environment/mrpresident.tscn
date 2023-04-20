@@ -161,7 +161,7 @@ presidentattack = ExtResource( 8 )
 [node name="right" parent="." instance=ExtResource( 10 )]
 position = Vector2( 160, 29 )
 z_index = 1
-lor = true
+lor = 2.0
 radius = 200.0
 
 [node name="left" parent="." instance=ExtResource( 10 )]
@@ -216,7 +216,7 @@ position = Vector2( -5.5, 5.5 )
 shape = SubResource( 14 )
 
 [node name="weapon_p2_1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 142, 27 )
+position = Vector2( 163, 69 )
 script = ExtResource( 6 )
 TarEnemy = ExtResource( 7 )
 presidentattack = ExtResource( 16 )
@@ -224,7 +224,7 @@ attack2 = ExtResource( 25 )
 attack3 = null
 
 [node name="weapon_p2_2" parent="." instance=ExtResource( 5 )]
-position = Vector2( -124, 38 )
+position = Vector2( -169, 61 )
 script = ExtResource( 6 )
 TarEnemy = ExtResource( 7 )
 presidentattack = ExtResource( 16 )
