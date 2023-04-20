@@ -2,6 +2,8 @@ extends KinematicBody2D
 class_name Player
 onready var weapon = $weapon
 export(PackedScene) var Slice
+export (bool) var godmode = false
+export (bool) var killswitch = false
 var clearance = 0
 #maybe the clearance requirement should all be taken from what the level scene is. For instance lock doors are not manually entered credentials but taken from the level.
 export (float) var clearance_requirement = 0
@@ -79,6 +81,8 @@ func _input(event):
 	#if event is InputEventMouseButton:
 		#weapon.shoot()
 func _unhandled_input(event: InputEvent):
+	if event.is_action_released("killswitch"):
+		weapon.killswitch()
 	if event.is_action_released("shoot"):
 		weapon.shoot()
 		#isattacking=true
@@ -169,6 +173,8 @@ func take_credentials(creds: float):
 		
 	clearance += 1	
 func take_damage(damage: float):
+	if godmode == true:
+		return
 	if not vulnerable:
 		return
 	if dashinv==true:

@@ -28,6 +28,8 @@ func phase_switch():
 	
 
 func _process(delta:float):
+	if not $mrpresident:
+		return
 	if $mrpresident.phase==1 and switched==false:
 		phase_switch()
 

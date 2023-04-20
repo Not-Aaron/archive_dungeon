@@ -18,6 +18,7 @@ onready var weapon3 = $weapon_p2_2
 onready var dead = false
 onready var weaponrange = 1000
 var rng = RandomNumberGenerator.new()
+
 export (PackedScene) var TarEnemy
 export (PackedScene) var presidentattack
 #export (float) var phase = 0
@@ -45,6 +46,9 @@ func _ready() -> void:
 			phase=1
 		else:
 			phase=0
+			$spr1.visible = true
+			$spr2.visible = false
+			
 	cooldowntimer.start()
 	$coold2.start()
 	if part_2==true:
@@ -136,6 +140,9 @@ func change_phase():
 		phase= phase+1
 		$left.activate(self.global_position)
 		$right.activate(self.global_position)
+		$spr2.visible = true
+		$spr1.visible = false
+		
 	
 		return
 	elif health <= 0:

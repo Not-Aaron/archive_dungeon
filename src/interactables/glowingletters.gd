@@ -4,8 +4,9 @@ export (float) var i = 2
 export (float) var j = 0.1
 export (float) var maxe = 5
 export (float) var mine = 1
+export (AnimatedTexture) var aText
 export (Texture) var texture
-
+export (String) var blending = "add"
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -13,6 +14,20 @@ export (Texture) var texture
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if aText:
+		texture=aText
+	if blending == "add":
+			$lights.MODE_ADD
+		
+	if blending == "mask":
+			$lights.MODE_MASK
+			
+	if blending == "sub":
+		$lights.MODE_SUB
+	
+	if blending == "mix":
+		$lights.MODE_MIX
+			
 	pass # Replace with function body.
 	
 

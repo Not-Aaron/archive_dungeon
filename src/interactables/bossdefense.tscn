@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://assets/palette.bmp" type="Texture" id=1]
 [ext_resource path="res://assets/GUI/healthbar.png" type="Texture" id=2]
@@ -15,6 +15,19 @@
 [ext_resource path="res://src/interactables/bossdefense.gd" type="Script" id=13]
 [ext_resource path="res://assets/enemy/frozen head boss/defense_tank_sprite_sheet.png" type="Texture" id=14]
 [ext_resource path="res://src/interactables/AnimationPlayer.gd" type="Script" id=15]
+[ext_resource path="res://src/interactables/glowingletters.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/environments/bossdefense/Image10.png" type="Texture" id=17]
+[ext_resource path="res://assets/environments/bossdefense/Image11.png" type="Texture" id=18]
+[ext_resource path="res://assets/environments/bossdefense/Image3.png" type="Texture" id=19]
+[ext_resource path="res://assets/environments/bossdefense/Image4.png" type="Texture" id=20]
+[ext_resource path="res://assets/environments/bossdefense/Image2.png" type="Texture" id=21]
+[ext_resource path="res://assets/environments/bossdefense/Image5.png" type="Texture" id=22]
+[ext_resource path="res://assets/environments/bossdefense/Image6.png" type="Texture" id=23]
+[ext_resource path="res://assets/environments/bossdefense/Image1.png" type="Texture" id=24]
+[ext_resource path="res://assets/environments/bossdefense/Image7.png" type="Texture" id=25]
+[ext_resource path="res://assets/environments/bossdefense/Image8.png" type="Texture" id=26]
+[ext_resource path="res://assets/environments/bossdefense/Image9.png" type="Texture" id=27]
+[ext_resource path="res://animated_texture_but_better.gd" type="Script" id=28]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 23.75, 44.5 )
@@ -72,6 +85,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [ ExtResource( 14 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("../Glowing_Letters:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 14 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../Glowing_Letters:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
 
 [sub_resource type="Animation" id=16]
 resource_name = "default"
@@ -114,9 +151,35 @@ tracks/2/keys = {
 "values": [ ExtResource( 14 ), ExtResource( 14 ) ]
 }
 
+[sub_resource type="AnimatedTexture" id=17]
+frames = 11
+frame_0/texture = ExtResource( 24 )
+frame_1/texture = ExtResource( 17 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 18 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 21 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 19 )
+frame_4/delay_sec = 0.0
+frame_5/texture = ExtResource( 20 )
+frame_5/delay_sec = 0.0
+frame_6/texture = ExtResource( 22 )
+frame_6/delay_sec = 0.0
+frame_7/texture = ExtResource( 23 )
+frame_7/delay_sec = 0.0
+frame_8/texture = ExtResource( 25 )
+frame_8/delay_sec = 0.0
+frame_9/texture = ExtResource( 26 )
+frame_9/delay_sec = 0.0
+frame_10/texture = ExtResource( 27 )
+frame_10/delay_sec = 0.0
+script = ExtResource( 28 )
+sprites_dir = "res://assets/environments/bossdefense"
+
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [  ],
+"frames": [ null, null, null, null, null, null, null, null, null, null, null ],
 "loop": true,
 "name": "New Anim",
 "speed": 5.0
@@ -264,7 +327,13 @@ __meta__ = {
 "
 }
 
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 0, -33 )
+scale = Vector2( 1.5, 1.5 )
+texture = SubResource( 17 )
+
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 position = Vector2( 0, -33 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 14 )
@@ -306,7 +375,20 @@ zap = ExtResource( 10 )
 [node name="cooldowntimer" type="Timer" parent="."]
 wait_time = 0.25
 
+[node name="Glowing_Letters" parent="." instance=ExtResource( 16 )]
+scale = Vector2( 1.5, 1.5 )
+z_index = 1
+texture = ExtResource( 14 )
+maxe = 1.0
+mine = 0.0
+aText = SubResource( 17 )
+texture = ExtResource( 14 )
+blending = "mask"
+
 [node name="Light2D" type="Light2D" parent="."]
+visible = false
+position = Vector2( -1, -37 )
+scale = Vector2( 2.92, 2.4 )
 texture = ExtResource( 14 )
 
 [connection signal="timeout" from="deathtimer" to="." method="_on_deathtimer_timeout"]

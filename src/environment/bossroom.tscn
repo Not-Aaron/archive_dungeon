@@ -143,6 +143,8 @@ point_b = Vector2( -765, 982 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -279, 1037 )
 z_index = 2
+godmode = true
+killswitch = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
