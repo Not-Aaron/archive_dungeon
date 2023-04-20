@@ -21,6 +21,18 @@ extents = Vector2( 23.75, 44.5 )
 
 [sub_resource type="Animation" id=14]
 resource_name = "New Anim"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Light2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 14 ) ]
+}
 
 [sub_resource type="Animation" id=15]
 length = 0.001
@@ -47,6 +59,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Light2D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 14 ) ]
 }
 
 [sub_resource type="Animation" id=16]
@@ -75,11 +99,28 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 3.2, 3.6, 4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 0.965936, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+"values": [ 9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Light2D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 14 ), ExtResource( 14 ) ]
 }
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "New Anim",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "die1",
@@ -233,7 +274,7 @@ vframes = 11
 visible = false
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 1 )
-animation = "die2"
+animation = "New Anim"
 
 [node name="HealthBar" parent="." instance=ExtResource( 11 )]
 margin_left = -23.0
@@ -264,6 +305,9 @@ zap = ExtResource( 10 )
 
 [node name="cooldowntimer" type="Timer" parent="."]
 wait_time = 0.25
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 14 )
 
 [connection signal="timeout" from="deathtimer" to="." method="_on_deathtimer_timeout"]
 [connection signal="timeout" from="regen" to="." method="_on_regen_timeout"]

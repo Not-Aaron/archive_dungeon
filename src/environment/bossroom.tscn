@@ -148,7 +148,6 @@ z_index = 2
 current = true
 
 [node name="Light2D3" type="Light2D" parent="Player" groups=["gui_effects"]]
-visible = false
 modulate = Color( 0.14902, 0.0666667, 0.0666667, 0.0862745 )
 self_modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 156, -65 )
@@ -179,7 +178,6 @@ texture = ExtResource( 19 )
 normal_map = ExtResource( 18 )
 
 [node name="darkness" parent="Player" groups=["gui_effects"] instance=ExtResource( 24 )]
-visible = false
 
 [node name="mrpresident" parent="." instance=ExtResource( 2 )]
 position = Vector2( -765, 982 )
