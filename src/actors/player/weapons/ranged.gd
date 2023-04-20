@@ -2,6 +2,7 @@ extends Position2D
 export (PackedScene) var Bullet	
 export (PackedScene) var Slice
 export (PackedScene) var critpar
+export(PackedScene) var Killswitch
 onready var attack = Slice
 onready var cooldown = false
 var cpos = Vector2.ZERO
@@ -58,6 +59,13 @@ func switch():
 			attack = Slice
 		Slice:
 			attack = Bullet
+		Killswitch:
+			attack = Slice
+			
+func killswitch():
+	attack = Killswitch
+	shoot()
+	
 
 func get_type():
 	return attack
