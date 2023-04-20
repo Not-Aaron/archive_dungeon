@@ -4,9 +4,15 @@ export (float) var i = 2
 export (float) var j = 0.1
 export (float) var maxe = 5
 export (float) var mine = 1
+export (bool) var ssprite = true
+export (bool) var random_start = true
 export (AnimatedTexture) var aText
 export (Texture) var texture
 export (String) var blending = "add"
+
+var rng  = RandomNumberGenerator.new()
+
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -14,6 +20,10 @@ export (String) var blending = "add"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if random_start==true:
+		i = rng.randf_range(mine,maxe)
+	if ssprite == false:
+		$Sprite.set_visible(false)
 	if aText:
 		texture=aText
 	if blending == "add":

@@ -28,6 +28,10 @@ func activate(spawn:Vector2):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if lor == 1:
+		$l2.visible=false
+	if lor == 2:
+		$l1.visible=false
 	$AnimatedSprite.animation = str(lor)
 	$AnimatedSprite.play()
 	org = self.position
@@ -53,9 +57,13 @@ func _process(delta):
 	#var velocity = (position.direction_to(player.position) * speed) / (sqrt(position.distance_to(org)+1))
 	var dist = abs(position.distance_to(org))
 	#var dist = position.distance_to(org)
-	var velocity = (position.direction_to(player.position) * speed) / (1+sqrt(dist+1)*sqrt(dist/radius)	)#velocity+= position.direction_to(org) / (sqrt(position.distance_to(org)+1))
-	print(velocity)
-	position+=velocity
+	#var velocity = (position.direction_to(player.position) * speed) / (1+sqrt(dist+1)*sqrt(dist/radius)	)#velocity+= position.direction_to(org) / (sqrt(position.distance_to(org)+1))
+	#have it go in the direction of the parent faster but overtime divide the velocity by the 
+	#distance to the player or something 
+	
+		
+	#sprint(velocity)
+	#position+=velocity
 	
 	
 	

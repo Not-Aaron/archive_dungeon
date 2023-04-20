@@ -18,9 +18,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#print(boss.position)
-	if not boss:
-		pass
-	
+	if (not boss):
+		return
 	point_b = boss.global_position
 	
 	
