@@ -36,10 +36,12 @@ animations = [ {
 script = ExtResource( 5 )
 
 [node name="Light2D" type="Light2D" parent="."]
-visible = false
 position = Vector2( -3, -17 )
-scale = Vector2( 6.61506, 8.83908 )
+scale = Vector2( 38.6593, -38.0497 )
+z_index = 30
 texture = ExtResource( 2 )
+energy = 8.84
+shadow_filter = 5
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

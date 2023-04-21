@@ -44,6 +44,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/interactables/glowingletters.gd"
 }, {
+"base": "EditorProperty",
+"class": "LightColorEditor",
+"language": "GDScript",
+"path": "res://addons/HaSa1002.light-tools/LightColorEditor.gd"
+}, {
 "base": "Reference",
 "class": "Palette",
 "language": "GDScript",
@@ -287,6 +292,7 @@ _global_script_class_icons={
 "Eye": "",
 "FlexGridContainer": "res://addons/color-palette/utilities/FlexGridContainerIcon.png",
 "GlowingLetters": "",
+"LightColorEditor": "",
 "Palette": "",
 "PaletteImporter": "",
 "PatternCircle": "",
@@ -452,5 +458,8 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+2d/snapping/use_gpu_pixel_snap=true
 quality/shadows/filter_mode=0
+quality/filters/use_nearest_mipmap_filter=true
+environment/default_clear_color=Color( 0.0823529, 0.0392157, 0.0392157, 1 )
 environment/default_environment="res://src/default_env.tres"
