@@ -28,6 +28,8 @@ func _process(delta: float) -> void:
 		$AnimatedSprite.animation = "die"
 		return
 	if not is_instance_valid(player) or position.distance_to(player.position) > aggro_radius or health <= 0:
+		if $light.get_energy() >= 0:
+			$light.set_energy($light.get_energy()-delta)
 		velocity = Vector2.ZERO
 		$sound.stop()
 		if health <= 0:
@@ -36,6 +38,8 @@ func _process(delta: float) -> void:
 		return
 	if $sound.is_playing() != true:
 		$sound.play()
+	if $light.get_energy() <= 1:
+		$light.set_energy($light.get_energy()+delta)
 	$AnimatedSprite.animation = "walk"
 	$AnimatedSprite.play()
 	velocity = speed*position.direction_to(player.position)
