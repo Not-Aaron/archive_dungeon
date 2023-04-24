@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://src/actors/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/mrpresident.tscn" type="PackedScene" id=2]
@@ -19,7 +19,6 @@
 [ext_resource path="res://assets/crunch/crunch.png" type="Texture" id=19]
 [ext_resource path="res://assets/environments/oil.png" type="Texture" id=20]
 [ext_resource path="res://assets/environments/dimlight.png" type="Texture" id=21]
-[ext_resource path="res://src/particles/cable.tscn" type="PackedScene" id=22]
 [ext_resource path="res://src/particles/cable_mk3.tscn" type="PackedScene" id=23]
 [ext_resource path="res://src/ui/darkness.tscn" type="PackedScene" id=24]
 [ext_resource path="res://you_win.tscn" type="PackedScene" id=25]
@@ -133,12 +132,6 @@ part = 2.0
 [node name="doorandswitch" parent="." instance=ExtResource( 17 )]
 position = Vector2( 228, 3025 )
 switch_x = 500.0
-
-[node name="cable" parent="." instance=ExtResource( 22 )]
-visible = false
-position = Vector2( -768, 0 )
-point_a = Vector2( -768, 1264 )
-point_b = Vector2( -765, 982 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -279, 1037 )
@@ -309,5 +302,20 @@ wait_time = 3.0
 
 [node name="lamp" parent="." instance=ExtResource( 26 )]
 position = Vector2( -1091, 818 )
+
+[node name="lamp2" parent="." instance=ExtResource( 26 )]
+position = Vector2( 1055, 890 )
+
+[node name="lamp4" parent="." instance=ExtResource( 26 )]
+position = Vector2( -566, 642 )
+directio = 2.0
+
+[node name="lamp3" parent="." instance=ExtResource( 26 )]
+position = Vector2( -468, 1344 )
+directio = 3.0
+
+[node name="lamp5" parent="." instance=ExtResource( 26 )]
+position = Vector2( -1208, 1291 )
+directio = 4.0
 
 [connection signal="timeout" from="endtime" to="." method="_on_endtime_timeout"]

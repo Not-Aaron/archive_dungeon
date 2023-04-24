@@ -15,7 +15,7 @@ onready var cooldowntimer = $cooldowntimer
 onready var weapon = $bossdefenseweapon
 onready var dead = false
 var target = Vector2.ZERO
-
+export (bool) var passive = true
 
 ## Add something that randomly selects which sprite it will be for randomizations
 #export (PackedScene) var presidentattack
@@ -82,6 +82,8 @@ func _on_cooldowntimer_timeout():
 	
 	
 func attack():
+	if passive==true:
+		return
 #	target = player.global_position 
 	#target.x -= self.position.x*-1
 #	target.y -= self.position.y*-1

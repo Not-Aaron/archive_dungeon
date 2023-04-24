@@ -18,6 +18,7 @@ onready var weapon3 = $weapon_p2_2
 onready var dead = false
 onready var weaponrange = 1000
 var rng = RandomNumberGenerator.new()
+var actually_dead=false
 
 export (PackedScene) var TarEnemy
 export (PackedScene) var presidentattack
@@ -154,6 +155,7 @@ func _on_deathtimer_timeout():
 	#queue_free() 
 	
 func actually_dies():
+	actually_dead==true
 	var p = get_parent()
 	p.endtime_start()
 	queue_free()

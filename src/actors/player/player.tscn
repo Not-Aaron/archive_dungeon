@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://src/actors/player/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/right2.png" type="Texture" id=2]
@@ -16,8 +16,6 @@
 [ext_resource path="res://assets/player/itemfound2.png" type="Texture" id=14]
 [ext_resource path="res://assets/player/itemfound1.png" type="Texture" id=15]
 [ext_resource path="res://assets/player/useitem.png" type="Texture" id=16]
-[ext_resource path="res://assets/particles/whitelight.png" type="Texture" id=17]
-[ext_resource path="res://assets/environments/dimlight.png" type="Texture" id=18]
 [ext_resource path="res://assets/GUI/buttonpressed1.png" type="Texture" id=19]
 [ext_resource path="res://assets/GUI/buttonunpressed1.png" type="Texture" id=20]
 [ext_resource path="res://assets/palette.bmp" type="Texture" id=21]
@@ -36,6 +34,7 @@
 [ext_resource path="res://assets/particles/stardust2.png" type="Texture" id=34]
 [ext_resource path="res://assets/particles/DODGED.png" type="Texture" id=35]
 [ext_resource path="res://src/actors/player/weapons/killswitch.tscn" type="PackedScene" id=36]
+[ext_resource path="res://assets/environments/oil.png" type="Texture" id=37]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 24 )
@@ -332,13 +331,6 @@ margin_right = 62.0
 margin_bottom = 46.0
 theme = SubResource( 13 )
 
-[node name="creedentials" parent="play" instance=ExtResource( 26 )]
-margin_left = 547.0
-margin_top = 306.0
-margin_right = 678.0
-margin_bottom = 327.0
-theme = SubResource( 23 )
-
 [node name="HUD" parent="." instance=ExtResource( 10 )]
 
 [node name="hit" type="AudioStreamPlayer2D" parent="."]
@@ -349,30 +341,14 @@ volume_db = -5.0
 wait_time = 0.3
 
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
 current = true
 
-[node name="Light2D" type="Light2D" parent="."]
-visible = false
-z_index = 12
-z_as_relative = false
-texture = ExtResource( 17 )
-texture_scale = 5.0
-color = Color( 0.933333, 0.913725, 0.890196, 1 )
-energy = 1.11
-shadow_enabled = true
-shadow_color = Color( 0.933333, 0.901961, 0.788235, 1 )
-shadow_gradient_length = 258.6
-shadow_filter = 5
-shadow_filter_smooth = 64.0
-
-[node name="Light2D2" type="Light2D" parent="."]
-visible = false
-z_index = 13
-z_as_relative = false
-texture = ExtResource( 18 )
-color = Color( 0.0823529, 0.0392157, 0.0392157, 1 )
-energy = 0.5
+[node name="creedentials" parent="Camera2D" instance=ExtResource( 26 )]
+margin_left = 547.0
+margin_top = 306.0
+margin_right = 678.0
+margin_bottom = 327.0
+theme = SubResource( 23 )
 
 [node name="extradarkness" parent="." instance=ExtResource( 27 )]
 visible = false
@@ -412,6 +388,13 @@ texture_scale = 1.5
 energy = 1.17
 
 [node name="dashcoold" type="Timer" parent="."]
+
+[node name="ColorRect" type="Sprite" parent="."]
+position = Vector2( 118, -0.999939 )
+scale = Vector2( 44.5063, 41.76 )
+z_index = -4096
+z_as_relative = false
+texture = ExtResource( 37 )
 
 [connection signal="timeout" from="hpparts" to="." method="_on_hpparts_timeout"]
 [connection signal="timeout" from="IFrameTimer" to="." method="_on_IFrameTimer_timeout"]

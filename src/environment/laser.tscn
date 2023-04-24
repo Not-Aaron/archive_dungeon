@@ -59,7 +59,8 @@ frame_3/texture = ExtResource( 7 )
 frame_3/delay_sec = 0.0
 
 [node name="laser" type="Area2D"]
-z_index = 2
+z_index = 3
+z_as_relative = false
 script = ExtResource( 1 )
 Burst = ExtResource( 3 )
 
@@ -78,7 +79,7 @@ burst = ExtResource( 3 )
 
 [node name="Light2D2" type="Light2D" parent="."]
 position = Vector2( 2, 3 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 1.62897, 1.84192 )
 z_index = -27
 texture = SubResource( 3 )
 energy = 0.5

@@ -1,7 +1,8 @@
 extends Node2D
 export (PackedScene) var weapon
 export (float) var sprite = 0
-export (bool) var lor = false
+#export (bool) var lor = false
+export (float) var lor = 1
 export (float) var speed = 2
 var weapos
 onready var player = $"../../Player"
@@ -16,13 +17,25 @@ export (float) var radius = 0
 # var a = 2
 # var b = "text"
 func activate(spawn:Vector2):
-	global_position = spawn
+	
 	active = true
+	##self.global_position = spawn
+	self.visible=true
+	#while self.position != org:
+	#	var gotoarm = self.position.direction_to(org) * speed
+	#	self.position += gotoarm
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if lor == 1:
+		$l2.visible=false
+	if lor == 2:
+		$l1.visible=false
+	$AnimatedSprite.animation = str(lor)
+	$AnimatedSprite.play()
 	org = self.position
+	
 	#pass # Replace with function body.
 
 
@@ -44,9 +57,13 @@ func _process(delta):
 	#var velocity = (position.direction_to(player.position) * speed) / (sqrt(position.distance_to(org)+1))
 	var dist = abs(position.distance_to(org))
 	#var dist = position.distance_to(org)
-	var velocity = (position.direction_to(player.position) * speed) / (1+sqrt(dist+1)*sqrt(dist/radius)	)#velocity+= position.direction_to(org) / (sqrt(position.distance_to(org)+1))
-	print(velocity)
-	position+=velocity
+	#var velocity = (position.direction_to(player.position) * speed) / (1+sqrt(dist+1)*sqrt(dist/radius)	)#velocity+= position.direction_to(org) / (sqrt(position.distance_to(org)+1))
+	#have it go in the direction of the parent faster but overtime divide the velocity by the 
+	#distance to the player or something 
+	
+		
+	#sprint(velocity)
+	#position+=velocity
 	
 	
 	

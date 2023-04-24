@@ -25,6 +25,10 @@ var isattacking = false
 #onready var haskey=false
 onready var haskey=false
 onready var dashtimer=$dashtimer
+
+
+####dash dont dodge, dodge makes go through walls
+
 var dash = 0
 var udash = 0
 var ddash=0
@@ -46,7 +50,8 @@ func _ready():
 func _physics_process(_delta: float) -> void:
 	#print(isslowed)
 	if dashinv==true:
-		$CollisionBox.set_disabled(true)
+		pass
+		#$CollisionBox.set_disabled(true)
 	if isblinded == true:
 		$extradarkness.visible = true	
 	if isblinded == false:

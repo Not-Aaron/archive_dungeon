@@ -1,29 +1,62 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/particles/Light2D.gd" type="Script" id=1]
 [ext_resource path="res://assets/enemy/frozen head boss/starparticles.png" type="Texture" id=2]
 [ext_resource path="res://assets/enemy/frozen head boss/lamp.png" type="Texture" id=3]
 [ext_resource path="res://src/interactables/glowingletters.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/particles/lamp.gd" type="Script" id=5]
+[ext_resource path="res://assets/furniture/lamp_3.png" type="Texture" id=6]
+[ext_resource path="res://assets/furniture/lamp_2.png" type="Texture" id=7]
+[ext_resource path="res://assets/furniture/lamp_4.png" type="Texture" id=8]
+
+[sub_resource type="Gradient" id=4]
+interpolation_mode = 2
+offsets = PoolRealArray( 0.00641026, 0.416667, 0.910256, 0.931624, 1 )
+colors = PoolColorArray( 0.933333, 0.913725, 0.890196, 1, 0.905402, 0.903251, 0.90067, 0.109677, 0.904794, 0.903023, 0.900898, 0.0903226, 0.90412, 0.90277, 0.901151, 0.0688172, 0.901961, 0.901961, 0.901961, 0 )
+
+[sub_resource type="GradientTexture2D" id=3]
+gradient = SubResource( 4 )
+width = 2000
+height = 2000
+fill = 1
+fill_from = Vector2( 0.470833, 0.520833 )
+fill_to = Vector2( 0.775, 0.241667 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "default",
+"name": "1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "4",
 "speed": 5.0
 } ]
 
 [node name="lamp" type="Node2D"]
+script = ExtResource( 5 )
 
 [node name="Light2D" type="Light2D" parent="."]
-visible = false
-position = Vector2( -3, -17 )
-scale = Vector2( 6.61506, 8.83908 )
-texture = ExtResource( 2 )
+z_index = 30
+texture = SubResource( 3 )
+shadow_filter = 5
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+animation = "4"
 
 [node name="Glowing_Letters" parent="." instance=ExtResource( 4 )]
 position = Vector2( -2, -17 )

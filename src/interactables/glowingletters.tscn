@@ -6,6 +6,7 @@
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+z_index = -1
 
 [node name="lights" type="Light2D" parent="."]
 z_index = 2

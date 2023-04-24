@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/particles/boss_defense_attack.gd" type="Script" id=1]
 [ext_resource path="res://src/particles/bossdefenseweapon.gd" type="Script" id=2]
 [ext_resource path="res://assets/particles/zap1.png" type="Texture" id=3]
 [ext_resource path="res://assets/particles/zap2.png" type="Texture" id=4]
-[ext_resource path="res://src/particles/circlingstardust_mk2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/particles/circling_part.tscn" type="PackedScene" id=6]
 
 [sub_resource type="SpriteFrames" id=2]
@@ -45,10 +44,6 @@ script = ExtResource( 2 )
 texture = SubResource( 3 )
 
 [node name="circling_part" parent="." instance=ExtResource( 6 )]
-
-[node name="circlingstardust_mk2" parent="." instance=ExtResource( 5 )]
-visible = false
-modulate = Color( 1, 1, 1, 0.160784 )
 
 [connection signal="body_entered" from="." to="." method="_on_bossdefenseattack_body_entered"]
 [connection signal="body_entered" from="." to="." method="_on_Node2D_body_entered"]
