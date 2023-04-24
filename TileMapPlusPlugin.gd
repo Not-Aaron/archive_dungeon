@@ -7,6 +7,6 @@ func _enter_tree():
 	pass
 
 func _exit_tree():
-    remove_custom_type("TilingRuleSet")
-    remove_custom_type("TileMapPlus")
-    pass
+	remove_custom_type("TilingRuleSet")
+	remove_custom_type("TileMapPlus")
+	pass
