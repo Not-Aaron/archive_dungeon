@@ -1,9 +1,7 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/environments/floor.tres" type="TileSet" id=1]
-[ext_resource path="res://src/environment/portal.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/actors/player/player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://levels/dungeon/level_2.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/actors/test_flying_enemy/fly_enemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://levels/overworld/walls.tres" type="TileSet" id=6]
 [ext_resource path="res://src/interactables/key.tscn" type="PackedScene" id=7]
@@ -37,11 +35,6 @@ rotated = true
 
 [node name="FlyingEnemy" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1160, 289 )
-
-[node name="Portal" parent="." instance=ExtResource( 2 )]
-visible = false
-position = Vector2( 102, 102 )
-target = ExtResource( 4 )
 
 [node name="music" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 1823, 988 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mr_pres_mk1.mp3-8fbd102bec87376a8f42190d84d59de0.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/mr_pres_mk1.mp3"
+dest_files=[ "res://.import/mr_pres_mk1.mp3-8fbd102bec87376a8f42190d84d59de0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
